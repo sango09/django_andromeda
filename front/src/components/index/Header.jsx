@@ -1,15 +1,13 @@
 import React from 'react'
 import '../../assets/styles/index/header.sass'
 import TypedReact from "./Typed.jsx";
-import presentation from '../../assets/static/img1.png'
-
 
 const Header = () => (
     <header className="main-header pt-5 pt-md-11 mb-5" id="home">
         <div className="container">
             <div className="row align-content-center">
                 <div className="col-12 col-md-5 col-lg-6 order-md-2 text-center">
-                    <img src={presentation} alt="image"
+                    <img src={'/static/img1.png'} alt="image"
                          className="img-fluid  mb-6 mb-md-0 animated"/>
                 </div>
                 <div className="col-12 col-md-7 col-lg-6 order-md-1 mt-5">

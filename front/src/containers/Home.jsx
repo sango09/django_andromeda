@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery'
 import 'popper.js'
 import '../fontawesome'
+import '../assets/styles/index/media.sass'
 
 //Components
 import Header from '../components/index/Header'
@@ -25,10 +26,10 @@ const Home = () => {
             <Header/>
             <About/>
             <Main>
-                <FeaturesLeft feature={dataFeature.feature1}/>
-                <FeatureRight feature={dataFeature.feature2}/>
-                <FeaturesLeft feature={dataFeature.feature3}/>
-                <FeatureRight feature={dataFeature.feature4}/>
+                <FeaturesLeft feature={dataFeature.feature1} imgUrl={'/static/programming.png'}/>
+                <FeatureRight feature={dataFeature.feature2} imgUrl={'/static/data.png'}/>
+                <FeaturesLeft feature={dataFeature.feature3} imgUrl={'/static/team.png'}/>
+                <FeatureRight feature={dataFeature.feature4} imgUrl={'/static/mobile.png'}/>
             </Main>
             <Contact/>
             <Footer/>
