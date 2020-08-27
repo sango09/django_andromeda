@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap')
+@import "./variables.sass"
+@import "index/media"
+/* -------------------------------------------- Generals ---------------------------*/
+body::-webkit-scrollbar
+  width: 0.40rem
+
+body::-webkit-scrollbar-track
+  background: $blue-outcolor
+
+body::-webkit-scrollbar-thumb
+  background: $black-color
+
+*
+  scroll-behavior: smooth
+  font-family: 'Inter', sans-serif
+
+body
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+  line-height: 1.6
+  overflow-x: hidden
+
+h1
+  font-size: 60px
+
+h2
+  font-size: 44px!important
+  line-height: 54px
+
+h3
+  font-size: 33px !important
+  line-height: 42px !important
+  margin-bottom: 12px !important
+
+p
+  font-size: 21px
+
+
+ul
+  list-style: none
+
+.pt-10, .py-10
+  padding-top: 10rem !important
+
+.text-andromeda
+  color: $blue-color !important
+
+.btn-outline-primary
+  padding: 13px 20px !important
+  border-radius: 50px !important
+  border-color: $blue-color !important
+  color: $blue-color !important
+  box-shadow: 0 8px 24px rgba(28, 99, 205, 0.35) !important
+  transition: transform .3s,box-shadow .3s !important
+
+  &:hover
+    background-color: $blue-outcolor !important
+    color: $white-color !important
+    transform: translateY(-5px)
+
+
+.btn-andromeda
+  background-color: $blue-color !important
+  color: $white-color !important
+  padding: 13px 20px !important
+  font-size: 17px !important
+  border-radius: 50px !important
+  border: 0 !important
+
+  &:hover
+    background-color: $blue-outcolor !important
+    color: $white-color
+
+.typed-cursor
+  display: none
+
+.typed-react
+  height: 70px
+
+.fa-check
+  color: $blue-color
+  margin-right: 10px
+
+.brand-andromeda
+  img
+    width: 200px
+    display: block
+    margin: auto
+
+.form-group
+  width: auto
+
+.swal-button--login
+  background-color: $blue-color
+
+  &:hover
+    background-color: $blue-outcolor!important
+
+.swal-button--confirm
+  background-color: #b73d3d
+
+  &:hover
+    background-color: #f31616!important
+
