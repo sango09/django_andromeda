@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const FeatureRight = (props) => (
     <div className="row mt-5">

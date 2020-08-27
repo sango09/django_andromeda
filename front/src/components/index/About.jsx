@@ -1,5 +1,4 @@
 import React from 'react'
-import dashboard from '../../assets/static/dashboard.png'
 import '../../assets/styles/index/main.sass'
 
 const About = () => (
@@ -15,7 +14,7 @@ const About = () => (
                 <div className="col-12 col-md-5 col-lg-6">
                     <div className="position-relative">
                         <div className="img-dashboard">
-                            <img src={dashboard} className="screenshot img-fluid"
+                            <img src={'/static/dashboard.png'} className="screenshot img-fluid"
                                  alt="Dashboard"/>
                         </div>
                     </div>

@@ -6,6 +6,12 @@ Crear entorno virtual e inicializarlo
 
 `virtualenv nombre_entorno -p python3` 
 
+Windows CMD
+
+`.venv\Scripts\activate`
+
+Ubuntu
+
 `source nombre_entorno/bin/activate`
 
 

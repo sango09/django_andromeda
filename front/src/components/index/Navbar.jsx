@@ -1,12 +1,11 @@
 import React from 'react'
 import '../../assets/styles/index/navbar.sass'
-import logo from '../../assets/static/logo_azul.png'
 
 const Navbar = () => (
     <nav className="navbar navbar-expand-lg navbar-light bg-white navbar-sticky" id="navbar">
         <div className="container">
             <a className="navbar-brand" href="#">
-                <img src={logo} alt="Andromeda"/>
+                <img src={'/static/logo_azul.png'} alt="Andromeda"/>
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
