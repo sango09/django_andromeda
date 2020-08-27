@@ -8,7 +8,6 @@ const Contact = () => (
             <div className="section-title">
                 <h2 className="text-center pt-5 pb-5 text-andromeda">Contáctanos</h2>
             </div>
-
             <div className="row">
                 <div className="col-md-6 col-lg-4">
                     <div className="contact-about text-center">
@@ -40,7 +39,6 @@ const Contact = () => (
                         </div>
                     </div>
                 </div>
-
                 <div className="col-md-12 col-lg-5 pt-3">
                     <form className="needs-validation" name="form" noValidate>
                         <div className="form-group">

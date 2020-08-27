@@ -8,7 +8,7 @@ const Login = () => (
         <div className="row">
             <div className="d-none d-md-block col-12 col-md col-lg-6 d-md-block" id="image__login"/>
             <div className="col pt-5 brand-andromeda">
-                <img src={Logo} alt="Logo Andromeda"/>
+                <img src={'/static/logo_azul.png'} alt="Logo Andromeda"/>
                 <form className="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3 needs-validation" noValidate>
                     <div className="form-group text-andromeda">
                         <label htmlFor="InputEmail">Correo electrónico</label>
