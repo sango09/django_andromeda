@@ -1,4 +1,4 @@
-Django_andromeda
+# Django_andromeda
 
 Crear entorno virtual e inicializarlo
 
