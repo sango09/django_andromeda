@@ -29,6 +29,20 @@ Iniciar servidor de Django
 
 `python3 manage.py runserver`
 
+Utilizar base de datos con ubuntu
+
+`sudo apt-get install python3-dev default-libmysqlclient-dev build-essential`
+
+
+_Cambiar credenciales de acceso para la base de datos en setting.py_
+``````
+`
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'nombre_db',
+        'USER': 'root',
+        'PASSWORD': 'contraseña',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',```````
 
 **NO HACER MERGE A LA RAMA MASTER SIN AUTORIZACIÓN PREVIA**
 
