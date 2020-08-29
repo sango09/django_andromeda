@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const onceImporter = require('node-sass-once-importer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: [
@@ -48,9 +50,20 @@ module.exports = {
             {
                 test: /\.sass$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sassOptions: {
+                                importer: onceImporter()
+                            }
+                        }
+                    }
                 ]
             },
             {
@@ -71,5 +84,8 @@ module.exports = {
             template: './public/index.html',
             filename: './index.html'
         }),
+        new MiniCssExtractPlugin({
+            filename: 'assets/[name].css',
+        })
     ]
 };

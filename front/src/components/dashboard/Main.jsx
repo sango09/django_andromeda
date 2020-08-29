@@ -1,7 +1,11 @@
 import React from 'react'
+import '../../assets/styles/dashboard/main.sass'
 
 const Main = ({children}) => (
-    {children}
+    <div className="main">
+        {children}
+    </div>
+
 )
 
 export default Main

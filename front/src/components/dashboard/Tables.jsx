@@ -2,7 +2,7 @@ import React from 'react'
 import CardAction from "./CardAction";
 
 const Tables = () => (
-    <div className="col-12 col-lg-8 col-xxl-9 d-flex">
+    <div className="col-xxl-9 d-flex">
         <div className="card flex-fill">
             <div className="card-header">
                 <CardAction/>

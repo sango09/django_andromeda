@@ -1,0 +1,92 @@
+@import "../variables.sass"
+
+.wrapper
+  @include flex
+  align-content: stretch
+  overflow: hidden
+
+
+.wrapper:before
+  content: " "
+  width: 100%
+  height: 264px
+  position: absolute
+  top: 0
+  left: 0
+  background: $blue-color
+
+.rounded-profile
+  @include rounded
+
+.rounded-circle img
+  @include rounded
+
+
+
+.userDropdown
+  color: white !important
+
+.content
+  margin-top: 3rem
+  padding: 0 .5rem
+
+
+.header
+  margin-bottom: 3rem
+  position: relative
+  color: $white-color
+
+.dropdown-item
+  .notify-icon
+    float: left
+    text-align: center
+    margin-right: 10px
+
+  .notify-details
+    margin-bottom: 0
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+  .message
+    white-space: normal
+    margin-left: 45px
+    line-height: 16px
+
+  &:active
+    background-color: #f8f9fa !important
+    color: $black-color !important
+
+.flags-icon
+  margin-right: .3rem !important
+
+  img
+    height: 12px
+
+.dropdown-item
+  display: block
+  padding: .35rem 1.5rem
+  color: $grey-color
+  text-align: inherit
+  background-color: transparent
+
+  &:hover
+    color: $black-light
+    text-decoration: none
+    background-color: $white-color
+
+  &:active
+    color: $white-color
+    text-decoration: none
+    background-color: $blue-light
+
+.navbar
+  .form-control
+    background: transparent
+    color: white
+    border: 0
+    box-shadow: none
+
+.col-xxl-9
+  flex: 100%
+  max-width: 100%

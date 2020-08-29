@@ -1,12 +1,11 @@
 import React from 'react'
-import Logo from '../assets/static/logo_azul.png'
-import '../assets/styles/forms_user/register.sass'
+import {Link} from 'react-router-dom'
 
 const Register = () => (
     <section className="container-fluid ">
         <div className="row">
             <div className="col brand-andromeda">
-                <img src={Logo} alt="Logo Andromeda"/>
+                <img src={'/static/logo_azul.png'} alt="Logo Andromeda"/>
                 <form className="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3 needs-validation" name="form"
                       noValidate>
                     <div className="form-group text-andromeda">
@@ -51,11 +50,19 @@ const Register = () => (
                     <button type="submit" className="btn btn-andromeda mt-2 mx-auto btn-block">Crear mi cuenta</button>
                 </form>
                 <div className="abajo text-center mt-3 ">
-                    <span className="text-muted">¿Ya tienes una cuenta?</span>
-                    <a className="text-andromeda" href="#">Inicia tu Sesión</a>
+                    <span className="text-muted">¿Ya tienes una cuenta? </span>
+                    <Link to="/login">
+                        <a className="text-andromeda">Inicia tu Sesión</a>
+                    </Link>
                 </div>
             </div>
-            <div className="d-none d-md-block col-12 col-md col-lg-6 d-md-block" id="image__register"/>
+            <div className="d-none d-md-block col-12 col-md col-lg-6 d-md-block" id="image__register"
+                 style={{
+                     background: 'url(/static/cgb6.jpeg)',
+                     backgroundSize: "cover",
+                     height: "100vh"
+                 }}
+            />
         </div>
     </section>
 )
