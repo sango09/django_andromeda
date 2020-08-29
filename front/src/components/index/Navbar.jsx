@@ -1,12 +1,15 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import '../../assets/styles/index/navbar.sass'
 
 const Navbar = () => (
     <nav className="navbar navbar-expand-lg navbar-light bg-white navbar-sticky" id="navbar">
         <div className="container">
-            <a className="navbar-brand" href="#">
-                <img src={'/static/logo_azul.png'} alt="Andromeda"/>
-            </a>
+            <Link to="/">
+                <a className="navbar-brand">
+                    <img src={'/static/logo_azul.png'} alt="Andromeda"/>
+                </a>
+            </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"/>
@@ -26,7 +29,9 @@ const Navbar = () => (
                         <a className="nav-link" href="#contacto">Contáctanos</a>
                     </li>
                 </ul>
-                <a className="btn btn-andromeda ml-auto" href="#">Iniciar Sesión</a>
+                <Link to="/login">
+                    <a className="btn btn-andromeda ml-auto">Iniciar Sesión</a>
+                </Link>
             </div>
         </div>
     </nav>

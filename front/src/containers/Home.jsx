@@ -6,6 +6,7 @@ import 'jquery'
 import 'popper.js'
 import '../fontawesome'
 import '../assets/styles/index/media.sass'
+import '../assets/styles/index/index.sass'
 
 //Components
 import Header from '../components/index/Header'

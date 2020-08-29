@@ -1,5 +1,7 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import '../../assets/styles/dashboard/card.sass'
+
 
 const Card = () => (
     <div className="w-100">

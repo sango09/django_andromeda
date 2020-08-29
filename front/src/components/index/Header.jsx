@@ -18,7 +18,7 @@ const Header = () => (
                     <p className="text-muted text-center text-md-left mb-6 mb-lg-8">Sistema de información desarrollado
                         para los departamentos tecnológicos de las instituciones educativas.</p>
                     <div className="text-center text-md-left">
-                        <a className="btn btn-outline-primary ml-auto contact" href="#">Contáctanos</a>
+                        <a className="btn btn-outline-primary ml-auto contact" href="#contacto">Contáctanos</a>
                     </div>
                 </div>
             </div>

@@ -15,24 +15,24 @@ const User = () => (
             <h5 className="dropdown-header text-center">Bienvenido</h5>
             <div className="dropdown-divider"/>
             <a className="dropdown-item" href="#">
-                <FontAwesomeIcon icon={['fas', 'user']}/>
+                <FontAwesomeIcon className="fa-fw" icon={['fas', 'user']}/>
                 <span className="align-middle">Perfil</span>
             </a>
             <a className="dropdown-item" href="#">
-                <FontAwesomeIcon icon={['fas', 'comments']}/>
+                <FontAwesomeIcon className="fa-fw" icon={['fas', 'comments']}/>
                 <span className="align-middle">Chats</span>
             </a>
             <a className="dropdown-item" href="#">
-                <FontAwesomeIcon icon={['fas', 'chart-pie']}/>
+                <FontAwesomeIcon className="fa-fw" icon={['fas', 'chart-pie']}/>
                 <span className="align-middle">Reporte</span>
             </a>
             <a className="dropdown-item" href="#">
-                <FontAwesomeIcon icon={['fas', 'cogs']}/>
+                <FontAwesomeIcon className="fa-fw" icon={['fas', 'cogs']}/>
                 <span className="align-middle">Configuración</span>
             </a>
             <div className="dropdown-divider"/>
             <a className="dropdown-item text-danger" href="#">
-                <FontAwesomeIcon icon={['fas', 'arrow-alt-circle-right']}/>
+                <FontAwesomeIcon className="fa-fw" icon={['fas', 'arrow-alt-circle-right']}/>
                 <span className="align-middle">Cerrar Sesión</span>
             </a>
         </div>

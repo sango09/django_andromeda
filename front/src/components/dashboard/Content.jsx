@@ -2,6 +2,7 @@ import React from 'react'
 import Analytics from "./Analytics";
 import Card from "./Card";
 import Tables from "./Tables";
+import '../../assets/styles/dashboard/content.sass'
 
 const Content = () => (
     <main className="content">

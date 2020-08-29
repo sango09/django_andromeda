@@ -41,8 +41,7 @@ class LinkTag(models.Model):
                              on_delete=models.CASCADE)
 
     tag = models.ForeignKey(Tag, verbose_name=_('tag'),
-                             on_delete=models.CASCADE)
-
+                            on_delete=models.CASCADE)
 
     class Meta:
         unique_together = (('link', 'tag'))

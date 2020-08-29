@@ -5,7 +5,7 @@ const Notification = () => (
     <li className="nav-item dropdown no-arrow mx-1">
         <a className="nav-link userDropdown" href="#" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
-            <FontAwesomeIcon icon={['fas', 'bell']}/>
+            <FontAwesomeIcon className='fa-fw' icon={['fas', 'bell']}/>
             <span className="badge badge-danger badge-counter mt-1">3+</span>
             <div className="dropdown-menu dropdown-menu-right dropdown-lg" aria-labelledby="messages">
                 <h5 className="dropdown-header text-center">Ultimos Mensajes</h5>

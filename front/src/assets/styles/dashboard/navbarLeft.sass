@@ -1,0 +1,103 @@
+@import "../variables.sass"
+
+.sidebar
+  min-width: 250px
+  max-width: 250px
+  transition: margin-left .3s ease-in-out, left .3s ease-in-out, margin-right .3s ease-in-out, right .3s ease-in-out
+  background: white
+  border-right: 0
+  z-index: 1
+
+.sidebar.toggled
+  margin-left: -250px
+
+.sidebar-brand
+  padding: 1rem
+  background: $blue-color
+  display: block
+
+  img
+    width: 170px
+
+
+.sidebar-nav
+  margin-bottom: 0
+  padding-left: 0
+  list-style: none
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  flex: 1
+  background: $white-color
+
+.sidebar-header
+  background: transparent
+  color: #adb5db
+  padding: .375rem 1.5rem
+  font-size: .75rem
+  text-transform: uppercase
+  margin-top: 1rem !important
+
+.sidebar-item.active
+  .sidebar-link
+    color: $black-color
+    background: #e9ecef
+
+
+.sidebar [data-toggle=collapse]
+  position: relative
+
+  &:before
+    content: " "
+    border: solid
+    border-width: 0 .1rem .1rem 0
+    display: inline-block
+    padding: 2.5px
+    transform: rotate(-45deg)
+    position: absolute
+    top: 1.2rem
+    right: 1.25rem
+    transition: all .2s ease-out
+
+
+a.sidebar-link
+  display: block
+  padding: .65rem .75rem
+  margin: 0 .5rem
+  color: #6c757d
+  font-weight: 400
+  background: transparent
+  border-radius: .2rem
+  transition: background .1s ease-in-out
+  position: relative
+  text-decoration: none !important
+  cursor: pointer
+
+  &:hover
+    color: #212529
+    background: $white-color
+
+.sidebar [aria-expanded=true]:before, .sidebar [data-toggle=collapse]:not(.collapsed):before
+  transform: rotate(45deg)
+
+.sidebar-dropdown
+  .sidebar-link
+    padding: .35rem 1.5rem .35rem 2.75rem
+    margin: 0 .5rem
+    font-weight: 400
+    font-size: 90%
+
+
+.sidebar-link
+  .fa-fw
+    color: $blue-color
+
+.fa-bars
+  color: white !important
+  font-size: 25px !important
+  position: relative
+
+
+.sidebar-toggle
+  cursor: pointer
+  margin-left: .5rem
