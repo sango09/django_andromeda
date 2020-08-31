@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     # Local apps
     'links',
+    'users',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'andromeda_db',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '0810',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     },
@@ -124,6 +126,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+LOGIN_URL = '/users/login'
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',

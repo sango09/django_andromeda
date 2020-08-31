@@ -9,7 +9,7 @@ from django.db import models
 
 
 class TblAreaLaboral(models.Model):
-    id_area_laboral = models.IntegerField(primary_key=True)
+    id_area_laboral = models.AutoField(primary_key=True)
     area_laboral = models.CharField(max_length=45)
 
     class Meta:
@@ -17,7 +17,7 @@ class TblAreaLaboral(models.Model):
 
 
 class TblAuxiliar(models.Model):
-    id_auxiliar = models.IntegerField(primary_key=True)
+    id_auxiliar = models.AutoField(primary_key=True)
     calificacion_auxiliar = models.DecimalField(max_digits=2, decimal_places=0)
     id_disponibilidad_auxiliar = models.ForeignKey('TblDisponibilidadAuxiliar', models.DO_NOTHING,
                                                    db_column='id_disponibilidad_auxiliar')
@@ -28,7 +28,7 @@ class TblAuxiliar(models.Model):
 
 
 class TblCargoEmpleado(models.Model):
-    id_cargo = models.IntegerField(primary_key=True)
+    id_cargo = models.AutoField(primary_key=True)
     cargo_empleado = models.CharField(max_length=45)
 
     class Meta:
@@ -36,7 +36,7 @@ class TblCargoEmpleado(models.Model):
 
 
 class TblCoordinador(models.Model):
-    id_coordinador = models.IntegerField(primary_key=True)
+    id_coordinador = models.AutoField(primary_key=True)
     id_usuario = models.ForeignKey('TblUsuario', models.DO_NOTHING, db_column='id_usuario')
 
     class Meta:
@@ -44,7 +44,7 @@ class TblCoordinador(models.Model):
 
 
 class TblDisponibilidadAuxiliar(models.Model):
-    id_disponibilidad_auxiliar = models.IntegerField(primary_key=True)
+    id_disponibilidad_auxiliar = models.AutoField(primary_key=True)
     disponibilidad = models.CharField(max_length=45)
 
     class Meta:
@@ -52,7 +52,7 @@ class TblDisponibilidadAuxiliar(models.Model):
 
 
 class TblEmpleado(models.Model):
-    id_empleado = models.IntegerField(primary_key=True)
+    id_empleado = models.AutoField(primary_key=True)
     id_area_laboral = models.ForeignKey(TblAreaLaboral, models.DO_NOTHING, db_column='id_area_laboral')
     id_cargo = models.ForeignKey(TblCargoEmpleado, models.DO_NOTHING, db_column='id_cargo')
     id_usuario = models.ForeignKey('TblUsuario', models.DO_NOTHING, db_column='id_usuario')
@@ -62,7 +62,7 @@ class TblEmpleado(models.Model):
 
 
 class TblEstadoImplemento(models.Model):
-    id_estado_implemento = models.IntegerField(primary_key=True)
+    id_estado_implemento = models.AutoField(primary_key=True)
     estado_implemento = models.CharField(max_length=45)
 
     class Meta:
@@ -70,7 +70,7 @@ class TblEstadoImplemento(models.Model):
 
 
 class TblEstadoMantenimiento(models.Model):
-    id_estado_mantenimiento = models.IntegerField(primary_key=True)
+    id_estado_mantenimiento = models.AutoField(primary_key=True)
     estado_mantenimiento = models.CharField(max_length=45)
 
     class Meta:
@@ -78,7 +78,7 @@ class TblEstadoMantenimiento(models.Model):
 
 
 class TblEstadosServicio(models.Model):
-    id_estado_servicio = models.IntegerField(primary_key=True)
+    id_estado_servicio = models.AutoField(primary_key=True)
     estado_servicio = models.CharField(max_length=45)
 
     class Meta:
@@ -86,7 +86,7 @@ class TblEstadosServicio(models.Model):
 
 
 class TblImplemento(models.Model):
-    id_ficha_tecnica_implemento = models.IntegerField(primary_key=True)
+    id_ficha_tecnica_implemento = models.AutoField(primary_key=True)
     marca_implemento = models.CharField(max_length=45)
     modelo_implemento = models.CharField(max_length=45)
     referencia_implemento = models.CharField(max_length=45, blank=True, null=True)
@@ -103,7 +103,7 @@ class TblImplemento(models.Model):
 
 
 class TblInventario(models.Model):
-    id_inventario = models.IntegerField(primary_key=True)
+    id_inventario = models.AutoField(primary_key=True)
     serial_implemento = models.CharField(unique=True, max_length=45)
     descripcion_implemento = models.TextField()
     id_ficha_tecnica = models.ForeignKey(TblImplemento, models.DO_NOTHING, db_column='id_ficha_tecnica')
@@ -113,7 +113,7 @@ class TblInventario(models.Model):
 
 
 class TblMantenimiento(models.Model):
-    id_mantenimiento = models.IntegerField(primary_key=True)
+    id_mantenimiento = models.AutoField(primary_key=True)
     area_mantenimiento = models.CharField(max_length=45)
     fecha_mantenimiento = models.DateField()
     hora_mantenimiento = models.TimeField()
@@ -131,7 +131,7 @@ class TblMantenimiento(models.Model):
 
 
 class TblPermisosUsuario(models.Model):
-    id_permisos_usuario = models.IntegerField(primary_key=True)
+    id_permisos_usuario = models.AutoField(primary_key=True)
     permiso = models.TextField()
     url_dashboard = models.TextField()
 
@@ -140,7 +140,7 @@ class TblPermisosUsuario(models.Model):
 
 
 class TblPrestamo(models.Model):
-    id_inventario_prestamo = models.IntegerField(primary_key=True)
+    id_inventario_prestamo = models.AutoField(primary_key=True)
     cantidad = models.IntegerField()
     cantidad_disponible = models.IntegerField()
     cantidad_en_prestamo = models.IntegerField()
@@ -153,7 +153,7 @@ class TblPrestamo(models.Model):
 
 
 class TblPrestamosTecnologicos(models.Model):
-    id_prestamos_tecnologicos = models.IntegerField(primary_key=True)
+    id_prestamos_tecnologicos = models.AutoField(primary_key=True)
     cantidad_requerida = models.IntegerField()
     id_inventario_prestamo = models.ForeignKey(TblPrestamo, models.DO_NOTHING, db_column='id_inventario_prestamo')
     id_ticket = models.ForeignKey('TblTicketServicio', models.DO_NOTHING, db_column='id_ticket')
@@ -163,7 +163,7 @@ class TblPrestamosTecnologicos(models.Model):
 
 
 class TblPrioridadMantenimiento(models.Model):
-    id_prioridad_mantenimiento = models.IntegerField(primary_key=True)
+    id_prioridad_mantenimiento = models.AutoField(primary_key=True)
     prioridad = models.CharField(max_length=45)
 
     class Meta:
@@ -171,7 +171,7 @@ class TblPrioridadMantenimiento(models.Model):
 
 
 class TblPrioridadServicio(models.Model):
-    id_prioridad = models.IntegerField(primary_key=True)
+    id_prioridad = models.AutoField(primary_key=True)
     prioridad = models.CharField(max_length=45)
 
     class Meta:
@@ -179,7 +179,7 @@ class TblPrioridadServicio(models.Model):
 
 
 class TblServicio(models.Model):
-    id_servicio = models.IntegerField(primary_key=True)
+    id_servicio = models.AutoField(primary_key=True)
     fecha_servicio = models.DateField()
     hora_servicio = models.TimeField()
     descripcion_servicio = models.TextField(blank=True, null=True)
@@ -195,7 +195,7 @@ class TblServicio(models.Model):
 
 
 class TblSoporteTecnico(models.Model):
-    id_soporte_tecnico = models.IntegerField(primary_key=True)
+    id_soporte_tecnico = models.AutoField(primary_key=True)
     id_ticket = models.ForeignKey('TblTicketServicio', models.DO_NOTHING, db_column='id_ticket')
 
     class Meta:
@@ -203,7 +203,7 @@ class TblSoporteTecnico(models.Model):
 
 
 class TblTicketMantenimiento(models.Model):
-    id_reporte_mantenimiento = models.IntegerField(primary_key=True)
+    id_reporte_mantenimiento = models.AutoField(primary_key=True)
     conclusion_mantenimiento = models.TextField(blank=True, null=True)
     id_estado_mantenimiento = models.ForeignKey(TblEstadoMantenimiento, models.DO_NOTHING,
                                                 db_column='id_estado_mantenimiento')
@@ -214,7 +214,7 @@ class TblTicketMantenimiento(models.Model):
 
 
 class TblTicketServicio(models.Model):
-    id_ticket_servicio = models.IntegerField(primary_key=True)
+    id_ticket_servicio = models.AutoField(primary_key=True)
     fecha_ticket = models.CharField(max_length=45)
     conclusion_servicio = models.TextField()
     id_servicio = models.ForeignKey(TblServicio, models.DO_NOTHING, db_column='id_servicio')
@@ -224,7 +224,7 @@ class TblTicketServicio(models.Model):
 
 
 class TblTipoImplemento(models.Model):
-    id_tipo_implemento = models.IntegerField(primary_key=True)
+    id_tipo_implemento = models.AutoField(primary_key=True)
     tipo_implemento = models.CharField(max_length=45)
 
     class Meta:
@@ -232,7 +232,7 @@ class TblTipoImplemento(models.Model):
 
 
 class TblTipoMantenimiento(models.Model):
-    id_tipo_mantenimiento = models.IntegerField(primary_key=True)
+    id_tipo_mantenimiento = models.AutoField(primary_key=True)
     tipo_mantenimiento = models.CharField(max_length=45)
 
     class Meta:
@@ -240,7 +240,7 @@ class TblTipoMantenimiento(models.Model):
 
 
 class TblTipoServicio(models.Model):
-    id_tipo_servicio = models.IntegerField(primary_key=True)
+    id_tipo_servicio = models.AutoField(primary_key=True)
     tipo_servicio = models.CharField(max_length=45)
 
     class Meta:
@@ -248,7 +248,7 @@ class TblTipoServicio(models.Model):
 
 
 class TblUsuario(models.Model):
-    id_usuario = models.IntegerField(primary_key=True)
+    id_usuario = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=45)
     apellido = models.CharField(max_length=45)
     correo_electronico = models.CharField(unique=True, max_length=45)

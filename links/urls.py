@@ -1,12 +1,22 @@
-
-
 # Django
 from django.urls import path
-from django.views import generic
+
+# Local views
+from users import views as users_views
+from dashboard import views as dashboard_views
+from links import views as index_views
 
 urlpatterns = [
-    path('login/', generic.TemplateView.as_view(template_name='users/login.html')),
-    path('register/', generic.TemplateView.as_view(template_name='users/register.html')),
-    path('', generic.TemplateView.as_view(template_name="index.html")),
-    path('administrator', generic.TemplateView.as_view(template_name='dashboard/administrator/administrator.html'))
+    path('', index_views.index_views, name='index'),
+    path('users/login/', users_views.login_view, name='login'),
+    path('users/logout/', users_views.logout_view, name='logout'),
+    path('users/signup/', users_views.signup, name='signup'),
+    path('dashboard/administrator/', dashboard_views.admin_views, name='administrator'),
+    path('dashboard/administrator/users', users_views.user_list, name='list_users'),
+    path('dashboard/administrator/users/create_user', users_views.user_form, name='form_user'),
+    path('dashboard/administrator/users/update_user/<int:id_usuario>/', users_views.user_edit, name='edit_user'),
+    path('dashboard/administrator/users/update_user/<int:id_usuario>/', users_views.user_update, name='update_user'),
+    path('dashboard/administrator/users/delete_user/<int:id_usuario>/', users_views.user_delete, name='delete_user'),
+
+
 ]
