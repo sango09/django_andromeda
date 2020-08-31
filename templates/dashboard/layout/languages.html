@@ -1,0 +1,16 @@
+{% load static %}
+
+<li class="nav-item dropdown">
+    <a class="nav-link" id="flagDropdown" href="#" role="button" data-toggle="dropdown"
+       aria-haspopup="false" aria-expanded="false">
+					<span class="flags-icon">
+						<img src="{% static 'img/spain.jpg' %}" alt="Spanish"/>
+					</span>
+        <span class="align-middle d-none d-sm-inline-block text-light">Español</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="flagDropdown">
+        <a class="dropdown-item flags-icon" href="#">
+            <img src="{% static 'img/us.jpg' %}" alt="English"/>
+            <span class="align-middle mr-2 ">Ingles</span></a>
+    </div>
+</li>

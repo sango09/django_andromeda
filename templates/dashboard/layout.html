@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Administrador | Andromeda</title>
+{% endblock %}
+
+{% block main %}
+    <div class="wrapper">
+        {% include "dashboard/layout/navbarLeft.html" %}
+        <div class="main">
+            {% include "dashboard/layout/navbarTop.html" %}
+            {% block content %}
+            {% endblock %}
+            {% include "dashboard/layout/footer.html" %}
+        </div>
+    </div>
+{% endblock %}
