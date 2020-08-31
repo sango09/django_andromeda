@@ -1,0 +1,66 @@
+{% extends "dashboard/layout.html" %}
+{% load static %}
+{% block content %}
+    <main class="content">
+        <div class="container-fluid">
+            <div class="header">
+                <h1 class="header-title">
+                    Lista de Usuarios
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href={% url "administrator" %}>Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Usuarios Registrados</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="user-control table-responsive">
+                                <table class="table table-hover table-bordered table-striped mb-0 text-center">
+                                    <thead>
+                                    <tr class="main-table">
+                                        <td>#</td>
+                                        <td>Nombres</td>
+                                        <td>Apellidos</td>
+                                        <td>Correo Electronico</td>
+                                        <td></td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for user in user_list %}
+                                        <tr>
+                                            <td>{{ user.id_usuario }}</td>
+                                            <td>{{ user.nombre }}</td>
+                                            <td>{{ user.apellido }}</td>
+                                            <td>{{ user.correo_electronico }}</td>
+                                            <td>
+                                                <a href="{% url 'edit_user' user.id_usuario %}"
+                                                   class="btn text-secondary px-0">
+                                                    <i class="far fa-edit fa-lg"></i>
+                                                </a>
+                                                <form action="{% url 'delete_user' user.id_usuario %}" method="POST">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn">
+                                                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                                                    </button>
+                                                </form>
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

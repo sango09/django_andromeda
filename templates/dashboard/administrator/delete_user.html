@@ -1,0 +1,18 @@
+{% extends "dashboard/layout.html" %}
+{% load static %}
+{% block content %}
+    <main class="content">
+        <div class="container-fluid">
+            <div class="header">
+                <h1 class="header-title">
+                    Eliminar Usuario
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href={% url "administrator" %}>Inicio</a></li>
+                        <li class="breadcrumb-item"><a href={% url "list_users" %}>Lista de usuarios</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Eliminar usuario</li>
+                    </ol>
+                </nav>
+            </div>
+{% endblock %}

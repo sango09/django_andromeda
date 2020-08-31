@@ -167,7 +167,7 @@ p {
   .sidebar {
     margin-left: -250px; }
   .sidebar.toggled {
-    margin-left: 0; } }
+    margin-left: 0 !important; } }
 
 .card-body .form-group .form-control {
   border-radius: 6px;

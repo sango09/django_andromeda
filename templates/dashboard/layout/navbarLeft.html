@@ -7,7 +7,7 @@
         <ul class="sidebar-nav">
             <li class="sidebar-header">Home</li>
             <li class="sidebar-item active">
-                <a href="#" class="sidebar-link" aria-expanded="false">
+                <a href="{% url 'administrator' %}" class="sidebar-link" aria-expanded="false">
                     <i class="fa-fw fas fa-home"></i>
                     <span class="align-middle">Dashboard</span>
                 </a>
@@ -20,8 +20,8 @@
                 </a>
                 <ul id="users" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">Crear usuario</a>
-                        <a class="sidebar-link" href="#">Lista de usuarios</a>
+                        <a class="sidebar-link" href={% url 'form_user' %}>Crear usuario</a>
+                        <a class="sidebar-link" href={% url 'list_users' %}>Lista de usuarios</a>
                     </li>
                 </ul>
             </li>
@@ -52,21 +52,21 @@
             </li>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link collapsed" aria-expanded="false">
-                     <i class="fa-fw fas fa-clipboard-list"></i>
+                    <i class="fa-fw fas fa-clipboard-list"></i>
                     <span class="align-middle">Reportes</span>
                 </a>
             </li>
             <li class="sidebar-header">Calendario</li>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link" aria-expanded="false">
-                     <i class="fa-fw fas fa-calendar-alt"></i>
+                    <i class="fa-fw fas fa-calendar-alt"></i>
                     <span class="align-middle">Calendario</span>
                 </a>
             </li>
             <li class="sidebar-header">Préstamos Tecnologicos</li>
             <li class="sidebar-item">
                 <a href="#prestamo" data-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
-                     <i class="fa-fw fas fa-laptop"></i>
+                    <i class="fa-fw fas fa-laptop"></i>
                     <span class="align-middle">Préstamos</span>
                 </a>
                 <ul id="prestamo" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
@@ -79,7 +79,7 @@
             </li>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link collapsed" aria-expanded="false">
-                   <i class="fa-fw fas fa-clipboard-list"></i>
+                    <i class="fa-fw fas fa-clipboard-list"></i>
                     <span class="align-middle">Reportes</span>
                 </a>
             </li>
@@ -87,7 +87,7 @@
             <li class="sidebar-item">
                 <a href="#inventory" data-toggle="collapse" class="sidebar-link collapsed"
                    aria-expanded="false">
-                      <i class="fa-fw fas fa-boxes"></i>
+                    <i class="fa-fw fas fa-boxes"></i>
                     <span class="align-middle">Inventario</span>
                 </a>
                 <ul id="inventory" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
