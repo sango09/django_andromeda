@@ -6,17 +6,12 @@
 {% load static %}
 
 {% block main %}
-<body>
-    <!-- Inicio de registro -->
     <section class="container-fluid ">
         <div class="row">
-    
-            <!-- Logo -->
             <div class="col brand-andromeda">
                 <img src="{% static "img/logo_azul.png" %}" alt="">
-    
-                <!-- Inicio de Formulario -->
-                <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3 needs-validation" name="form" novalidate>
+                <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3 needs-validation" name="form"
+                      novalidate>
                     <div class="form-group text-andromeda">
                         <label for="FullName">Nombre completo</label>
                         <input type="text" class="form-control" name="Name" id="FullName"
@@ -29,7 +24,6 @@
                         <small id="emailHelp" class="form-text text-muted">¡Nunca compartas tu correo
                             electrónico!</small>
                     </div>
-    
                     <div class="form-group text-andromeda">
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control" name="password" id="password"
@@ -62,22 +56,16 @@
                         Crear mi cuenta
                     </button>
                 </form>
-                <!-- Fin de Formulario -->
-    
-                <!-- Texto opcional -->
                 <div class="abajo text-center mt-3 ">
                     <span class="text-muted">¿Ya tienes una cuenta?</span>
                     <a class="text-andromeda" href="login.html">Inicia tu Sesión</a>
                 </div>
             </div>
-            <div class="d-none d-md-block col-12 col-md col-lg-6 d-md-block" id="image__signup" 
-            style="background-image: url(../../static/img/cgb6.jpeg);
+            <div class="d-none d-md-block col-12 col-md col-lg-6 d-md-block" id="image__signup"
+                 style="background-image: url(../../static/img/cgb6.jpeg);
             background-size: cover;
             height: 108vh;">
-                
             </div>
         </div>
     </section>
-    </body>
-    
 {% endblock %}

@@ -1,0 +1,19 @@
+<main class="content">
+    <div class="container-fluid">
+        <div class="header">
+            <h1 class="header-title">¡Bienvenido, Julian!</h1>
+            <p class="header-subtitle">Tienes 7 mensajes nuevos y 5 notificaciones nuevas.</p>
+        </div>
+        <div class="row row-content">
+            <div class="col-xl-6 col-xxl-7">
+                {% include "dashboard/administrator/analytics.html" %}
+            </div>
+            <div class="col-xl-6 d-flex">
+                {% include "dashboard/administrator/card.html" %}
+            </div>
+        </div>
+        <div class="row mt-4">
+            {% include "dashboard/administrator/tables.html" %}
+        </div>
+    </div>
+</main>
