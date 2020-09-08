@@ -1,4 +1,4 @@
-{% extends "dashboard/layout.html" %}
+{% extends "dashboard/administrator/layout_admin/layout.html" %}
 {% load static %}
 {% block content %}
     <main class="content">
@@ -9,8 +9,8 @@
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href={% url "administrator" %}>Inicio</a></li>
-                        <li class="breadcrumb-item"><a href={% url "list_users" %}>Lista de usuarios</a></li>
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
+                        <li class="breadcrumb-item"><a href={% url "dashboard:list_users" %}>Lista de usuarios</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Eliminar usuario</li>
                     </ol>
                 </nav>

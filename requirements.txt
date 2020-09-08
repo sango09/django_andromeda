@@ -4,3 +4,4 @@ django-webpack-loader==0.7.0
 pytz==2020.1
 sqlparse==0.3.1
 mysqlclient==2.0.1
+passlib~=1.7.2

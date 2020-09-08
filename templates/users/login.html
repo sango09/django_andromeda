@@ -17,10 +17,9 @@
                 <img src="{% static "img/logo_azul.png" %}" alt="">
                 {% if error %}
                     <p class="alert alert-danger text-center">{{ error }}</p>
-
                 {% endif %}
                 <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3" method="POST"
-                      action="{% url "login" %}" novalidate>
+                      action="{% url "users:login" %}" novalidate>
                     {% csrf_token %}
 
                     <div class="form-group text-andromeda">
@@ -45,7 +44,7 @@
                 </div>
                 <div class="boton text-center pt-3">
                     <span class="text-muted">¿Aún no tienes cuenta? </span>
-                    <a class="text-andromeda" href={% url "signup" %}>Registrate</a>
+                    <a class="text-andromeda" href={% url "users:signup" %}>Registrate</a>
                 </div>
             </div>
         </div>

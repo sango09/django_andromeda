@@ -7,7 +7,7 @@
         <ul class="sidebar-nav">
             <li class="sidebar-header">Home</li>
             <li class="sidebar-item active">
-                <a href="{% url 'administrator' %}" class="sidebar-link" aria-expanded="false">
+                <a href="{% url 'dashboard:administrator' %}" class="sidebar-link" aria-expanded="false">
                     <i class="fa-fw fas fa-home"></i>
                     <span class="align-middle">Dashboard</span>
                 </a>
@@ -20,8 +20,8 @@
                 </a>
                 <ul id="users" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href={% url 'form_user' %}>Crear usuario</a>
-                        <a class="sidebar-link" href={% url 'list_users' %}>Lista de usuarios</a>
+                        <a class="sidebar-link" href={% url 'dashboard:form_user' %}>Crear usuario</a>
+                        <a class="sidebar-link" href={% url 'dashboard:list_users' %}>Lista de usuarios</a>
                     </li>
                 </ul>
             </li>

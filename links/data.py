@@ -1,12 +1,10 @@
-from datetime import date
-
 users = [
     {
         'id_usuario': '1',
-        'nombre': 'Juan Pablo',
-        'apellido': 'Ardila',
-        'correo_electronico': 'juan@cgb.edu.co',
-        'contrasena': '1234567',
+        'nombre': 'Julian',
+        'apellido': 'Ramirez',
+        'correo_electronico': 'admin@cgb.edu.co',
+        'contrasena': 'cgb123456',
         'is_admin': True,
 
     },
@@ -15,23 +13,31 @@ users = [
         'nombre': 'Santiago',
         'apellido': 'Gomez',
         'correo_electronico': 'santiago@cgb.edu.co',
-        'contrasena': '1234567',
-        'is_admin': True,
+        'contrasena': 'cgb123456',
+        'is_auxiliar': True,
     },
     {
         'id_usuario': '3',
-        'nombre': 'Sebastian',
-        'apellido': 'Ordoñez',
-        'correo_electronico': 'sebastian@cgb.edu.co',
-        'contrasena': '1234567',
+        'nombre': 'Robert',
+        'apellido': 'Salazar',
+        'correo_electronico': 'robert@cgb.edu.co',
+        'contrasena': 'cgb123456',
         'is_personal': True,
     },
     {
         'id_usuario': '4',
-        'nombre': 'Santiago',
-        'apellido': 'Vargas',
+        'nombre': 'Maria',
+        'apellido': 'Romero Cruz',
+        'correo_electronico': 'maria@cgb.edu.co',
+        'contrasena': 'cgb123456',
+        'is_personal': True,
+    },
+    {
+        'id_usuario': '5',
+        'nombre': 'Juan Pablo',
+        'apellido': 'Ardila Otero',
         'correo_electronico': 'vargas@cgb.edu.co',
-        'contrasena': '1234567',
+        'contrasena': 'cgb123456',
         'is_auxiliar': True,
     }
 ]
