@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: django_andromeda
+-- Host: 127.0.0.1    Database: andromeda_db
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -27,7 +27,7 @@ CREATE TABLE `auth_group` (
   `name` varchar(150) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +55,7 @@ CREATE TABLE `auth_group_permissions` (
   KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
   CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
   CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,7 +82,7 @@ CREATE TABLE `auth_permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
   CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +91,7 @@ CREATE TABLE `auth_permission` (
 
 LOCK TABLES `auth_permission` WRITE;
 /*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
-INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add permission',2,'add_permission'),(6,'Can change permission',2,'change_permission'),(7,'Can delete permission',2,'delete_permission'),(8,'Can view permission',2,'view_permission'),(9,'Can add group',3,'add_group'),(10,'Can change group',3,'change_group'),(11,'Can delete group',3,'delete_group'),(12,'Can view group',3,'view_group'),(13,'Can add user',4,'add_user'),(14,'Can change user',4,'change_user'),(15,'Can delete user',4,'delete_user'),(16,'Can view user',4,'view_user'),(17,'Can add content type',5,'add_contenttype'),(18,'Can change content type',5,'change_contenttype'),(19,'Can delete content type',5,'delete_contenttype'),(20,'Can view content type',5,'view_contenttype'),(21,'Can add session',6,'add_session'),(22,'Can change session',6,'change_session'),(23,'Can delete session',6,'delete_session'),(24,'Can view session',6,'view_session'),(25,'Can add tbl area laboral',7,'add_tblarealaboral'),(26,'Can change tbl area laboral',7,'change_tblarealaboral'),(27,'Can delete tbl area laboral',7,'delete_tblarealaboral'),(28,'Can view tbl area laboral',7,'view_tblarealaboral'),(29,'Can add tbl auxiliar',8,'add_tblauxiliar'),(30,'Can change tbl auxiliar',8,'change_tblauxiliar'),(31,'Can delete tbl auxiliar',8,'delete_tblauxiliar'),(32,'Can view tbl auxiliar',8,'view_tblauxiliar'),(33,'Can add tbl cargo empleado',9,'add_tblcargoempleado'),(34,'Can change tbl cargo empleado',9,'change_tblcargoempleado'),(35,'Can delete tbl cargo empleado',9,'delete_tblcargoempleado'),(36,'Can view tbl cargo empleado',9,'view_tblcargoempleado'),(37,'Can add tbl coordinador',10,'add_tblcoordinador'),(38,'Can change tbl coordinador',10,'change_tblcoordinador'),(39,'Can delete tbl coordinador',10,'delete_tblcoordinador'),(40,'Can view tbl coordinador',10,'view_tblcoordinador'),(41,'Can add tbl disponibilidad auxiliar',11,'add_tbldisponibilidadauxiliar'),(42,'Can change tbl disponibilidad auxiliar',11,'change_tbldisponibilidadauxiliar'),(43,'Can delete tbl disponibilidad auxiliar',11,'delete_tbldisponibilidadauxiliar'),(44,'Can view tbl disponibilidad auxiliar',11,'view_tbldisponibilidadauxiliar'),(45,'Can add tbl empleado',12,'add_tblempleado'),(46,'Can change tbl empleado',12,'change_tblempleado'),(47,'Can delete tbl empleado',12,'delete_tblempleado'),(48,'Can view tbl empleado',12,'view_tblempleado'),(49,'Can add tbl estado implemento',13,'add_tblestadoimplemento'),(50,'Can change tbl estado implemento',13,'change_tblestadoimplemento'),(51,'Can delete tbl estado implemento',13,'delete_tblestadoimplemento'),(52,'Can view tbl estado implemento',13,'view_tblestadoimplemento'),(53,'Can add tbl estado mantenimiento',14,'add_tblestadomantenimiento'),(54,'Can change tbl estado mantenimiento',14,'change_tblestadomantenimiento'),(55,'Can delete tbl estado mantenimiento',14,'delete_tblestadomantenimiento'),(56,'Can view tbl estado mantenimiento',14,'view_tblestadomantenimiento'),(57,'Can add tbl estados servicio',15,'add_tblestadosservicio'),(58,'Can change tbl estados servicio',15,'change_tblestadosservicio'),(59,'Can delete tbl estados servicio',15,'delete_tblestadosservicio'),(60,'Can view tbl estados servicio',15,'view_tblestadosservicio'),(61,'Can add tbl implemento',16,'add_tblimplemento'),(62,'Can change tbl implemento',16,'change_tblimplemento'),(63,'Can delete tbl implemento',16,'delete_tblimplemento'),(64,'Can view tbl implemento',16,'view_tblimplemento'),(65,'Can add tbl inventario',17,'add_tblinventario'),(66,'Can change tbl inventario',17,'change_tblinventario'),(67,'Can delete tbl inventario',17,'delete_tblinventario'),(68,'Can view tbl inventario',17,'view_tblinventario'),(69,'Can add tbl mantenimiento',18,'add_tblmantenimiento'),(70,'Can change tbl mantenimiento',18,'change_tblmantenimiento'),(71,'Can delete tbl mantenimiento',18,'delete_tblmantenimiento'),(72,'Can view tbl mantenimiento',18,'view_tblmantenimiento'),(73,'Can add tbl permisos usuario',19,'add_tblpermisosusuario'),(74,'Can change tbl permisos usuario',19,'change_tblpermisosusuario'),(75,'Can delete tbl permisos usuario',19,'delete_tblpermisosusuario'),(76,'Can view tbl permisos usuario',19,'view_tblpermisosusuario'),(77,'Can add tbl prestamo',20,'add_tblprestamo'),(78,'Can change tbl prestamo',20,'change_tblprestamo'),(79,'Can delete tbl prestamo',20,'delete_tblprestamo'),(80,'Can view tbl prestamo',20,'view_tblprestamo'),(81,'Can add tbl prestamos tecnologicos',21,'add_tblprestamostecnologicos'),(82,'Can change tbl prestamos tecnologicos',21,'change_tblprestamostecnologicos'),(83,'Can delete tbl prestamos tecnologicos',21,'delete_tblprestamostecnologicos'),(84,'Can view tbl prestamos tecnologicos',21,'view_tblprestamostecnologicos'),(85,'Can add tbl prioridad mantenimiento',22,'add_tblprioridadmantenimiento'),(86,'Can change tbl prioridad mantenimiento',22,'change_tblprioridadmantenimiento'),(87,'Can delete tbl prioridad mantenimiento',22,'delete_tblprioridadmantenimiento'),(88,'Can view tbl prioridad mantenimiento',22,'view_tblprioridadmantenimiento'),(89,'Can add tbl prioridad servicio',23,'add_tblprioridadservicio'),(90,'Can change tbl prioridad servicio',23,'change_tblprioridadservicio'),(91,'Can delete tbl prioridad servicio',23,'delete_tblprioridadservicio'),(92,'Can view tbl prioridad servicio',23,'view_tblprioridadservicio'),(93,'Can add tbl rol usuario',24,'add_tblrolusuario'),(94,'Can change tbl rol usuario',24,'change_tblrolusuario'),(95,'Can delete tbl rol usuario',24,'delete_tblrolusuario'),(96,'Can view tbl rol usuario',24,'view_tblrolusuario'),(97,'Can add tbl servicio',25,'add_tblservicio'),(98,'Can change tbl servicio',25,'change_tblservicio'),(99,'Can delete tbl servicio',25,'delete_tblservicio'),(100,'Can view tbl servicio',25,'view_tblservicio'),(101,'Can add tbl soporte tecnico',26,'add_tblsoportetecnico'),(102,'Can change tbl soporte tecnico',26,'change_tblsoportetecnico'),(103,'Can delete tbl soporte tecnico',26,'delete_tblsoportetecnico'),(104,'Can view tbl soporte tecnico',26,'view_tblsoportetecnico'),(105,'Can add tbl ticket mantenimiento',27,'add_tblticketmantenimiento'),(106,'Can change tbl ticket mantenimiento',27,'change_tblticketmantenimiento'),(107,'Can delete tbl ticket mantenimiento',27,'delete_tblticketmantenimiento'),(108,'Can view tbl ticket mantenimiento',27,'view_tblticketmantenimiento'),(109,'Can add tbl ticket servicio',28,'add_tblticketservicio'),(110,'Can change tbl ticket servicio',28,'change_tblticketservicio'),(111,'Can delete tbl ticket servicio',28,'delete_tblticketservicio'),(112,'Can view tbl ticket servicio',28,'view_tblticketservicio'),(113,'Can add tbl tipo implemento',29,'add_tbltipoimplemento'),(114,'Can change tbl tipo implemento',29,'change_tbltipoimplemento'),(115,'Can delete tbl tipo implemento',29,'delete_tbltipoimplemento'),(116,'Can view tbl tipo implemento',29,'view_tbltipoimplemento'),(117,'Can add tbl tipo mantenimiento',30,'add_tbltipomantenimiento'),(118,'Can change tbl tipo mantenimiento',30,'change_tbltipomantenimiento'),(119,'Can delete tbl tipo mantenimiento',30,'delete_tbltipomantenimiento'),(120,'Can view tbl tipo mantenimiento',30,'view_tbltipomantenimiento'),(121,'Can add tbl tipo servicio',31,'add_tbltiposervicio'),(122,'Can change tbl tipo servicio',31,'change_tbltiposervicio'),(123,'Can delete tbl tipo servicio',31,'delete_tbltiposervicio'),(124,'Can view tbl tipo servicio',31,'view_tbltiposervicio'),(125,'Can add tbl usuario',32,'add_tblusuario'),(126,'Can change tbl usuario',32,'change_tblusuario'),(127,'Can delete tbl usuario',32,'delete_tblusuario'),(128,'Can view tbl usuario',32,'view_tblusuario'),(129,'Can add auth group',33,'add_authgroup'),(130,'Can change auth group',33,'change_authgroup'),(131,'Can delete auth group',33,'delete_authgroup'),(132,'Can view auth group',33,'view_authgroup'),(133,'Can add auth group permissions',34,'add_authgrouppermissions'),(134,'Can change auth group permissions',34,'change_authgrouppermissions'),(135,'Can delete auth group permissions',34,'delete_authgrouppermissions'),(136,'Can view auth group permissions',34,'view_authgrouppermissions'),(137,'Can add auth permission',35,'add_authpermission'),(138,'Can change auth permission',35,'change_authpermission'),(139,'Can delete auth permission',35,'delete_authpermission'),(140,'Can view auth permission',35,'view_authpermission'),(141,'Can add auth user',36,'add_authuser'),(142,'Can change auth user',36,'change_authuser'),(143,'Can delete auth user',36,'delete_authuser'),(144,'Can view auth user',36,'view_authuser'),(145,'Can add auth user groups',37,'add_authusergroups'),(146,'Can change auth user groups',37,'change_authusergroups'),(147,'Can delete auth user groups',37,'delete_authusergroups'),(148,'Can view auth user groups',37,'view_authusergroups'),(149,'Can add auth user user permissions',38,'add_authuseruserpermissions'),(150,'Can change auth user user permissions',38,'change_authuseruserpermissions'),(151,'Can delete auth user user permissions',38,'delete_authuseruserpermissions'),(152,'Can view auth user user permissions',38,'view_authuseruserpermissions'),(153,'Can add django admin log',39,'add_djangoadminlog'),(154,'Can change django admin log',39,'change_djangoadminlog'),(155,'Can delete django admin log',39,'delete_djangoadminlog'),(156,'Can view django admin log',39,'view_djangoadminlog'),(157,'Can add django content type',40,'add_djangocontenttype'),(158,'Can change django content type',40,'change_djangocontenttype'),(159,'Can delete django content type',40,'delete_djangocontenttype'),(160,'Can view django content type',40,'view_djangocontenttype'),(161,'Can add django migrations',41,'add_djangomigrations'),(162,'Can change django migrations',41,'change_djangomigrations'),(163,'Can delete django migrations',41,'delete_djangomigrations'),(164,'Can view django migrations',41,'view_djangomigrations'),(165,'Can add django session',42,'add_djangosession'),(166,'Can change django session',42,'change_djangosession'),(167,'Can delete django session',42,'delete_djangosession'),(168,'Can view django session',42,'view_djangosession');
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add permission',2,'add_permission'),(6,'Can change permission',2,'change_permission'),(7,'Can delete permission',2,'delete_permission'),(8,'Can view permission',2,'view_permission'),(9,'Can add group',3,'add_group'),(10,'Can change group',3,'change_group'),(11,'Can delete group',3,'delete_group'),(12,'Can view group',3,'view_group'),(13,'Can add user',4,'add_user'),(14,'Can change user',4,'change_user'),(15,'Can delete user',4,'delete_user'),(16,'Can view user',4,'view_user'),(17,'Can add content type',5,'add_contenttype'),(18,'Can change content type',5,'change_contenttype'),(19,'Can delete content type',5,'delete_contenttype'),(20,'Can view content type',5,'view_contenttype'),(21,'Can add session',6,'add_session'),(22,'Can change session',6,'change_session'),(23,'Can delete session',6,'delete_session'),(24,'Can view session',6,'view_session'),(25,'Can add tbl area laboral',7,'add_tblarealaboral'),(26,'Can change tbl area laboral',7,'change_tblarealaboral'),(27,'Can delete tbl area laboral',7,'delete_tblarealaboral'),(28,'Can view tbl area laboral',7,'view_tblarealaboral'),(29,'Can add tbl auxiliar',8,'add_tblauxiliar'),(30,'Can change tbl auxiliar',8,'change_tblauxiliar'),(31,'Can delete tbl auxiliar',8,'delete_tblauxiliar'),(32,'Can view tbl auxiliar',8,'view_tblauxiliar'),(33,'Can add tbl cargo empleado',9,'add_tblcargoempleado'),(34,'Can change tbl cargo empleado',9,'change_tblcargoempleado'),(35,'Can delete tbl cargo empleado',9,'delete_tblcargoempleado'),(36,'Can view tbl cargo empleado',9,'view_tblcargoempleado'),(37,'Can add tbl disponibilidad auxiliar',10,'add_tbldisponibilidadauxiliar'),(38,'Can change tbl disponibilidad auxiliar',10,'change_tbldisponibilidadauxiliar'),(39,'Can delete tbl disponibilidad auxiliar',10,'delete_tbldisponibilidadauxiliar'),(40,'Can view tbl disponibilidad auxiliar',10,'view_tbldisponibilidadauxiliar'),(41,'Can add tbl empleado',11,'add_tblempleado'),(42,'Can change tbl empleado',11,'change_tblempleado'),(43,'Can delete tbl empleado',11,'delete_tblempleado'),(44,'Can view tbl empleado',11,'view_tblempleado'),(45,'Can add tbl estado implemento',12,'add_tblestadoimplemento'),(46,'Can change tbl estado implemento',12,'change_tblestadoimplemento'),(47,'Can delete tbl estado implemento',12,'delete_tblestadoimplemento'),(48,'Can view tbl estado implemento',12,'view_tblestadoimplemento'),(49,'Can add tbl estado mantenimiento',13,'add_tblestadomantenimiento'),(50,'Can change tbl estado mantenimiento',13,'change_tblestadomantenimiento'),(51,'Can delete tbl estado mantenimiento',13,'delete_tblestadomantenimiento'),(52,'Can view tbl estado mantenimiento',13,'view_tblestadomantenimiento'),(53,'Can add tbl estados servicio',14,'add_tblestadosservicio'),(54,'Can change tbl estados servicio',14,'change_tblestadosservicio'),(55,'Can delete tbl estados servicio',14,'delete_tblestadosservicio'),(56,'Can view tbl estados servicio',14,'view_tblestadosservicio'),(57,'Can add tbl implemento',15,'add_tblimplemento'),(58,'Can change tbl implemento',15,'change_tblimplemento'),(59,'Can delete tbl implemento',15,'delete_tblimplemento'),(60,'Can view tbl implemento',15,'view_tblimplemento'),(61,'Can add tbl inventario',16,'add_tblinventario'),(62,'Can change tbl inventario',16,'change_tblinventario'),(63,'Can delete tbl inventario',16,'delete_tblinventario'),(64,'Can view tbl inventario',16,'view_tblinventario'),(65,'Can add tbl mantenimiento',17,'add_tblmantenimiento'),(66,'Can change tbl mantenimiento',17,'change_tblmantenimiento'),(67,'Can delete tbl mantenimiento',17,'delete_tblmantenimiento'),(68,'Can view tbl mantenimiento',17,'view_tblmantenimiento'),(69,'Can add tbl permisos usuario',18,'add_tblpermisosusuario'),(70,'Can change tbl permisos usuario',18,'change_tblpermisosusuario'),(71,'Can delete tbl permisos usuario',18,'delete_tblpermisosusuario'),(72,'Can view tbl permisos usuario',18,'view_tblpermisosusuario'),(73,'Can add tbl position',19,'add_tblposition'),(74,'Can change tbl position',19,'change_tblposition'),(75,'Can delete tbl position',19,'delete_tblposition'),(76,'Can view tbl position',19,'view_tblposition'),(77,'Can add tbl prestamo',20,'add_tblprestamo'),(78,'Can change tbl prestamo',20,'change_tblprestamo'),(79,'Can delete tbl prestamo',20,'delete_tblprestamo'),(80,'Can view tbl prestamo',20,'view_tblprestamo'),(81,'Can add tbl prioridad mantenimiento',21,'add_tblprioridadmantenimiento'),(82,'Can change tbl prioridad mantenimiento',21,'change_tblprioridadmantenimiento'),(83,'Can delete tbl prioridad mantenimiento',21,'delete_tblprioridadmantenimiento'),(84,'Can view tbl prioridad mantenimiento',21,'view_tblprioridadmantenimiento'),(85,'Can add tbl prioridad servicio',22,'add_tblprioridadservicio'),(86,'Can change tbl prioridad servicio',22,'change_tblprioridadservicio'),(87,'Can delete tbl prioridad servicio',22,'delete_tblprioridadservicio'),(88,'Can view tbl prioridad servicio',22,'view_tblprioridadservicio'),(89,'Can add tbl servicio',23,'add_tblservicio'),(90,'Can change tbl servicio',23,'change_tblservicio'),(91,'Can delete tbl servicio',23,'delete_tblservicio'),(92,'Can view tbl servicio',23,'view_tblservicio'),(93,'Can add tbl tipo implemento',24,'add_tbltipoimplemento'),(94,'Can change tbl tipo implemento',24,'change_tbltipoimplemento'),(95,'Can delete tbl tipo implemento',24,'delete_tbltipoimplemento'),(96,'Can view tbl tipo implemento',24,'view_tbltipoimplemento'),(97,'Can add tbl tipo mantenimiento',25,'add_tbltipomantenimiento'),(98,'Can change tbl tipo mantenimiento',25,'change_tbltipomantenimiento'),(99,'Can delete tbl tipo mantenimiento',25,'delete_tbltipomantenimiento'),(100,'Can view tbl tipo mantenimiento',25,'view_tbltipomantenimiento'),(101,'Can add tbl tipo servicio',26,'add_tbltiposervicio'),(102,'Can change tbl tipo servicio',26,'change_tbltiposervicio'),(103,'Can delete tbl tipo servicio',26,'delete_tbltiposervicio'),(104,'Can view tbl tipo servicio',26,'view_tbltiposervicio'),(105,'Can add tbl usuario',27,'add_tblusuario'),(106,'Can change tbl usuario',27,'change_tblusuario'),(107,'Can delete tbl usuario',27,'delete_tblusuario'),(108,'Can view tbl usuario',27,'view_tblusuario'),(109,'Can add tbl ticket servicio',28,'add_tblticketservicio'),(110,'Can change tbl ticket servicio',28,'change_tblticketservicio'),(111,'Can delete tbl ticket servicio',28,'delete_tblticketservicio'),(112,'Can view tbl ticket servicio',28,'view_tblticketservicio'),(113,'Can add tbl ticket mantenimiento',29,'add_tblticketmantenimiento'),(114,'Can change tbl ticket mantenimiento',29,'change_tblticketmantenimiento'),(115,'Can delete tbl ticket mantenimiento',29,'delete_tblticketmantenimiento'),(116,'Can view tbl ticket mantenimiento',29,'view_tblticketmantenimiento'),(117,'Can add tbl soporte tecnico',30,'add_tblsoportetecnico'),(118,'Can change tbl soporte tecnico',30,'change_tblsoportetecnico'),(119,'Can delete tbl soporte tecnico',30,'delete_tblsoportetecnico'),(120,'Can view tbl soporte tecnico',30,'view_tblsoportetecnico'),(121,'Can add tbl prestamos tecnologicos',31,'add_tblprestamostecnologicos'),(122,'Can change tbl prestamos tecnologicos',31,'change_tblprestamostecnologicos'),(123,'Can delete tbl prestamos tecnologicos',31,'delete_tblprestamostecnologicos'),(124,'Can view tbl prestamos tecnologicos',31,'view_tblprestamostecnologicos'),(125,'Can add tbl coordinador',32,'add_tblcoordinador'),(126,'Can change tbl coordinador',32,'change_tblcoordinador'),(127,'Can delete tbl coordinador',32,'delete_tblcoordinador'),(128,'Can view tbl coordinador',32,'view_tblcoordinador');
 /*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +116,7 @@ CREATE TABLE `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,6 +125,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$216000$JvY89nG19gAq$aYHC6CTc5icjUK8Xh4XZNlM6hKCLzURryfVC+xabxBk=',NULL,0,'james@gmail.com','james',' thomas','',0,1,'2020-09-07 02:26:51.857655'),(4,'pbkdf2_sha256$216000$6zRzUIvnrlKv$evWSJYL86o9ODV201ap4DyzW0CeZy/Wx33Zvfq4ew2A=','2020-09-08 03:14:59.205618',1,'sango09','','','santiagofl123@gmail.com',1,1,'2020-09-07 04:05:13.830561'),(5,'pbkdf2_sha256$216000$GTBabB70Y1Av$r0yDgX+failDbALSZNTBtbhEhAgTkpmgUFCuyuZ4tfc=',NULL,0,'cruz@gmail.com','name','vargas cruz','',0,1,'2020-09-08 01:32:12.782707'),(6,'pbkdf2_sha256$216000$3aGPuAbkL4xk$ck9gMk5n22cGiWbJBQo/FNjAIxJ7aeNHZn+hsB8YNqw=',NULL,0,'ordoñez@gmail.com','name','ordoñez','ordoñez@gmail.com',0,1,'2020-09-08 02:13:33.439324'),(7,'pbkdf2_sha256$216000$KxjlhBzvxhHH$Z/DIQGerfpkobvXAQ52KWM9UX9sQuRJnmKVuAEb6yF8=',NULL,0,'camacho@gmail.com','name','ordoñez camacho','camacho@gmail.com',0,1,'2020-09-08 02:15:15.424522'),(8,'pbkdf2_sha256$216000$v7OkLQYb5lYo$wgl9QkbQqJXTXz8b4Q15jtOt5ljPCJyFv97tYCyFw78=',NULL,0,'sango@cgb.edu.co','santiago','gomez florez','sango@cgb.edu.co',0,1,'2020-09-08 03:01:06.699018'),(9,'pbkdf2_sha256$216000$UMqWFdtPUU08$f7IaKPTYspLp8JXAUroDdUTCOXNLyzYkRT6XtnxOYIk=',NULL,0,'juan@admin.edu.co','juan pablo','ardila ','juan@admin.edu.co',0,1,'2020-09-08 03:02:36.008523');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +145,7 @@ CREATE TABLE `auth_user_groups` (
   KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`),
   CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
   CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +173,7 @@ CREATE TABLE `auth_user_user_permissions` (
   KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`),
   CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
   CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,7 +207,7 @@ CREATE TABLE `django_admin_log` (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
   CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +232,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +241,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(3,'auth','group'),(2,'auth','permission'),(4,'auth','user'),(5,'contenttypes','contenttype'),(33,'links','authgroup'),(34,'links','authgrouppermissions'),(35,'links','authpermission'),(36,'links','authuser'),(37,'links','authusergroups'),(38,'links','authuseruserpermissions'),(39,'links','djangoadminlog'),(40,'links','djangocontenttype'),(41,'links','djangomigrations'),(42,'links','djangosession'),(7,'links','tblarealaboral'),(8,'links','tblauxiliar'),(9,'links','tblcargoempleado'),(10,'links','tblcoordinador'),(11,'links','tbldisponibilidadauxiliar'),(12,'links','tblempleado'),(13,'links','tblestadoimplemento'),(14,'links','tblestadomantenimiento'),(15,'links','tblestadosservicio'),(16,'links','tblimplemento'),(17,'links','tblinventario'),(18,'links','tblmantenimiento'),(19,'links','tblpermisosusuario'),(20,'links','tblprestamo'),(21,'links','tblprestamostecnologicos'),(22,'links','tblprioridadmantenimiento'),(23,'links','tblprioridadservicio'),(24,'links','tblrolusuario'),(25,'links','tblservicio'),(26,'links','tblsoportetecnico'),(27,'links','tblticketmantenimiento'),(28,'links','tblticketservicio'),(29,'links','tbltipoimplemento'),(30,'links','tbltipomantenimiento'),(31,'links','tbltiposervicio'),(32,'links','tblusuario'),(6,'sessions','session');
+INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(3,'auth','group'),(2,'auth','permission'),(4,'auth','user'),(5,'contenttypes','contenttype'),(7,'links','tblarealaboral'),(8,'links','tblauxiliar'),(9,'links','tblcargoempleado'),(32,'links','tblcoordinador'),(10,'links','tbldisponibilidadauxiliar'),(11,'links','tblempleado'),(12,'links','tblestadoimplemento'),(13,'links','tblestadomantenimiento'),(14,'links','tblestadosservicio'),(15,'links','tblimplemento'),(16,'links','tblinventario'),(17,'links','tblmantenimiento'),(18,'links','tblpermisosusuario'),(19,'links','tblposition'),(20,'links','tblprestamo'),(31,'links','tblprestamostecnologicos'),(21,'links','tblprioridadmantenimiento'),(22,'links','tblprioridadservicio'),(23,'links','tblservicio'),(30,'links','tblsoportetecnico'),(29,'links','tblticketmantenimiento'),(28,'links','tblticketservicio'),(24,'links','tbltipoimplemento'),(25,'links','tbltipomantenimiento'),(26,'links','tbltiposervicio'),(27,'links','tblusuario'),(6,'sessions','session');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,7 +258,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -266,7 +267,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2020-08-29 02:38:43.372762'),(2,'auth','0001_initial','2020-08-29 02:38:43.617872'),(3,'admin','0001_initial','2020-08-29 02:38:44.698094'),(4,'admin','0002_logentry_remove_auto_add','2020-08-29 02:38:44.913120'),(5,'admin','0003_logentry_add_action_flag_choices','2020-08-29 02:38:44.928737'),(6,'contenttypes','0002_remove_content_type_name','2020-08-29 02:38:45.059440'),(7,'auth','0002_alter_permission_name_max_length','2020-08-29 02:38:45.147037'),(8,'auth','0003_alter_user_email_max_length','2020-08-29 02:38:45.246441'),(9,'auth','0004_alter_user_username_opts','2020-08-29 02:38:45.261484'),(10,'auth','0005_alter_user_last_login_null','2020-08-29 02:38:45.331800'),(11,'auth','0006_require_contenttypes_0002','2020-08-29 02:38:45.336390'),(12,'auth','0007_alter_validators_add_error_messages','2020-08-29 02:38:45.352103'),(13,'auth','0008_alter_user_username_max_length','2020-08-29 02:38:45.445260'),(14,'auth','0009_alter_user_last_name_max_length','2020-08-29 02:38:45.528174'),(15,'auth','0010_alter_group_name_max_length','2020-08-29 02:38:45.685672'),(16,'auth','0011_update_proxy_permissions','2020-08-29 02:38:45.706728'),(17,'auth','0012_alter_user_first_name_max_length','2020-08-29 02:38:45.811823'),(18,'links','0001_initial','2020-08-29 02:38:45.853120'),(19,'sessions','0001_initial','2020-08-29 02:38:45.892865'),(20,'links','0002_auto_20200829_0242','2020-08-29 02:42:57.573086'),(21,'links','0002_auto_20200829_0250','2020-08-29 02:50:26.524831'),(22,'links','0002_auto_20200829_0306','2020-08-29 03:06:50.574352');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2020-09-07 01:48:36.041386'),(2,'auth','0001_initial','2020-09-07 01:48:36.219059'),(3,'admin','0001_initial','2020-09-07 01:48:36.625380'),(4,'admin','0002_logentry_remove_auto_add','2020-09-07 01:48:36.763217'),(5,'admin','0003_logentry_add_action_flag_choices','2020-09-07 01:48:36.772222'),(6,'contenttypes','0002_remove_content_type_name','2020-09-07 01:48:36.921357'),(7,'auth','0002_alter_permission_name_max_length','2020-09-07 01:48:36.978899'),(8,'auth','0003_alter_user_email_max_length','2020-09-07 01:48:37.004937'),(9,'auth','0004_alter_user_username_opts','2020-09-07 01:48:37.012029'),(10,'auth','0005_alter_user_last_login_null','2020-09-07 01:48:37.061456'),(11,'auth','0006_require_contenttypes_0002','2020-09-07 01:48:37.065485'),(12,'auth','0007_alter_validators_add_error_messages','2020-09-07 01:48:37.074213'),(13,'auth','0008_alter_user_username_max_length','2020-09-07 01:48:37.183235'),(14,'auth','0009_alter_user_last_name_max_length','2020-09-07 01:48:37.239486'),(15,'auth','0010_alter_group_name_max_length','2020-09-07 01:48:37.263644'),(16,'auth','0011_update_proxy_permissions','2020-09-07 01:48:37.272737'),(17,'auth','0012_alter_user_first_name_max_length','2020-09-07 01:48:37.355403'),(18,'links','0001_initial','2020-09-07 01:48:38.610934'),(19,'sessions','0001_initial','2020-09-07 01:48:40.039034'),(20,'links','0002_auto_20200908_0214','2020-09-08 02:14:25.365129');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,7 +284,7 @@ CREATE TABLE `django_session` (
   `expire_date` datetime(6) NOT NULL,
   PRIMARY KEY (`session_key`),
   KEY `django_session_expire_date_a5c62663` (`expire_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -303,10 +304,10 @@ DROP TABLE IF EXISTS `tbl_area_laboral`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_area_laboral` (
-  `id_area_laboral` int NOT NULL,
+  `id_area_laboral` int NOT NULL AUTO_INCREMENT,
   `area_laboral` varchar(45) NOT NULL,
   PRIMARY KEY (`id_area_laboral`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -326,17 +327,16 @@ DROP TABLE IF EXISTS `tbl_auxiliar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_auxiliar` (
-  `id_auxiliar` int NOT NULL,
+  `id_auxiliar` int NOT NULL AUTO_INCREMENT,
   `calificacion_auxiliar` decimal(2,0) NOT NULL,
-  `id_usuario` int NOT NULL,
   `id_disponibilidad_auxiliar` int NOT NULL,
+  `id_usuario` int NOT NULL,
   PRIMARY KEY (`id_auxiliar`),
-  UNIQUE KEY `id_auxiliar_UNIQUE` (`id_auxiliar`),
-  KEY `id_disponibilidad_auxiliar_idx` (`id_disponibilidad_auxiliar`),
-  KEY `id_usuario_idx` (`id_usuario`),
-  CONSTRAINT `fk_id_auxiliar` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`),
-  CONSTRAINT `fk_id_disponibilidad_auxiliar` FOREIGN KEY (`id_disponibilidad_auxiliar`) REFERENCES `tbl_disponibilidad_auxiliar` (`id_disponibilidad_auxiliar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_auxiliar_id_disponibilidad_au_5ef778db_fk_tbl_dispo` (`id_disponibilidad_auxiliar`),
+  KEY `tbl_auxiliar_id_usuario_118d48f1_fk_tbl_usuario_id_usuario` (`id_usuario`),
+  CONSTRAINT `tbl_auxiliar_id_disponibilidad_au_5ef778db_fk_tbl_dispo` FOREIGN KEY (`id_disponibilidad_auxiliar`) REFERENCES `tbl_disponibilidad_auxiliar` (`id_disponibilidad_auxiliar`),
+  CONSTRAINT `tbl_auxiliar_id_usuario_118d48f1_fk_tbl_usuario_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -356,11 +356,10 @@ DROP TABLE IF EXISTS `tbl_cargo_empleado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_cargo_empleado` (
-  `id_cargo` int NOT NULL,
+  `id_cargo` int NOT NULL AUTO_INCREMENT,
   `cargo_empleado` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_cargo`),
-  UNIQUE KEY `id_cargo_UNIQUE` (`id_cargo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_cargo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -380,13 +379,12 @@ DROP TABLE IF EXISTS `tbl_coordinador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_coordinador` (
-  `id_coordinador` int NOT NULL,
+  `id_coordinador` int NOT NULL AUTO_INCREMENT,
   `id_usuario` int NOT NULL,
   PRIMARY KEY (`id_coordinador`),
-  UNIQUE KEY `id_coordinador_UNIQUE` (`id_coordinador`),
-  KEY `rol_usuario_idx` (`id_usuario`),
-  CONSTRAINT `fk_rol_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_coordinador_id_usuario_7957d338_fk_tbl_usuario_id_usuario` (`id_usuario`),
+  CONSTRAINT `tbl_coordinador_id_usuario_7957d338_fk_tbl_usuario_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -406,11 +404,10 @@ DROP TABLE IF EXISTS `tbl_disponibilidad_auxiliar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_disponibilidad_auxiliar` (
-  `id_disponibilidad_auxiliar` int NOT NULL,
+  `id_disponibilidad_auxiliar` int NOT NULL AUTO_INCREMENT,
   `disponibilidad` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_disponibilidad_auxiliar`),
-  UNIQUE KEY `id_disponibilidad_auxiliar_UNIQUE` (`id_disponibilidad_auxiliar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_disponibilidad_auxiliar`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -430,19 +427,18 @@ DROP TABLE IF EXISTS `tbl_empleado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_empleado` (
-  `id_empleado` int NOT NULL,
-  `id_usuario` int NOT NULL,
-  `id_cargo` int NOT NULL,
+  `id_empleado` int NOT NULL AUTO_INCREMENT,
   `id_area_laboral` int NOT NULL,
+  `id_cargo` int NOT NULL,
+  `id_usuario` int NOT NULL,
   PRIMARY KEY (`id_empleado`),
-  UNIQUE KEY `id_empleado_UNIQUE` (`id_empleado`),
-  KEY `id_area_laboral_idx` (`id_area_laboral`),
-  KEY `id_cargo_empleado_idx` (`id_cargo`),
-  KEY `id_rol_usuario_idx` (`id_usuario`),
-  CONSTRAINT `fk_area_laboral` FOREIGN KEY (`id_area_laboral`) REFERENCES `tbl_area_laboral` (`id_area_laboral`),
-  CONSTRAINT `fk_cargo_empleado` FOREIGN KEY (`id_cargo`) REFERENCES `tbl_cargo_empleado` (`id_cargo`),
-  CONSTRAINT `fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_empleado_id_usuario_d69822f8_fk_tbl_usuario_id_usuario` (`id_usuario`),
+  KEY `tbl_empleado_id_area_laboral_6c67b900_fk_tbl_area_` (`id_area_laboral`),
+  KEY `tbl_empleado_id_cargo_1c869e35_fk_tbl_cargo_empleado_id_cargo` (`id_cargo`),
+  CONSTRAINT `tbl_empleado_id_area_laboral_6c67b900_fk_tbl_area_` FOREIGN KEY (`id_area_laboral`) REFERENCES `tbl_area_laboral` (`id_area_laboral`),
+  CONSTRAINT `tbl_empleado_id_cargo_1c869e35_fk_tbl_cargo_empleado_id_cargo` FOREIGN KEY (`id_cargo`) REFERENCES `tbl_cargo_empleado` (`id_cargo`),
+  CONSTRAINT `tbl_empleado_id_usuario_d69822f8_fk_tbl_usuario_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -462,10 +458,10 @@ DROP TABLE IF EXISTS `tbl_estado_implemento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_estado_implemento` (
-  `id_estado_implemento` int NOT NULL,
+  `id_estado_implemento` int NOT NULL AUTO_INCREMENT,
   `estado_implemento` varchar(45) NOT NULL,
   PRIMARY KEY (`id_estado_implemento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -485,11 +481,10 @@ DROP TABLE IF EXISTS `tbl_estado_mantenimiento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_estado_mantenimiento` (
-  `id_estado_mantenimiento` int NOT NULL,
+  `id_estado_mantenimiento` int NOT NULL AUTO_INCREMENT,
   `estado_mantenimiento` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_estado_mantenimiento`),
-  UNIQUE KEY `id_estado_mantenimiento_UNIQUE` (`id_estado_mantenimiento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_estado_mantenimiento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -509,11 +504,10 @@ DROP TABLE IF EXISTS `tbl_estados_servicio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_estados_servicio` (
-  `id_estado_servicio` int NOT NULL,
+  `id_estado_servicio` int NOT NULL AUTO_INCREMENT,
   `estado_servicio` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_estado_servicio`),
-  UNIQUE KEY `id_estado_servicio_UNIQUE` (`id_estado_servicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_estado_servicio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -533,24 +527,23 @@ DROP TABLE IF EXISTS `tbl_implemento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_implemento` (
-  `id_ficha_tecnica_implemento` int NOT NULL,
+  `id_ficha_tecnica_implemento` int NOT NULL AUTO_INCREMENT,
   `marca_implemento` varchar(45) NOT NULL,
   `modelo_implemento` varchar(45) NOT NULL,
   `referencia_implemento` varchar(45) DEFAULT NULL,
-  `id_tipo_implemento` int NOT NULL,
   `cantidad_memoria` varchar(45) DEFAULT NULL,
   `procesador` varchar(45) DEFAULT NULL,
   `sistema_operativo` varchar(45) DEFAULT NULL,
-  `perifericos` text,
-  `comentario` text,
+  `perifericos` longtext,
+  `comentario` longtext,
   `id_estado_implemento` int NOT NULL,
+  `id_tipo_implemento` int NOT NULL,
   PRIMARY KEY (`id_ficha_tecnica_implemento`),
-  UNIQUE KEY `id_ficha_tecnica_implemento_UNIQUE` (`id_ficha_tecnica_implemento`),
-  KEY `fk_tipo_implemento_idx` (`id_tipo_implemento`),
-  KEY `fk_estado_implemento_idx` (`id_estado_implemento`),
-  CONSTRAINT `fk_estado_implemento` FOREIGN KEY (`id_estado_implemento`) REFERENCES `tbl_estado_implemento` (`id_estado_implemento`),
-  CONSTRAINT `fk_tipo_implemento` FOREIGN KEY (`id_tipo_implemento`) REFERENCES `tbl_tipo_implemento` (`id_tipo_implemento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_implemento_id_tipo_implemento_1ca8fb1e_fk_tbl_tipo_` (`id_tipo_implemento`),
+  KEY `tbl_implemento_id_estado_implemento_5611fc3a_fk_tbl_estad` (`id_estado_implemento`),
+  CONSTRAINT `tbl_implemento_id_estado_implemento_5611fc3a_fk_tbl_estad` FOREIGN KEY (`id_estado_implemento`) REFERENCES `tbl_estado_implemento` (`id_estado_implemento`),
+  CONSTRAINT `tbl_implemento_id_tipo_implemento_1ca8fb1e_fk_tbl_tipo_` FOREIGN KEY (`id_tipo_implemento`) REFERENCES `tbl_tipo_implemento` (`id_tipo_implemento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -570,16 +563,15 @@ DROP TABLE IF EXISTS `tbl_inventario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_inventario` (
-  `id_inventario` int NOT NULL,
-  `id_ficha_tecnica` int NOT NULL,
+  `id_inventario` int NOT NULL AUTO_INCREMENT,
   `serial_implemento` varchar(45) NOT NULL,
-  `descripcion_implemento` text NOT NULL,
+  `descripcion_implemento` longtext NOT NULL,
+  `id_ficha_tecnica` int NOT NULL,
   PRIMARY KEY (`id_inventario`),
-  UNIQUE KEY `id_inventario_UNIQUE` (`id_inventario`),
-  UNIQUE KEY `serial_implemento_UNIQUE` (`serial_implemento`),
-  KEY `id_ficha_tecnica_idx` (`id_ficha_tecnica`),
-  CONSTRAINT `fk_id_ficha_inventario` FOREIGN KEY (`id_ficha_tecnica`) REFERENCES `tbl_implemento` (`id_ficha_tecnica_implemento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  UNIQUE KEY `serial_implemento` (`serial_implemento`),
+  KEY `tbl_inventario_id_ficha_tecnica_49c0a672_fk_tbl_imple` (`id_ficha_tecnica`),
+  CONSTRAINT `tbl_inventario_id_ficha_tecnica_49c0a672_fk_tbl_imple` FOREIGN KEY (`id_ficha_tecnica`) REFERENCES `tbl_implemento` (`id_ficha_tecnica_implemento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -599,28 +591,27 @@ DROP TABLE IF EXISTS `tbl_mantenimiento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_mantenimiento` (
-  `id_mantenimiento` int NOT NULL,
+  `id_mantenimiento` int NOT NULL AUTO_INCREMENT,
   `area_mantenimiento` varchar(45) NOT NULL,
   `fecha_mantenimiento` date NOT NULL,
-  `hora_mantenimiento` time NOT NULL,
-  `id_inventario` int NOT NULL,
+  `hora_mantenimiento` time(6) NOT NULL,
   `id_auxiliar` int NOT NULL,
-  `id_tipo_mantenimiento` int NOT NULL,
-  `id_prioridad_mantenimiento` int NOT NULL,
   `id_estado_mantenimiento` int NOT NULL,
+  `id_inventario` int NOT NULL,
+  `id_prioridad_mantenimiento` int NOT NULL,
+  `id_tipo_mantenimiento` int NOT NULL,
   PRIMARY KEY (`id_mantenimiento`),
-  UNIQUE KEY `id_mantenimiento_UNIQUE` (`id_mantenimiento`),
-  KEY `id_auxiliar_mantenimiento_idx` (`id_auxiliar`),
-  KEY `id_estado_mantenimiento_idx` (`id_estado_mantenimiento`),
-  KEY `id_tipo_mantenimiento_idx` (`id_tipo_mantenimiento`),
-  KEY `id_prioridad_mantenimiento_idx` (`id_prioridad_mantenimiento`),
-  KEY `id_inventario_idx` (`id_inventario`),
-  CONSTRAINT `fk_id_auxiliar_mantenimiento` FOREIGN KEY (`id_auxiliar`) REFERENCES `tbl_auxiliar` (`id_auxiliar`),
-  CONSTRAINT `fk_id_estado_mantenimiento` FOREIGN KEY (`id_estado_mantenimiento`) REFERENCES `tbl_estado_mantenimiento` (`id_estado_mantenimiento`),
-  CONSTRAINT `fk_id_inventario` FOREIGN KEY (`id_inventario`) REFERENCES `tbl_inventario` (`id_inventario`),
-  CONSTRAINT `fk_id_prioridad_mantenimiento` FOREIGN KEY (`id_prioridad_mantenimiento`) REFERENCES `tbl_prioridad_mantenimiento` (`id_prioridad_mantenimiento`),
-  CONSTRAINT `fk_id_tipo_mantenimiento` FOREIGN KEY (`id_tipo_mantenimiento`) REFERENCES `tbl_tipo_mantenimiento` (`id_tipo_mantenimiento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_mantenimiento_id_prioridad_manteni_77740536_fk_tbl_prior` (`id_prioridad_mantenimiento`),
+  KEY `tbl_mantenimiento_id_tipo_mantenimient_8d3955cd_fk_tbl_tipo_` (`id_tipo_mantenimiento`),
+  KEY `tbl_mantenimiento_id_auxiliar_30df34cc_fk_tbl_auxil` (`id_auxiliar`),
+  KEY `tbl_mantenimiento_id_estado_mantenimie_231ba7da_fk_tbl_estad` (`id_estado_mantenimiento`),
+  KEY `tbl_mantenimiento_id_inventario_979da024_fk_tbl_inven` (`id_inventario`),
+  CONSTRAINT `tbl_mantenimiento_id_auxiliar_30df34cc_fk_tbl_auxil` FOREIGN KEY (`id_auxiliar`) REFERENCES `tbl_auxiliar` (`id_auxiliar`),
+  CONSTRAINT `tbl_mantenimiento_id_estado_mantenimie_231ba7da_fk_tbl_estad` FOREIGN KEY (`id_estado_mantenimiento`) REFERENCES `tbl_estado_mantenimiento` (`id_estado_mantenimiento`),
+  CONSTRAINT `tbl_mantenimiento_id_inventario_979da024_fk_tbl_inven` FOREIGN KEY (`id_inventario`) REFERENCES `tbl_inventario` (`id_inventario`),
+  CONSTRAINT `tbl_mantenimiento_id_prioridad_manteni_77740536_fk_tbl_prior` FOREIGN KEY (`id_prioridad_mantenimiento`) REFERENCES `tbl_prioridad_mantenimiento` (`id_prioridad_mantenimiento`),
+  CONSTRAINT `tbl_mantenimiento_id_tipo_mantenimient_8d3955cd_fk_tbl_tipo_` FOREIGN KEY (`id_tipo_mantenimiento`) REFERENCES `tbl_tipo_mantenimiento` (`id_tipo_mantenimiento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -640,12 +631,11 @@ DROP TABLE IF EXISTS `tbl_permisos_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_permisos_usuario` (
-  `id_permisos_usuario` int NOT NULL,
-  `permiso` text NOT NULL,
-  `url_dashboard` text NOT NULL,
-  PRIMARY KEY (`id_permisos_usuario`),
-  UNIQUE KEY `id_permisos_usuario_UNIQUE` (`id_permisos_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_permisos_usuario` int NOT NULL AUTO_INCREMENT,
+  `permiso` longtext NOT NULL,
+  `url_dashboard` longtext NOT NULL,
+  PRIMARY KEY (`id_permisos_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -658,6 +648,30 @@ LOCK TABLES `tbl_permisos_usuario` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_position`
+--
+
+DROP TABLE IF EXISTS `tbl_position`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_position` (
+  `id_position` int NOT NULL AUTO_INCREMENT,
+  `position` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_position`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_position`
+--
+
+LOCK TABLES `tbl_position` WRITE;
+/*!40000 ALTER TABLE `tbl_position` DISABLE KEYS */;
+INSERT INTO `tbl_position` VALUES (1,'Coordinador'),(2,'Auxiliar de sistemas'),(3,'Personal administrativo'),(4,'Profesor');
+/*!40000 ALTER TABLE `tbl_position` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_prestamo`
 --
 
@@ -665,18 +679,17 @@ DROP TABLE IF EXISTS `tbl_prestamo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_prestamo` (
-  `id_inventario_prestamo` int NOT NULL,
-  `id_ficha_tecnica` int NOT NULL,
+  `id_inventario_prestamo` int NOT NULL AUTO_INCREMENT,
   `cantidad` int NOT NULL,
   `cantidad_disponible` int NOT NULL,
   `cantidad_en_prestamo` int NOT NULL,
-  `fecha_entrada` datetime NOT NULL,
-  `fecha_devolucion` datetime NOT NULL,
+  `fecha_entrada` datetime(6) NOT NULL,
+  `fecha_devolucion` datetime(6) NOT NULL,
+  `id_ficha_tecnica` int NOT NULL,
   PRIMARY KEY (`id_inventario_prestamo`),
-  UNIQUE KEY `id_inventario_prestamo_UNIQUE` (`id_inventario_prestamo`),
-  KEY `id_ficha_tecnica_idx` (`id_ficha_tecnica`),
-  CONSTRAINT `fk_id_ficha_prestamo` FOREIGN KEY (`id_ficha_tecnica`) REFERENCES `tbl_implemento` (`id_ficha_tecnica_implemento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_prestamo_id_ficha_tecnica_f146e081_fk_tbl_imple` (`id_ficha_tecnica`),
+  CONSTRAINT `tbl_prestamo_id_ficha_tecnica_f146e081_fk_tbl_imple` FOREIGN KEY (`id_ficha_tecnica`) REFERENCES `tbl_implemento` (`id_ficha_tecnica_implemento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -696,17 +709,16 @@ DROP TABLE IF EXISTS `tbl_prestamos_tecnologicos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_prestamos_tecnologicos` (
-  `id_prestamos_tecnologicos` int NOT NULL,
-  `id_inventario_prestamo` int NOT NULL,
+  `id_prestamos_tecnologicos` int NOT NULL AUTO_INCREMENT,
   `cantidad_requerida` int NOT NULL,
+  `id_inventario_prestamo` int NOT NULL,
   `id_ticket` int NOT NULL,
   PRIMARY KEY (`id_prestamos_tecnologicos`),
-  UNIQUE KEY `id_prestamos_tecnologicos_UNIQUE` (`id_prestamos_tecnologicos`),
-  KEY `id_ticket_prestamo_idx` (`id_ticket`),
-  KEY `id_inventario_prestamo_idx` (`id_inventario_prestamo`),
-  CONSTRAINT `fk_id_inventario_prestamo` FOREIGN KEY (`id_inventario_prestamo`) REFERENCES `tbl_prestamo` (`id_inventario_prestamo`),
-  CONSTRAINT `fk_id_ticket_prestamo` FOREIGN KEY (`id_ticket`) REFERENCES `tbl_ticket_servicio` (`id_ticket_servicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_prestamos_tecnol_id_inventario_presta_39b337eb_fk_tbl_prest` (`id_inventario_prestamo`),
+  KEY `tbl_prestamos_tecnol_id_ticket_11ac5188_fk_tbl_ticke` (`id_ticket`),
+  CONSTRAINT `tbl_prestamos_tecnol_id_inventario_presta_39b337eb_fk_tbl_prest` FOREIGN KEY (`id_inventario_prestamo`) REFERENCES `tbl_prestamo` (`id_inventario_prestamo`),
+  CONSTRAINT `tbl_prestamos_tecnol_id_ticket_11ac5188_fk_tbl_ticke` FOREIGN KEY (`id_ticket`) REFERENCES `tbl_ticket_servicio` (`id_ticket_servicio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -726,10 +738,10 @@ DROP TABLE IF EXISTS `tbl_prioridad_mantenimiento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_prioridad_mantenimiento` (
-  `id_prioridad_mantenimiento` int NOT NULL,
+  `id_prioridad_mantenimiento` int NOT NULL AUTO_INCREMENT,
   `prioridad` varchar(45) NOT NULL,
   PRIMARY KEY (`id_prioridad_mantenimiento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -749,11 +761,10 @@ DROP TABLE IF EXISTS `tbl_prioridad_servicio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_prioridad_servicio` (
-  `id_prioridad` int NOT NULL,
+  `id_prioridad` int NOT NULL AUTO_INCREMENT,
   `prioridad` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_prioridad`),
-  UNIQUE KEY `id_prioridad_UNIQUE` (`id_prioridad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_prioridad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -766,32 +777,6 @@ LOCK TABLES `tbl_prioridad_servicio` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbl_rol_usuario`
---
-
-DROP TABLE IF EXISTS `tbl_rol_usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbl_rol_usuario` (
-  `id_rol_usuario` int NOT NULL,
-  `rol_usuario` varchar(25) NOT NULL,
-  `id_permisos_usuario` int NOT NULL,
-  PRIMARY KEY (`id_rol_usuario`),
-  KEY `fk_permisos_usuario_idx` (`id_permisos_usuario`),
-  CONSTRAINT `fk_permisos_usuario` FOREIGN KEY (`id_permisos_usuario`) REFERENCES `andromeda`.`tbl_permisos_usuario` (`id_permisos_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tbl_rol_usuario`
---
-
-LOCK TABLES `tbl_rol_usuario` WRITE;
-/*!40000 ALTER TABLE `tbl_rol_usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tbl_rol_usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tbl_servicio`
 --
 
@@ -799,28 +784,27 @@ DROP TABLE IF EXISTS `tbl_servicio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_servicio` (
-  `id_servicio` int NOT NULL,
-  `id_empleado` int NOT NULL,
-  `id_tipo_servicio` int NOT NULL,
-  `id_prioridad_servicio` int NOT NULL,
+  `id_servicio` int NOT NULL AUTO_INCREMENT,
   `fecha_servicio` date NOT NULL,
-  `hora_servicio` time NOT NULL,
-  `descripcion_servicio` text,
+  `hora_servicio` time(6) NOT NULL,
+  `descripcion_servicio` longtext,
   `id_auxiliar` int NOT NULL,
+  `id_empleado` int NOT NULL,
   `id_estado_servicio` int NOT NULL,
+  `id_prioridad_servicio` int NOT NULL,
+  `id_tipo_servicio` int NOT NULL,
   PRIMARY KEY (`id_servicio`),
-  UNIQUE KEY `id_servicio_UNIQUE` (`id_servicio`),
-  KEY `id_tipo_servicio_idx` (`id_tipo_servicio`),
-  KEY `id_auxiliar_servicio_idx` (`id_auxiliar`),
-  KEY `id_prioridad_servicio_idx` (`id_prioridad_servicio`),
-  KEY `id_empleado_servicio_idx` (`id_empleado`),
-  KEY `id_estado_servicio_idx` (`id_estado_servicio`),
-  CONSTRAINT `fk_id_auxiliar_servicio` FOREIGN KEY (`id_auxiliar`) REFERENCES `tbl_auxiliar` (`id_auxiliar`),
-  CONSTRAINT `fk_id_empleado_servicio` FOREIGN KEY (`id_empleado`) REFERENCES `tbl_empleado` (`id_empleado`),
-  CONSTRAINT `fk_id_estado_servicio` FOREIGN KEY (`id_estado_servicio`) REFERENCES `tbl_estados_servicio` (`id_estado_servicio`),
-  CONSTRAINT `fk_id_prioridad_servicio` FOREIGN KEY (`id_prioridad_servicio`) REFERENCES `tbl_prioridad_servicio` (`id_prioridad`),
-  CONSTRAINT `fk_id_tipo_servicio` FOREIGN KEY (`id_tipo_servicio`) REFERENCES `tbl_tipo_servicio` (`id_tipo_servicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_servicio_id_tipo_servicio_209f77e0_fk_tbl_tipo_` (`id_tipo_servicio`),
+  KEY `tbl_servicio_id_auxiliar_c289031a_fk_tbl_auxiliar_id_auxiliar` (`id_auxiliar`),
+  KEY `tbl_servicio_id_empleado_27dd5e72_fk_tbl_empleado_id_empleado` (`id_empleado`),
+  KEY `tbl_servicio_id_estado_servicio_256ed418_fk_tbl_estad` (`id_estado_servicio`),
+  KEY `tbl_servicio_id_prioridad_servici_5159f669_fk_tbl_prior` (`id_prioridad_servicio`),
+  CONSTRAINT `tbl_servicio_id_auxiliar_c289031a_fk_tbl_auxiliar_id_auxiliar` FOREIGN KEY (`id_auxiliar`) REFERENCES `tbl_auxiliar` (`id_auxiliar`),
+  CONSTRAINT `tbl_servicio_id_empleado_27dd5e72_fk_tbl_empleado_id_empleado` FOREIGN KEY (`id_empleado`) REFERENCES `tbl_empleado` (`id_empleado`),
+  CONSTRAINT `tbl_servicio_id_estado_servicio_256ed418_fk_tbl_estad` FOREIGN KEY (`id_estado_servicio`) REFERENCES `tbl_estados_servicio` (`id_estado_servicio`),
+  CONSTRAINT `tbl_servicio_id_prioridad_servici_5159f669_fk_tbl_prior` FOREIGN KEY (`id_prioridad_servicio`) REFERENCES `tbl_prioridad_servicio` (`id_prioridad`),
+  CONSTRAINT `tbl_servicio_id_tipo_servicio_209f77e0_fk_tbl_tipo_` FOREIGN KEY (`id_tipo_servicio`) REFERENCES `tbl_tipo_servicio` (`id_tipo_servicio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -840,12 +824,12 @@ DROP TABLE IF EXISTS `tbl_soporte_tecnico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_soporte_tecnico` (
-  `id_soporte_tecnico` int NOT NULL,
+  `id_soporte_tecnico` int NOT NULL AUTO_INCREMENT,
   `id_ticket` int NOT NULL,
   PRIMARY KEY (`id_soporte_tecnico`),
-  KEY `id_ticket_soporte_idx` (`id_ticket`),
-  CONSTRAINT `fk_id_ticket_soporte` FOREIGN KEY (`id_ticket`) REFERENCES `tbl_ticket_servicio` (`id_ticket_servicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_soporte_tecnico_id_ticket_5f6c0ae5_fk_tbl_ticke` (`id_ticket`),
+  CONSTRAINT `tbl_soporte_tecnico_id_ticket_5f6c0ae5_fk_tbl_ticke` FOREIGN KEY (`id_ticket`) REFERENCES `tbl_ticket_servicio` (`id_ticket_servicio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -865,16 +849,16 @@ DROP TABLE IF EXISTS `tbl_ticket_mantenimiento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_ticket_mantenimiento` (
-  `id_reporte_mantenimiento` int NOT NULL,
-  `id_mantenimiento` int NOT NULL,
-  `conclusion_mantenimiento` text,
+  `id_reporte_mantenimiento` int NOT NULL AUTO_INCREMENT,
+  `conclusion_mantenimiento` longtext,
   `id_estado_mantenimiento` int NOT NULL,
+  `id_mantenimiento` int NOT NULL,
   PRIMARY KEY (`id_reporte_mantenimiento`),
-  KEY `id_mantenimiento_idx` (`id_mantenimiento`),
-  KEY `id_estado_mantenimiento_idx` (`id_estado_mantenimiento`),
-  CONSTRAINT `fk_estado_mantenimiento_ticket` FOREIGN KEY (`id_estado_mantenimiento`) REFERENCES `tbl_estado_mantenimiento` (`id_estado_mantenimiento`),
-  CONSTRAINT `fk_id_mantenimiento` FOREIGN KEY (`id_mantenimiento`) REFERENCES `tbl_mantenimiento` (`id_mantenimiento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_ticket_mantenimi_id_estado_mantenimie_59d5a61d_fk_tbl_estad` (`id_estado_mantenimiento`),
+  KEY `tbl_ticket_mantenimi_id_mantenimiento_fe8179e6_fk_tbl_mante` (`id_mantenimiento`),
+  CONSTRAINT `tbl_ticket_mantenimi_id_estado_mantenimie_59d5a61d_fk_tbl_estad` FOREIGN KEY (`id_estado_mantenimiento`) REFERENCES `tbl_estado_mantenimiento` (`id_estado_mantenimiento`),
+  CONSTRAINT `tbl_ticket_mantenimi_id_mantenimiento_fe8179e6_fk_tbl_mante` FOREIGN KEY (`id_mantenimiento`) REFERENCES `tbl_mantenimiento` (`id_mantenimiento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -894,15 +878,14 @@ DROP TABLE IF EXISTS `tbl_ticket_servicio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_ticket_servicio` (
-  `id_ticket_servicio` int NOT NULL,
+  `id_ticket_servicio` int NOT NULL AUTO_INCREMENT,
   `fecha_ticket` varchar(45) NOT NULL,
+  `conclusion_servicio` longtext NOT NULL,
   `id_servicio` int NOT NULL,
-  `conclusion_servicio` text NOT NULL,
   PRIMARY KEY (`id_ticket_servicio`),
-  UNIQUE KEY `id_ticket_servicio_UNIQUE` (`id_ticket_servicio`),
-  KEY `id_servicio_ticket_idx` (`id_servicio`),
-  CONSTRAINT `fk_id_servicio_ticket` FOREIGN KEY (`id_servicio`) REFERENCES `tbl_servicio` (`id_servicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `tbl_ticket_servicio_id_servicio_aa384b02_fk_tbl_servi` (`id_servicio`),
+  CONSTRAINT `tbl_ticket_servicio_id_servicio_aa384b02_fk_tbl_servi` FOREIGN KEY (`id_servicio`) REFERENCES `tbl_servicio` (`id_servicio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -922,11 +905,10 @@ DROP TABLE IF EXISTS `tbl_tipo_implemento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_tipo_implemento` (
-  `id_tipo_implemento` int NOT NULL,
+  `id_tipo_implemento` int NOT NULL AUTO_INCREMENT,
   `tipo_implemento` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_tipo_implemento`),
-  UNIQUE KEY `id_tipo_implemento_UNIQUE` (`id_tipo_implemento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_tipo_implemento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -946,10 +928,10 @@ DROP TABLE IF EXISTS `tbl_tipo_mantenimiento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_tipo_mantenimiento` (
-  `id_tipo_mantenimiento` int NOT NULL,
+  `id_tipo_mantenimiento` int NOT NULL AUTO_INCREMENT,
   `tipo_mantenimiento` varchar(45) NOT NULL,
   PRIMARY KEY (`id_tipo_mantenimiento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -969,11 +951,10 @@ DROP TABLE IF EXISTS `tbl_tipo_servicio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_tipo_servicio` (
-  `id_tipo_servicio` int NOT NULL,
+  `id_tipo_servicio` int NOT NULL AUTO_INCREMENT,
   `tipo_servicio` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_tipo_servicio`),
-  UNIQUE KEY `id_tipo_servicio_UNIQUE` (`id_tipo_servicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_tipo_servicio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -993,20 +974,19 @@ DROP TABLE IF EXISTS `tbl_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_usuario` (
-  `id_usuario` int NOT NULL,
+  `id_usuario` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
   `correo_electronico` varchar(45) NOT NULL,
-  `contraseña` varchar(45) NOT NULL,
-  `creado` datetime NOT NULL,
-  `modificado` datetime NOT NULL,
-  `id_rol_usuario` int NOT NULL,
+  `contrasena` varchar(256) NOT NULL,
+  `creado` datetime(6) NOT NULL,
+  `modificado` datetime(6) NOT NULL,
+  `position_id` int NOT NULL,
   PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `id_usuario_UNIQUE` (`id_usuario`),
-  UNIQUE KEY `correo_electronico_UNIQUE` (`correo_electronico`),
-  KEY `id_rol_usuario_idx` (`id_rol_usuario`),
-  CONSTRAINT `fk_id_rol_usuario` FOREIGN KEY (`id_rol_usuario`) REFERENCES `tbl_rol_usuario` (`id_rol_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  UNIQUE KEY `correo_electronico` (`correo_electronico`),
+  KEY `tbl_usuario_position_id_4f6cf554_fk_tbl_position_id_position` (`position_id`),
+  CONSTRAINT `tbl_usuario_position_id_4f6cf554_fk_tbl_position_id_position` FOREIGN KEY (`position_id`) REFERENCES `tbl_position` (`id_position`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1015,6 +995,7 @@ CREATE TABLE `tbl_usuario` (
 
 LOCK TABLES `tbl_usuario` WRITE;
 /*!40000 ALTER TABLE `tbl_usuario` DISABLE KEYS */;
+INSERT INTO `tbl_usuario` VALUES (1,'james',' thomas','juan@gmail.com','G@mez123456','2020-09-07 02:31:03.087132','2020-09-07 02:31:03.087175',3),(2,'james',' thomas','james@gmail.com','G@mez123456','2020-09-07 02:33:25.081129','2020-09-07 02:33:25.081178',3),(4,'santiago','gomez','santiago@gmail.com','G@mez123456','2020-09-07 02:34:19.958312','2020-09-07 02:34:19.958351',1),(6,'juan pablo','ardila otero','ardila@gmail.com','G@mez123456','2020-09-07 02:36:22.194098','2020-09-07 02:36:22.194139',2),(7,'santiago','gomez','gomez@gmail.com','G@mez123456','2020-09-08 01:12:46.407227','2020-09-08 01:12:46.407278',2),(8,'helber santiago','vargas cruz','cruz@gmail.com','cgb123456','2020-09-08 01:32:12.910055','2020-09-08 01:32:12.910082',4),(9,'sebastian','ordoñez camacho','camacho@gmail.com','$pbkdf2-sha256$12000$BQAAAMAY4/w/h9A6R.hdK2XMWav1fm/N2RujVEopJcQ$a7T44ygxjotiiALm7xbl6PuNZTPtLdtqk7mNvKs.6BA','2020-09-08 02:15:15.547404','2020-09-08 02:15:15.547431',2),(10,'santiago','gomez florez','sango@cgb.edu.co','$pbkdf2-sha256$12000$ASCklJLS2rsXwrg3xvg/B2BMSckZw7jX.p/TOqfU2rs$TQkMA13cvttMXCG7ktfxgp8HolLsRisblHk5Fp316C0','2020-09-08 03:01:06.829427','2020-09-08 03:01:06.829454',1),(11,'juan pablo','ardila ','juan@admin.edu.co','$pbkdf2-sha256$12000$vjcmROg9B.D8X8vZm/Ney/nfGyPEWAvhnDPmnBPCmLM$GnhMAlei1QPZ8sk9AHWNjY9Ndb64ZQHBA5fBhjrAfEQ','2020-09-08 03:02:36.128433','2020-09-08 03:02:36.128522',1);
 /*!40000 ALTER TABLE `tbl_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1027,4 +1008,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-29 13:29:29
+-- Dump completed on 2020-09-08 17:58:46
