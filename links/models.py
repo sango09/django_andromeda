@@ -6,6 +6,7 @@
 #   * Remove` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from passlib.hash import pbkdf2_sha256
 
 
 class TblAreaLaboral(models.Model):
@@ -247,17 +248,29 @@ class TblTipoServicio(models.Model):
         db_table = 'tbl_tipo_servicio'
 
 
+class TblPosition(models.Model):
+    id_position = models.AutoField(primary_key=True)
+    position = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.position
+
+    class Meta:
+        db_table = 'tbl_position'
+
+
 class TblUsuario(models.Model):
     id_usuario = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=45)
     apellido = models.CharField(max_length=45)
     correo_electronico = models.CharField(unique=True, max_length=45)
-    contrasena = models.CharField(max_length=45)
-    is_admin = models.BooleanField(default=False)
-    is_personal = models.BooleanField(default=False)
-    is_auxiliar = models.BooleanField(default=False)
+    contrasena = models.CharField(max_length=256)
+    position = models.ForeignKey(TblPosition, on_delete=models.CASCADE)
     creado = models.DateTimeField(auto_now_add=True)
     modificado = models.DateTimeField(auto_now=True)
+
+    def verify_password(self, raw_password):
+        return pbkdf2_sha256.verify(raw_password, self.contrasena)
 
     class Meta:
         db_table = 'tbl_usuario'
