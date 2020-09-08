@@ -1,26 +1,24 @@
-{% extends "dashboard/layout.html" %}
-{% load static %}
+{% extends "dashboard/administrator/layout_admin/layout.html" %}
 {% block content %}
     <main class="content">
         <div class="container-fluid">
             <div class="header">
                 <h1 class="header-title">
-                    Crear Usuario
+                    Modificar Usuario
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href={% url "administrator" %}>Inicio</a></li>
                         <li class="breadcrumb-item"><a href={% url "list_users" %}>Lista de usuarios</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Crear Usuario</li>
+                        <li class="breadcrumb-item active" aria-current="page">Modificar usuario</li>
                     </ol>
                 </nav>
             </div>
-            <!-- Inicio de registro de usuario -->
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Registrar Usuario</h5>
+                            <h5 class="card-title">Modificar Usuario</h5>
                             <h6 class="card-subtitle text-muted">
                                 No olvide completar todos los campos requeridos
                             </h6>
@@ -28,29 +26,30 @@
                         <div class="dropdown-divider"></div>
                         <div class="card-body formulario">
                             <div class="row">
-                                <!--Inicio de formulario-->
-                                {% if error %}
-                                    <p class="alert alert-danger text-center">{{ error }}</p>
+                                {% if form.errors %}
+                                    <p class="alert alert-danger text-center">{{ form.errors }}</p>
                                 {% endif %}
                                 <form class="col-12 col-sm-7 col-lg-6 offset-sm-3 offset-lg-3 needs-validation"
-                                      name="form" method="POST" action="{% url 'list_users' %}">
+                                      name="form" method="POST" action="{% url 'update_user' user.id_usuario %}">
                                     {% csrf_token %}
                                     <div class="form-group text-andromeda">
                                         <label for="FullName">Nombres</label>
                                         <input type="text" class="form-control text-andromeda" id="name"
-                                               placeholder="Ingrese el nombre completo" name="name" required="true">
+                                               placeholder="Ingrese el nombre completo"
+                                               value={{ user.nombre }} name="name" required="true">
                                     </div>
                                     <div class="form-group text-andromeda">
                                         <label for="FullName">Apellidos</label>
                                         <input type="text" class="form-control text-andromeda" id="last_name"
                                                placeholder="Ingrese el nombre completo" name="last_name"
-                                               required="true">
+                                               required="true" value={{ user.apellido }}>
                                     </div>
                                     <div class="form-group text-andromeda">
                                         <label for="Email">Correo Electronico</label>
                                         <input type="email" class="form-control" id="Email"
                                                aria-describedby="email" name="email"
-                                               placeholder="Ingrese Correo Electronico" required="true">
+                                               placeholder="Ingrese Correo Electronico" required="true"
+                                               value={{ user.correo_electronico }}>
                                     </div>
 
                                     <div class="form-group text-andromeda">
@@ -68,24 +67,16 @@
                                                placeholder="Confirmar contraseña" name="passwordRepeat" required="true">
                                     </div>
 
-                                    <div class="form-group text-andromeda">
-                                        <label for="Rol">Rol del usuario</label>
-                                        <select id="Rol" class="form-control" name="area" required="true">
-                                            <option selected>Profesor</option>
-                                            <option>Administrativo</option>
-                                            <option>Auxiliar de Sistemas</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-andromeda mt-4 mb-5 btn-block">
-                                        Crear Usuario
+                                    <button type="submit" class="btn btn-andromeda mt-4 mb-3 btn-block">
+                                        Actualizar usuario
                                     </button>
+                                    <a href="{% url 'list_users' %}" class="btn btn-warning btn-block">Cancelar</a>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Fin del registro de usuario -->
         </div>
     </main>
 {% endblock %}

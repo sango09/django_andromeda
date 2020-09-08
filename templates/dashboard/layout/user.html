@@ -10,7 +10,7 @@
     <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="userDropdown">
         <h5 class="dropdown-header text-center">Bienvenido</h5>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">
+        <a class="dropdown-item" href={% url "users:detail"%}>
             <i class="fa-fw fas fa-user"></i>
             <span class="align-middle">Perfil</span>
         </a>
@@ -27,7 +27,7 @@
             <span class="align-middle">Configuración</span>
         </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item text-danger" href={% url "logout" %}>
+        <a class="dropdown-item text-danger" href={% url "users:logout" %}>
             <i class="fas fa-fw fa-arrow-alt-circle-right"></i>
             <span class="align-middle">Cerrar Sesión</span>
         </a>
