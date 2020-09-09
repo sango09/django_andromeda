@@ -7,7 +7,7 @@ from django.views.generic import DetailView
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
-
+from django.utils.translation import gettext
 # Libraries
 from passlib.hash import pbkdf2_sha256
 
@@ -183,3 +183,4 @@ def signup(request):
 
         return redirect('users:login', )
     return render(request, 'users/register.html', {'form': form})
+
