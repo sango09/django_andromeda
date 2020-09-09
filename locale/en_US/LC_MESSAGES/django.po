@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-08 20:59-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/index.html:24
+msgid "Home"
+msgstr "Home"
+
+#: templates/index.html:27
+msgid "Nosotros"
+msgstr "About us"
+
+#: templates/index.html:30
+msgid "Funcionalidades"
+msgstr "Features"
+
+#: templates/index.html:33 templates/index.html:60
+msgid "Contáctanos"
+msgstr "Contact"
+
+#: templates/index.html:37
+msgid "Iniciar Sesión"
+msgstr "Login"
+
+#: templates/index.html:50
+msgid "Andromeda"
+msgstr "Andromeda"
+
+#: templates/index.html:53
+msgid ""
+"\n"
+"                        Sistema de información desarrollado para\n"
+"                        los departamentos tecnológicos de las instituciones\n"
+"                        educativas.\n"
+"                        "
+msgstr ""
+"Information system developed for the technological departments of "
+"educational institutions"
+
+#: templates/index.html:71
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                        Sistema de información desarrollado para\n"
+#| "                        los departamentos tecnológicos de las "
+#| "instituciones\n"
+#| "                        educativas.\n"
+#| "                        "
+msgid ""
+"\n"
+"                        Andromeda es un sistema de información que permite "
+"agilizar la resolución de\n"
+"                        incidencias, mejorar el nivel de satisfacción de sus "
+"usuarios y mantener un máximo control en la\n"
+"                        operatividad de sus servicios.\n"
+"                        "
+msgstr ""
+"Information system developed for the technological departments of "
+"educational institutions"
+
+#: templates/index.html:93
+msgid "Las funcionalidades de Andromeda"
+msgstr "Andromeda functionalities"
+
+#: templates/index.html:101
+msgid "Gestión óptima del sistema"
+msgstr "Optimal system management"
+
+#: templates/index.html:102
+msgid "Administra todos los reportes, solicitudes y personal fácilmente"
+msgstr "Manage all reports, requests and staff easily"
+
+#: templates/index.html:106
+msgid "Utiliza el dashboard en cualquier dispositivo."
+msgstr "Use the dashboard on any device."
+
+#: templates/index.html:110
+msgid "Calendario completamente sincronizado con Google Calendar."
+msgstr "Calendar fully synced with Google Calendar."
+
+#: templates/index.html:114
+msgid "Calificación de los usuarios."
+msgstr "User rating."
+
+#: templates/index.html:118
+msgid "Completo control del personal técnico."
+msgstr "Full control of technical staff."

@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% load static %}
+{% load i18n %}
 
 {% block main %}
 
@@ -20,34 +21,20 @@
             <div class="collapse navbar-collapse" id="navContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="navbar-item active">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="#home">{% trans 'Home' %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                        <a class="nav-link" href="#nosotros">{% trans 'Nosotros' %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#funciones">Funcionalidades</a>
+                        <a class="nav-link" href="#funciones">{% trans 'Funcionalidades' %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contáctanos</a>
+                        <a class="nav-link" href="#contacto">{% trans 'Contáctanos' %}</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle language" data-toggle="dropdown" href="#" role="button"
-                           aria-haspopup="true" aria-expanded="false">
-                            <img src="{% static 'img/spain.png' %}" alt="Spain">
-                            <span class="d-none d-lg-inline-block">Español</span>
-                            <span class="d-lg-none">ES</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item language" href="#">
-                                <img src="{% static 'img/us.png' %}" alt="English">
-                                <span class="d-none d-lg-inline-block">English</span>
-                                <span class="d-lg-none">EN</span>
-                            </a>
-                        </div>
-                    </li>
+                    {% include "dashboard/common/change_language.html" %}
                 </ul>
-                <a class="btn btn-andromeda ml-auto" href={% url "users:login" %}>Iniciar Sesión</a>
+                <a class="btn btn-andromeda ml-auto" href={% url "users:login" %}>{% trans 'Iniciar Sesión' %}</a>
             </div>
         </div>
     </nav>
@@ -60,13 +47,17 @@
                 </div>
                 <div class="col-12 col-md-7 col-lg-6 order-md-1 mt-5">
                     <h1 class="text-center text-md-left display-3 typed-react" id="typed"></h1>
-                    <h1 class="text-andromeda text-center text-md-left display-3">Andromeda</h1>
+                    <h1 class="text-andromeda text-center text-md-left display-3">{% trans 'Andromeda' %}</h1>
 
-                    <p class="text-muted text-center text-md-left mb-6 mb-lg-8">Sistema de información desarrollado para
+                    <p class="text-muted text-center text-md-left mb-6 mb-lg-8">
+                        {% blocktranslate %}
+                        Sistema de información desarrollado para
                         los departamentos tecnológicos de las instituciones
-                        educativas.</p>
+                        educativas.
+                        {% endblocktranslate %}
+                        </p>
                     <div class="text-center text-md-left">
-                        <a class="btn btn-outline-primary ml-auto contact" href="#contacto">Contáctanos</a>
+                        <a class="btn btn-outline-primary ml-auto contact" href="#contacto">{% trans 'Contáctanos' %}</a>
                     </div>
                 </div>
             </div>
@@ -77,9 +68,11 @@
             <div class="row align-items-center">
                 <div class="mt-5 col-12 col-md-7 col-lg-6">
                     <h2 class="mb-3 text-center">¿Qué es <span class="text-andromeda">Andromeda?</span></h2>
-                    <p class="text-muted">Andromeda es un sistema de información que permite agilizar la resolución de
+                    <p class="text-muted">{% blocktranslate %}
+                        Andromeda es un sistema de información que permite agilizar la resolución de
                         incidencias, mejorar el nivel de satisfacción de sus usuarios y mantener un máximo control en la
-                        operatividad de sus servicios.</p>
+                        operatividad de sus servicios.
+                        {% endblocktranslate %}</p>
                 </div>
                 <div class="col-12 col-md-5 col-lg-6">
                     <div class="w-md-150 w-lg-130 position-relative" data-aos="fade-left">
@@ -97,7 +90,7 @@
     <main class="features pt-10 pt-md-12" id="funciones">
         <div class="container ">
             <div class="section-title text-center text-andromeda">
-                <h2>Las funcionalidades de Andromeda</h2>
+                <h2>{% trans 'Las funcionalidades de Andromeda'%}</h2>
             </div>
             <div class="row">
                 <div class="col-md-5 image-index">
@@ -105,24 +98,24 @@
                 </div>
                 <div class=" col-md-7 pt-5">
                     <div class="ml-5">
-                        <h3>Gestión óptima del sistema</h3>
-                        <p>Administra todos los reportes, solicitudes y personal fácilmente</p>
+                        <h3>{% trans 'Gestión óptima del sistema'%}</h3>
+                        <p>{% blocktranslate %}Administra todos los reportes, solicitudes y personal fácilmente{% endblocktranslate %}</p>
                         <ul>
                             <li>
                                 <i class="fas fa-check"></i>
-                                Utiliza el dashboard en cualquier dispositivo.
+                                {% trans 'Utiliza el dashboard en cualquier dispositivo.' %}
                             </li>
                             <li>
                                 <i class="fas fa-check"></i>
-                                Calendario completamente sincronizado con Google Calendar.
+                                {% trans 'Calendario completamente sincronizado con Google Calendar.' %}
                             </li>
                             <li>
                                 <i class="fas fa-check"></i>
-                                Calificación de los usuarios.
+                                {% trans 'Calificación de los usuarios.' %}
                             </li>
                             <li>
                                 <i class="fas fa-check"></i>
-                                Completo control del personal técnico.
+                                {% trans 'Completo control del personal técnico.' %}
                             </li>
                         </ul>
                     </div>
