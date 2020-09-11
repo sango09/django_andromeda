@@ -18,26 +18,8 @@ urlpatterns = [
     path('users/', include([
         path(
             route='list_users/',
-            view=users_views.user_list,
+            view=users_views.UserListView.as_view(),
             name='list_users'
-        ),
-
-        path(
-            route='create_user',
-            view=users_views.user_form,
-            name='form_user'
-        ),
-
-        path(
-            route='update_user/<int:id_usuario>/',
-            view=users_views.user_update,
-            name='edit_user'
-        ),
-
-        path(
-            route='delete_user/<int:id_usuario>/',
-            view=users_views.user_delete,
-            name='delete_user'
         ),
     ]))
 ]

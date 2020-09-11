@@ -3,10 +3,10 @@
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove` lines if you wish to allow Django to create, modify, and delete the table
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-from passlib.hash import pbkdf2_sha256
+from django.contrib.auth.models import User
 
 
 class TblAreaLaboral(models.Model):
@@ -22,7 +22,7 @@ class TblAuxiliar(models.Model):
     calificacion_auxiliar = models.DecimalField(max_digits=2, decimal_places=0)
     id_disponibilidad_auxiliar = models.ForeignKey('TblDisponibilidadAuxiliar', models.DO_NOTHING,
                                                    db_column='id_disponibilidad_auxiliar')
-    id_usuario = models.ForeignKey('TblUsuario', models.DO_NOTHING, db_column='id_usuario')
+    id_perfil = models.ForeignKey('TblPerfil', db_column='id_perfil', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'tbl_auxiliar'
@@ -38,7 +38,7 @@ class TblCargoEmpleado(models.Model):
 
 class TblCoordinador(models.Model):
     id_coordinador = models.AutoField(primary_key=True)
-    id_usuario = models.ForeignKey('TblUsuario', models.DO_NOTHING, db_column='id_usuario')
+    id_perfil = models.ForeignKey('TblPerfil', db_column='id_perfil', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'tbl_coordinador'
@@ -56,7 +56,7 @@ class TblEmpleado(models.Model):
     id_empleado = models.AutoField(primary_key=True)
     id_area_laboral = models.ForeignKey(TblAreaLaboral, models.DO_NOTHING, db_column='id_area_laboral')
     id_cargo = models.ForeignKey(TblCargoEmpleado, models.DO_NOTHING, db_column='id_cargo')
-    id_usuario = models.ForeignKey('TblUsuario', models.DO_NOTHING, db_column='id_usuario')
+    id_perfil = models.ForeignKey('TblPerfil', db_column='id_perfil', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'tbl_empleado'
@@ -131,6 +131,30 @@ class TblMantenimiento(models.Model):
         db_table = 'tbl_mantenimiento'
 
 
+class TblPerfil(models.Model):
+    """Proxy model
+
+    proxy model that extends the base data with other information
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    id_perfil = models.AutoField(primary_key=True)
+    picture = models.ImageField(
+        upload_to='users/pictures',
+        blank=True,
+        null=False
+    )
+    creado = models.DateTimeField(auto_now_add=True)
+    modificado = models.DateTimeField(auto_now=True)
+    posicion = models.ForeignKey('TblPosicion', on_delete=models.CASCADE, null=False)
+
+    def __str__(self):
+        """Return username"""
+        return self.user.username
+
+    class Meta:
+        db_table = 'tbl_perfil'
+
+
 class TblPermisosUsuario(models.Model):
     id_permisos_usuario = models.AutoField(primary_key=True)
     permiso = models.TextField()
@@ -138,6 +162,17 @@ class TblPermisosUsuario(models.Model):
 
     class Meta:
         db_table = 'tbl_permisos_usuario'
+
+
+class TblPosicion(models.Model):
+    id_posicion = models.AutoField(primary_key=True)
+    posicion = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.posicion
+
+    class Meta:
+        db_table = 'tbl_posicion'
 
 
 class TblPrestamo(models.Model):
@@ -246,31 +281,3 @@ class TblTipoServicio(models.Model):
 
     class Meta:
         db_table = 'tbl_tipo_servicio'
-
-
-class TblPosition(models.Model):
-    id_position = models.AutoField(primary_key=True)
-    position = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.position
-
-    class Meta:
-        db_table = 'tbl_position'
-
-
-class TblUsuario(models.Model):
-    id_usuario = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=45)
-    apellido = models.CharField(max_length=45)
-    correo_electronico = models.CharField(unique=True, max_length=45)
-    contrasena = models.CharField(max_length=256)
-    position = models.ForeignKey(TblPosition, on_delete=models.CASCADE)
-    creado = models.DateTimeField(auto_now_add=True)
-    modificado = models.DateTimeField(auto_now=True)
-
-    def verify_password(self, raw_password):
-        return pbkdf2_sha256.verify(raw_password, self.contrasena)
-
-    class Meta:
-        db_table = 'tbl_usuario'

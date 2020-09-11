@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'parler'
 ]
 
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
@@ -77,7 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.i18n', # UTIL DE INTERNACIONALIZACION
+                'django.template.context_processors.i18n',  # UTIL DE INTERNACIONALIZACION
             ],
         },
     },
@@ -93,11 +92,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'andromeda_db',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '0810',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     },
 }
+#
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -155,7 +155,6 @@ PARLER_LANGUAGES = {
 PARLER_DEFAULT_LANGUAGE = 'es'
 PARLER_SHOW_EXCLUDED_LANGUAGE_TABS = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -163,6 +162,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 LOGIN_URL = '/users/login'
 

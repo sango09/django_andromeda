@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-08 20:59-0500\n"
+"POT-Creation-Date: 2020-09-08 21:36-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,30 +29,31 @@ msgstr "About us"
 msgid "Funcionalidades"
 msgstr "Features"
 
-#: templates/index.html:33 templates/index.html:60
+#: templates/index.html:33 templates/index.html:62
 msgid "Contáctanos"
 msgstr "Contact"
 
-#: templates/index.html:37
+#: templates/index.html:39
 msgid "Iniciar Sesión"
-msgstr "Login"
+msgstr "LOGOUT"
 
-#: templates/index.html:50
+#: templates/index.html:52
 msgid "Andromeda"
 msgstr "Andromeda"
 
-#: templates/index.html:53
+#: templates/index.html:55
+#, fuzzy
+#| msgid ""
+#| "Sistema de información desarrollado paralos departamentos tecnológicos de "
+#| "las institucioneseducativas"
 msgid ""
-"\n"
-"                        Sistema de información desarrollado para\n"
-"                        los departamentos tecnológicos de las instituciones\n"
-"                        educativas.\n"
-"                        "
+"Sistema de información desarrollado para los departamentos tecnológicos de "
+"las instituciones educativas."
 msgstr ""
-"Information system developed for the technological departments of "
-"educational institutions"
+"Information system developed for the technological departments ofsourceeducational "
+"institutions"
 
-#: templates/index.html:71
+#: templates/index.html:73
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -68,35 +69,39 @@ msgid ""
 "                        incidencias, mejorar el nivel de satisfacción de sus "
 "usuarios y mantener un máximo control en la\n"
 "                        operatividad de sus servicios.\n"
-"                        "
+"                    "
 msgstr ""
 "Information system developed for the technological departments of "
 "educational institutions"
 
-#: templates/index.html:93
+#: templates/index.html:95
 msgid "Las funcionalidades de Andromeda"
 msgstr "Andromeda functionalities"
 
-#: templates/index.html:101
+#: templates/index.html:103
 msgid "Gestión óptima del sistema"
 msgstr "Optimal system management"
 
-#: templates/index.html:102
-msgid "Administra todos los reportes, solicitudes y personal fácilmente"
+#: templates/index.html:104
+#, fuzzy
+#| msgid "Administra todos los reportes, solicitudes y personal fácilmente"
+msgid ""
+"Administra todos los reportes, solicitudes y personal\n"
+"                            fácilmente"
 msgstr "Manage all reports, requests and staff easily"
 
-#: templates/index.html:106
+#: templates/index.html:109
 msgid "Utiliza el dashboard en cualquier dispositivo."
 msgstr "Use the dashboard on any device."
 
-#: templates/index.html:110
+#: templates/index.html:113
 msgid "Calendario completamente sincronizado con Google Calendar."
 msgstr "Calendar fully synced with Google Calendar."
 
-#: templates/index.html:114
+#: templates/index.html:117
 msgid "Calificación de los usuarios."
 msgstr "User rating."
 
-#: templates/index.html:118
+#: templates/index.html:121
 msgid "Completo control del personal técnico."
 msgstr "Full control of technical staff."

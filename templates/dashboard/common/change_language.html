@@ -1,11 +1,14 @@
 {% load i18n %}
+{% load static %}
 <form action="/i18n/setlang/" method="POST" style="display: inline">
     {% csrf_token %}
-    <div>
-        <select name="language" onchange="javascript:form.submit()">
+    <div class="dropdown">
+        <select class="custom-select custom-select-md mt-2" name="language" onchange="javascript:form.submit()">
             {% for lang in LANGUAGES %}
-                <option value="{{ lang.0 }}"{% ifequal LANGUAGE_CODE lang.0 %}
-                        selected="selected"{% endifequal %}>{{ lang.1 }}</option>
+                <option value="{{ lang.0 }}"
+                        {% ifequal LANGUAGE_CODE lang.0 %}
+                        selected="selected"
+                        {% endifequal %}>{{ lang.1 }}</option>
             {% endfor %}
         </select>
     </div>

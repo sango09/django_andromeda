@@ -9,13 +9,6 @@ from users import views
 
 urlpatterns = [
 
-    # Profile
-    path(
-        route='detail/',
-        view=views.UserDetailView.as_view(),
-        name='detail'
-    ),
-
     # Management
     path('', include([
         path(
@@ -26,7 +19,7 @@ urlpatterns = [
 
         path(
             route='logout/',
-            view=views.logout_view,
+            view=views.LogoutView.as_view(),
             name='logout'
         ),
 
@@ -36,4 +29,26 @@ urlpatterns = [
             name='signup'
         ),
     ])),
+
+    # Profile
+    path(
+        route='<str:username>/',
+        view=views.UserDetailView.as_view(),
+        name='detail'
+    ),
+
+    # Update user
+    path(
+        route='<int:id>/update/',
+        view=views.UserUpdateView.as_view(),
+        name='update'
+    ),
+
+
+    # Delete user
+    path(
+        route='<int:id>/delete/',
+        view=views.UserDeleteView.as_view(),
+        name='delete'
+    ),
 ]

@@ -4,6 +4,7 @@ gen
 front/node_modules/
 __pycache__
 django_andromeda/settings.py
+media/
 
 
 # Node template
