@@ -1,0 +1,51 @@
+{% extends "dashboard/administrator/layout_admin/layout.html" %}
+{% load static %}
+{% block content %}
+    <main class="content">
+        <div class="container-fluid">
+            <div class="header">
+                <h1 class="header-title">
+                    Lista de Usuarios
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Eliminar usuario</h5>
+                        </div>
+                        <div class="card-body">
+                            <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3"
+                                  method="POST" action="{% url 'dashboard:create_user' %}" autocomplete="off">
+                                {% csrf_token %}
+                                {{ form.first_name|as_crispy_field }}
+                                {{ form.last_name|as_crispy_field }}
+                                {{ form.username|as_crispy_field }}
+                                <div class="form-group">
+                                    <label for="passwordRepeat">Contraseña*</label>
+                                    <input type="password" class="form-control" id="passwordRepeat"
+                                           name="password" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="passwordRepeat">Confirmar contraseña*</label>
+                                    <input type="password" class="form-control" name="passwordRepeat"
+                                           id="passwordRepeat"
+                                           placeholder="Confirmar contraseña" required="true">
+                                </div>
+                                {{ position_form.posicion|as_crispy_field }}
+                                <button type="submit" class="btn btn-andromeda mt-2 mx-auto btn-block">Crear usuario
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

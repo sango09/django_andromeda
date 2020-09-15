@@ -21,6 +21,16 @@
                             <h5 class="card-title">Usuarios Registrados</h5>
                         </div>
                         <div class="card-body">
+                            {% if messages %}
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                            {{ message }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                             <div class="user-control table-responsive">
                                 <table class="table table-hover table-bordered table-striped mb-0 text-center">
                                     <thead>
@@ -29,33 +39,46 @@
                                         <td>Nombres</td>
                                         <td>Apellidos</td>
                                         <td>Correo Electronico</td>
+                                        <td>Creado</td>
+                                        <td>Perfil</td>
+                                        <td>Rol</td>
                                         <td></td>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {% for user in user_list %}
                                         <tr>
-                                            <td>{{ user.id_usuario }}</td>
-                                            <td>{{ user.nombre }}</td>
-                                            <td>{{ user.apellido }}</td>
-                                            <td>{{ user.correo_electronico }}</td>
+                                            <td>{{ user.pk }}</td>
+                                            <td>{{ user.first_name }}</td>
+                                            <td>{{ user.last_name }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.date_joined }}</td>
                                             <td>
-                                                <a href="{% url 'dashboard:edit_user' user.id_usuario %}"
-                                                   class="btn text-secondary px-0">
-                                                    <i class="far fa-edit fa-lg"></i>
-                                                </a>
-                                                <form action="{% url 'dashboard:delete_user' user.id_usuario %}" method="POST">
-                                                    {% csrf_token %}
-                                                    <button type="submit" class="btn">
-                                                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
-                                                    </button>
-                                                </form>
-
+                                                <a href="{% url  'users:detail' user.username %}">{{ user.username }}</a>
                                             </td>
+                                            <td>
+                                                <span class="badge badge-pill badge-info">{{ user.tblperfil.posicion }}</span>
+                                            </td>
+                                            {% if user == request.user %}
+                                                <td>
+                                                    <span class="badge badge-success">Usuario actual</span>
+                                                </td>
+                                            {% else %}
+                                                <td>
+                                                    <a href="{% url 'dashboard:update_user' user.pk %}"
+                                                       class="btn text-secondary px-0">
+                                                        <i class="far fa-edit fa-lg"></i>
+                                                    </a>
+                                                    <a href="{% url 'users:delete' user.pk %}" class="btn">
+                                                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                                                    </a>
+                                                </td>
+                                            {% endif %}
                                         </tr>
                                     {% endfor %}
                                     </tbody>
                                 </table>
+                                {% include 'dashboard/common/pagination.html' %}
                             </div>
                         </div>
                     </div>

@@ -7,8 +7,6 @@
 {% load i18n %}
 
 {% block main %}
-
-
     <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-sticky" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="/">
@@ -32,7 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contacto">{% trans 'Contáctanos' %}</a>
                     </li>
-                    {% include "dashboard/common/change_language.html" %}
+                    <li>
+                        {% include "dashboard/common/change_language.html" %}
+                    </li>
                 </ul>
                 <a class="btn btn-andromeda ml-auto" href={% url "users:login" %}>{% trans 'Iniciar Sesión' %}</a>
             </div>
@@ -55,9 +55,10 @@
                         los departamentos tecnológicos de las instituciones
                         educativas.
                         {% endblocktranslate %}
-                        </p>
+                    </p>
                     <div class="text-center text-md-left">
-                        <a class="btn btn-outline-primary ml-auto contact" href="#contacto">{% trans 'Contáctanos' %}</a>
+                        <a class="btn btn-outline-primary ml-auto contact"
+                           href="#contacto">{% trans 'Contáctanos' %}</a>
                     </div>
                 </div>
             </div>
@@ -90,7 +91,7 @@
     <main class="features pt-10 pt-md-12" id="funciones">
         <div class="container ">
             <div class="section-title text-center text-andromeda">
-                <h2>{% trans 'Las funcionalidades de Andromeda'%}</h2>
+                <h2>{% trans 'Las funcionalidades de Andromeda' %}</h2>
             </div>
             <div class="row">
                 <div class="col-md-5 image-index">

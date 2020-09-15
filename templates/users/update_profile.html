@@ -1,0 +1,66 @@
+{% extends "dashboard/administrator/layout_admin/layout.html" %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <main class="content">
+        <div class="container-fluid">
+            <div class="header">
+                <h1 class="header-title">
+                    Modificar Usuario
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
+                        <li class="breadcrumb-item"><a href={% url "users:detail" request.user.username %}>Perfil</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Actualizar perfil</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Modificar Usuario</h5>
+                            <h6 class="card-subtitle text-muted">
+                                No olvide completar todos los campos requeridos
+                            </h6>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 col-lg-5 border-right">
+                                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                        <img class="rounded-circle mt-5 img-fluid" width="300" height="300"
+                                             src="{{ request.user.tblperfil.picture.url }}" alt="Avatar"/>
+                                        <span class="font-weight-bold mt-2">{{ user.get_full_name }}</span>
+                                        <span class="text-black-50">{{ user.username }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-lg border-right">
+                                    <div class="p3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h4 class="text-right">Configurar perfil</h4>
+                                        </div>
+                                    </div>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ profile_form | crispy }}
+                                        {{ image_form | crispy }}
+                                        <button type="submit" class="btn btn-success btn-block">Actualizar</button>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="{% url 'users:detail' request.user.username %}">Atras</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

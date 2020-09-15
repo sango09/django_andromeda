@@ -1,5 +1,7 @@
 {% extends "dashboard/administrator/layout_admin/layout.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 {% block content %}
     <main class="content">
         <div class="container-fluid">
@@ -10,13 +12,22 @@
                         <div class="card-header">
                             <h5 class="card-title mb-0">Detalles del perfil</h5>
                         </div>
-                        <div class="card-body text-center">
-                            <img src="https://lh3.googleusercontent.com/ogw/ADGmqu--wOsPaeFjuMvZdmZsvhD9xMjhkjePYFM2e7P1=s192-c-mo"
-                                 alt="Avatar" class="img-fluid rounded-circle mb-2"/>
-                            <h5 class="card-title mb-3">{{ request.user.first_name }} {{ request.user.last_name }}</h5>
+                        <div class="card-body text-center account-user-avatar">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            <img src="{{ user.tblperfil.picture.url }}" alt="Avatar" width="128" height="128"
+                                 class="rounded-circle"/>
+                            <h5 class="card-title mb-3">{{ user.first_name }} {{ user.last_name }}</h5>
                             <div>
-                                <a class="btn btn-primary btn-sm" href="#">Editar perfil</a>
-                                <a class="btn btn-outline-info btn-sm" href="#">Mensaje</a>
+                                {% if user == request.user %}
+                                    <a class="btn btn-outline-info btn-sm" href="{% url 'users:update' %}">Editar
+                                        perfil</a>
+                                {% else %}
+                                    <a class="btn btn-primary btn-sm" href="#">Mensaje</a>
+                                {% endif %}
                             </div>
                         </div>
                         <hr class="my-0">
@@ -28,8 +39,8 @@
                                     <a class="aligned-middle" href="#">Colombia</a>
                                 </li>
                                 <li class="mb-1">
-                                    <i class="fas fa-briefcase detail-icons"></i>Trabaja en
-                                    <a class="aligned-middle" href="">Sistemas</a>
+                                    <i class="fas fa-briefcase detail-icons"></i>Trabaja como
+                                    <a class="aligned-middle" href="#">{{ user.tblperfil.posicion }}</a>
                                 </li>
                                 <li class="mb-1"></li>
                             </ul>
@@ -56,7 +67,7 @@
                             {% include 'dashboard/common/cardAction.html' %}
                             <div class="card-title h-100">Actividades</div>
                         </div>
-                            <div class="card-body h-100"></div>
+                        <div class="card-body h-100"></div>
                     </div>
                 </div>
             </div>

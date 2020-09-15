@@ -2,15 +2,14 @@
 <li class="nav-item dropdown no-arrow">
     <a class="nav-link dropdown-toggle userDropdown" href="#" role="button" data-toggle="dropdown"
        aria-haspopup="false" aria-expanded="false">
-					<span class="account-user-avatar rounded-circle">
-						<img src="https://lh3.googleusercontent.com/ogw/ADGmqu--wOsPaeFjuMvZdmZsvhD9xMjhkjePYFM2e7P1=s192-c-mo"
-                             alt="Avatar"/>
-					</span>
+        <span class="account-user-avatar rounded-circle">
+            <img src="{{ request.user.tblperfil.picture.url }}" alt="Avatar"/>
+        </span>
     </a>
     <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="userDropdown">
         <h5 class="dropdown-header text-center">Bienvenido</h5>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href={% url "users:detail"%}>
+        <a class="dropdown-item" href="{% url "users:detail" request.user.username %}">
             <i class="fa-fw fas fa-user"></i>
             <span class="align-middle">Perfil</span>
         </a>
@@ -19,11 +18,11 @@
             <span class="align-middle">Chats</span>
         </a>
         <a class="dropdown-item" href="#">
-             <i class="fas fa-fw fa-chart-pie"></i>
+            <i class="fas fa-fw fa-chart-pie"></i>
             <span class="align-middle">Reporte</span>
         </a>
         <a class="dropdown-item" href="#">
-       <i class="fas fa-fw fa-cogs"></i>
+            <i class="fas fa-fw fa-cogs"></i>
             <span class="align-middle">Configuración</span>
         </a>
         <div class="dropdown-divider"></div>
