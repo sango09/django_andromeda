@@ -4,5 +4,5 @@ from django.apps import AppConfig
 
 class PostConfig(AppConfig):
     """Links application settings"""
-    name = 'links'
+    name = 'apps.links'
     varbose_name = 'Links'

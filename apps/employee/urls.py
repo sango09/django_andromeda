@@ -1,7 +1,6 @@
 from django.urls import path
-from django.conf.urls import include
 
-from employee import views
+from apps.employee import views
 
 urlpatterns = [
     path(

@@ -21,6 +21,16 @@
                             <h5 class="card-title">Usuarios Registrados</h5>
                         </div>
                         <div class="card-body">
+                            {% if messages %}
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                            {{ message }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                             <div class="user-control table-responsive">
                                 <table class="table table-hover table-bordered table-striped mb-0 text-center">
                                     <thead>
@@ -47,7 +57,7 @@
                                                 <a href="{% url  'users:detail' user.username %}">{{ user.username }}</a>
                                             </td>
                                             <td>
-                                                {{ user.tblprofile.posicion }}
+                                                <span class="badge badge-pill badge-info">{{ user.tblperfil.posicion }}</span>
                                             </td>
                                             {% if user == request.user %}
                                                 <td>
@@ -55,7 +65,7 @@
                                                 </td>
                                             {% else %}
                                                 <td>
-                                                    <a href="{% url 'users:update' user.pk %}"
+                                                    <a href="{% url 'dashboard:update_user' user.pk %}"
                                                        class="btn text-secondary px-0">
                                                         <i class="far fa-edit fa-lg"></i>
                                                     </a>
@@ -68,7 +78,7 @@
                                     {% endfor %}
                                     </tbody>
                                 </table>
-                               {% include 'dashboard/common/pagination.html' %}
+                                {% include 'dashboard/common/pagination.html' %}
                             </div>
                         </div>
                     </div>

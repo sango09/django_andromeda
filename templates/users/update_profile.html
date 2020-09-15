@@ -1,4 +1,5 @@
 {% extends "dashboard/administrator/layout_admin/layout.html" %}
+{% load crispy_forms_filters %}
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -12,8 +13,9 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
-                        <li class="breadcrumb-item"><a href={% url "dashboard:list_users" %}>Lista de usuarios</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Modificar usuario</li>
+                        <li class="breadcrumb-item"><a href={% url "users:detail" request.user.username %}>Perfil</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Actualizar perfil</li>
                     </ol>
                 </nav>
             </div>
@@ -27,40 +29,33 @@
                             </h6>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <div class="card-body formulario">
+                        <div class="card-body">
                             <div class="row">
-                                {% if form.errors %}
-                                    <p class="alert alert-danger text-center">{{ form.errors }}</p>
-                                {% endif %}
-                                <form action="{% url 'users:update' user.pk %}" method="POST">
-                                    {% csrf_token %}
-                                    <div class="media">
-                                        {% if user.tblprofile.picture %}
-                                            <img src="{{ user.tblperfil.picture.url }}"
-                                                 alt="Avatar" width="128" height="128"/>
-                                        {% else %}
-                                            <img src="{% static 'img/default-profile.png' %}" alt="Avatar" width="128"
-                                                 height="128">
-                                        {% endif %}
-
-                                        <div class="media-body">
-                                            <h5>{{ user.username }}</h5>
-                                            <h6>{{ user.get_full_name }}</h6>
-                                            <p>{{ user.tblperfil.posicion }}</p>
-                                            <p><a href=""></a>Actualizar foto de perfil</p>
+                                <div class="col-md-3 col-lg-5 border-right">
+                                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                        <img class="rounded-circle mt-5 img-fluid" width="300" height="300"
+                                             src="{{ request.user.tblperfil.picture.url }}" alt="Avatar"/>
+                                        <span class="font-weight-bold mt-2">{{ user.get_full_name }}</span>
+                                        <span class="text-black-50">{{ user.username }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-lg border-right">
+                                    <div class="p3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h4 class="text-right">Configurar perfil</h4>
                                         </div>
                                     </div>
-                                    {% if form.errors %}
-                                        <p class="alert alert-danger">{{ form.errors }}</p>
-                                    {% endif %}
-
-                                    {{ form.first_name|as_crispy_field }}
-                                    {{ form.last_name|as_crispy_field }}
-                                    {{ form.username|as_crispy_field }}
-                                    <button class="btn btn-primary" type="submit">
-                                        Actualizar usuario
-                                    </button>
-                                </form>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ profile_form | crispy }}
+                                        {{ image_form | crispy }}
+                                        <button type="submit" class="btn btn-success btn-block">Actualizar</button>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="{% url 'users:detail' request.user.username %}">Atras</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

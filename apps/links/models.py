@@ -139,6 +139,7 @@ class TblPerfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     id_perfil = models.AutoField(primary_key=True)
     picture = models.ImageField(
+        default='users/pictures/default-profile.png',
         upload_to='users/pictures',
         blank=True,
         null=False

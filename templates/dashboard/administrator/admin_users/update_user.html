@@ -1,5 +1,7 @@
 {% extends "dashboard/administrator/layout_admin/layout.html" %}
+{% load crispy_forms_filters %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
     <main class="content">
         <div class="container-fluid">
@@ -18,16 +20,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Eliminar usuario</h5>
+                            <h5 class="card-title">Actualizar usuario</h5>
                         </div>
                         <div class="card-body">
                             <form method="POST">
                                 {% csrf_token %}
-                                <div class="form-group text-center">
-                                    <p>¿Estas seguro de eliminar a "{{ user.username }}?"</p>
-                                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                                    <a class="btn btn-secondary" href="{% url 'dashboard:list_users' %}">Cancelar</a>
-                                </div>
+                                {{ user_form | crispy }}
+                                {{ position_form | crispy }}
+                                <button type="submit" class="btn btn-success btn-block">Actualizar</button>
                             </form>
                         </div>
                     </div>

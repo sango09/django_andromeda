@@ -4,7 +4,7 @@
 from django.contrib import admin
 
 # Models
-from links.models import TblPerfil
+from apps.links.models import TblPerfil
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 

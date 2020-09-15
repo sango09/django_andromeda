@@ -42,7 +42,7 @@ users = [
     }
 ]
 
-from links.models import TblUsuario
+from apps.links.models import TblUsuario
 
 for user in users:
     obj = TblUsuario(**user)

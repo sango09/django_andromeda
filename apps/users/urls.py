@@ -5,7 +5,7 @@ from django.urls import path
 from django.conf.urls import include
 
 # Local views
-from users import views
+from apps.users import views
 
 urlpatterns = [
 
@@ -39,8 +39,8 @@ urlpatterns = [
 
     # Update user
     path(
-        route='<int:id>/update/',
-        view=views.UserUpdateView.as_view(),
+        route='me/update/',
+        view=views.UserUpdateProfileView.as_view(),
         name='update'
     ),
 

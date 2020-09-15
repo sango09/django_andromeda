@@ -2,20 +2,14 @@
 <li class="nav-item dropdown no-arrow">
     <a class="nav-link dropdown-toggle userDropdown" href="#" role="button" data-toggle="dropdown"
        aria-haspopup="false" aria-expanded="false">
-					<span class="account-user-avatar rounded-circle">
-                        {% if user.tblprofile.picture %}
-                            <img src="{{ user.tblprofile.picture.url }}"
-                                 alt="Avatar"/>
-                        {% else %}
-                            <img src="{% static 'img/default-profile.png' %}" alt="Avatar">
-                        {% endif %}
-
-					</span>
+        <span class="account-user-avatar rounded-circle">
+            <img src="{{ request.user.tblperfil.picture.url }}" alt="Avatar"/>
+        </span>
     </a>
     <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="userDropdown">
         <h5 class="dropdown-header text-center">Bienvenido</h5>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="{% url "users:detail" user.username %}">
+        <a class="dropdown-item" href="{% url "users:detail" request.user.username %}">
             <i class="fa-fw fas fa-user"></i>
             <span class="align-middle">Perfil</span>
         </a>

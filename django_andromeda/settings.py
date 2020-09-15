@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DEFAULT_APPS = [
     # Django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,19 +38,26 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Libraries
-    'crispy_forms',
-    'passlib',
-
-    # Local apps
-    'links',
-    'users',
-    'dashboard',
-    'administrator',
-    'parler'
 ]
 
+THIRD_PARTY_APPS = [
+    'crispy_forms',
+    'passlib',
+    'parler',
+    'django_cleanup',
+]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOCAL_APPS = [
+    'apps.links',
+    'apps.users',
+    'apps.dashboard',
+    'apps.administrator',
+    'apps.auxiliary',
+    'apps.employee',
+]
+
+INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

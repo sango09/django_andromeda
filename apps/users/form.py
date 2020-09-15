@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from links.models import TblPerfil
-from django.urls import reverse
+from apps.links.models import TblPerfil
 
 
 class UserForm(forms.ModelForm):
@@ -34,4 +33,13 @@ class ProfileForm(forms.ModelForm):
             'first_name': 'Nombres',
             'last_name': 'Apellidos',
             'username': 'Correo Electronico',
+        }
+
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = TblPerfil
+        fields = ('picture',)
+        labels = {
+            'picture': 'Imagen'
         }
