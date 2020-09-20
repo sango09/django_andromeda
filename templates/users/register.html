@@ -18,19 +18,7 @@
                 <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3"
                       method="POST" action="{% url 'users:signup' %}" autocomplete="off">
                     {% csrf_token %}
-                    {{ form.first_name|as_crispy_field }}
-                    {{ form.last_name|as_crispy_field }}
-                    {{ form.username|as_crispy_field }}
-                    <div class="form-group">
-                        <label for="passwordRepeat">Contraseña*</label>
-                        <input type="password" class="form-control" id="passwordRepeat"
-                               name="password" required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="passwordRepeat">Confirmar contraseña*</label>
-                        <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat"
-                               placeholder="Confirmar contraseña" required="true">
-                    </div>
+                    {{ form | crispy }}
                     {{ position_form.posicion|as_crispy_field }}
                     <div class="form-group pb-3">
                         <div class="form-check">

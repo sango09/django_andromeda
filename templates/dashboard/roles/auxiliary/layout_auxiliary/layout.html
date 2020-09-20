@@ -5,9 +5,10 @@
 
 {% block main %}
     <div class="wrapper">
-        {% include "dashboard/auxiliary/layout_auxiliary/navbarLeft.html" %}
+        {% include "dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html" %}
         <div class="main">
-            {% include "dashboard/layout/navbarTop.html" %}
+            {% url "dashboard:detail_auxiliary" request.user.username as url_detail %}
+            {% include "dashboard/layout/navbarTop.html" with user_detail=url_detail %}
             {% block content %}
             {% endblock %}
             {% include "dashboard/layout/footer.html" %}
