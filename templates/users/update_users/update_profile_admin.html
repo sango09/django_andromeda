@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
+{% block content %}
+    {% url 'dashboard:administrator' as url_administrator %}
+    {% url "dashboard:detail_admin" request.user.username as detail_admin %}
+    {% include 'users/update_users/update_profile.html' with dashboard=url_administrator detail=detail_admin %}
+{% endblock %}
