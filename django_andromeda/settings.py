@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -37,7 +37,6 @@ DEFAULT_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
 ]
 
 THIRD_PARTY_APPS = [
@@ -52,9 +51,11 @@ LOCAL_APPS = [
     'apps.links',
     'apps.users',
     'apps.dashboard',
-    'apps.administrator',
-    'apps.auxiliary',
-    'apps.employee',
+
+    # Roles de usuario
+    'apps.dashboard.roles.administrator',
+    'apps.dashboard.roles.auxiliary',
+    'apps.dashboard.roles.employee',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -126,7 +127,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
-from django.utils.translation import ugettext_lazy as gettext
 
 LANGUAGE_CODE = 'es'
 
@@ -147,7 +147,7 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale')
 ]
 
-# configuraciones django-parler
+# Configuraciones django-parler
 PARLER_LANGUAGES = {
     None: (
         {'code': 'es', },
@@ -170,12 +170,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
-LOGIN_URL = '/users/login'
-
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
+
+# Media users profile
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# Login URl
+LOGIN_URL = '/users/login'

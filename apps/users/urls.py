@@ -1,8 +1,10 @@
 """Users URLs"""
 
+
 # Django
 from django.urls import path
 from django.conf.urls import include
+from django.contrib.auth import views as auth_views
 
 # Local views
 from apps.users import views
@@ -19,7 +21,9 @@ urlpatterns = [
 
         path(
             route='logout/',
-            view=views.LogoutView.as_view(),
+            view=auth_views.LogoutView.as_view(
+                next_page='users:login'
+            ),
             name='logout'
         ),
 
@@ -29,21 +33,6 @@ urlpatterns = [
             name='signup'
         ),
     ])),
-
-    # Profile
-    path(
-        route='<str:username>/',
-        view=views.UserDetailView.as_view(),
-        name='detail'
-    ),
-
-    # Update user
-    path(
-        route='me/update/',
-        view=views.UserUpdateProfileView.as_view(),
-        name='update'
-    ),
-
 
     # Delete user
     path(
