@@ -6,13 +6,20 @@ from django.conf.urls import include
 
 # Local views
 from apps.users import views as users_views
-from apps.dashboard import views as dashboard_views
+from apps.administrator import views as administrator_views
 
 urlpatterns = [
     path(
         route='',
-        view=dashboard_views.admin_views,
+        view=administrator_views.AdministratorDashboardView.as_view(),
         name='administrator'
+    ),
+
+    # Profile
+    path(
+        route='<str:username>/',
+        view=administrator_views.AdminDetailView.as_view(),
+        name='detail'
     ),
 
     path('users/', include([
@@ -25,7 +32,6 @@ urlpatterns = [
             view=users_views.UserListView.as_view(),
             name='list_users'
         ),
-
         path(
             route='update_user/<int:pk>/',
             view=users_views.user_update_view,

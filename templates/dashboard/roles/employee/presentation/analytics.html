@@ -1,0 +1,44 @@
+<div class="card flex-fill w-100">
+    <div class="card-header">
+        {% include "dashboard/common/cardAction.html" %}
+        <h5 class="card-title mb-0 text-andromeda">Análisis de tus últimas solicitudes</h5>
+    </div>
+    <div class="card-body py-3">
+        <div class="chart chart-sm">
+            <div class="chartjs-size-monitor">
+                <div class="chartjs-size-monitor-expand">
+                    <div class=""></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink">
+                    <div class=""></div>
+                </div>
+            </div>
+            <div class="monitor-analitics">
+                <hr/>
+                <canvas id="analisis"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let employee = document.getElementById("analisis").getContext("2d");
+    let analytics_employee = new Chart(employee, {
+        type: "pie",
+        data: {
+            labels: ["enero", "marzo", "abril"],
+            datasets: [{
+                data: [24, 45, 10,],
+                backgroundColor: ["#8D8D8D", "#4CC5FF", "#A38CFF"]
+            }],
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

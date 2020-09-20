@@ -1,6 +1,5 @@
 {% extends "dashboard/administrator/layout_admin/layout.html" %}
 {% load static %}
-{% load crispy_forms_tags %}
 
 {% block content %}
     <main class="content">
@@ -20,7 +19,7 @@
                             {% endif %}
                             <img src="{{ user.tblperfil.picture.url }}" alt="Avatar" width="128" height="128"
                                  class="rounded-circle"/>
-                            <h5 class="card-title mb-3">{{ user.first_name }} {{ user.last_name }}</h5>
+                            <h5 class="card-title mb-3">{{ request.user.first_name }} {{ request.user.last_name }}</h5>
                             <div>
                                 {% if user == request.user %}
                                     <a class="btn btn-outline-info btn-sm" href="{% url 'users:update' %}">Editar

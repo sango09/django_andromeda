@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Empleado | Andromeda</title>
+{% endblock %}
+
+{% block main %}
+    <div class="wrapper">
+        {% include "dashboard/employee/layout_employee/navbarLeft.html" %}
+        <div class="main">
+            {% include "dashboard/employee/layout_employee/navbarTop.html" %}
+            {% block content %}
+            {% endblock %}
+            {% include "dashboard/layout/footer.html" %}
+        </div>
+    </div>
+{% endblock %}
