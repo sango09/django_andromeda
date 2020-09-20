@@ -1,0 +1,38 @@
+{% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
+{% load static %}
+{% block content %}
+    <main class="content">
+        <div class="container-fluid">
+            <div class="header">
+                <h1 class="header-title">
+                    Lista de Usuarios
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Eliminar usuario</h5>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="form-group text-center">
+                                    <p>¿Estas seguro de eliminar a "{{ user.username }}?"</p>
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    <a class="btn btn-secondary" href="{% url 'dashboard:list_users' %}">Cancelar</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

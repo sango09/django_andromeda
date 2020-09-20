@@ -1,0 +1,45 @@
+<div class="card flex-fill w-100">
+    <div class="card-header">
+        {% include "dashboard/common/cardAction.html" %}
+        <h5 class="card-title mb-0 text-andromeda">Análisis de servicios prestados por auxiliares</h5>
+    </div>
+    <div class="card-body py-3">
+        <div class="chart chart-sm">
+            <div class="chartjs-size-monitor">
+                <div class="chartjs-size-monitor-expand">
+                    <div class=""></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink">
+                    <div class=""></div>
+                </div>
+            </div>
+            <div class="monitor-analitics">
+                <hr/>
+                <canvas id="analytics_admin"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    new Chart(document.getElementById("analytics_admin"), {
+        type: "bar",
+        data: {
+            labels: ["Juan", "Sebastian", "Santiago"],
+            datasets: [{
+                label: "Cantidad de servicios",
+                data: [20, 15, 10,],
+                backgroundColor: ["#216583", "#2f416d", "#1089ff"]
+            }],
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    })
+</script>
+

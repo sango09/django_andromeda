@@ -6,59 +6,53 @@
 {% load static %}
 
 {% block main %}
-<body>
-
-    <!-- Inicio de login -->
     <section class="container-fluid ">
         <div class="row">
-            <div class="d-none d-md-block col-12 col-md col-lg-6 d-md-block" id="image__login" 
-            style="background-image: url(../../static/img/cgb5.png);
+            <div class="d-none d-md-block col-12 col-md col-lg-6 d-md-block" id="image__login"
+                 style="background-image: url(../../static/img/cgb5.png);
             background-size: cover;
-            height: 100vh;" >
-                
+            height: 100vh;">
             </div>
-            <!-- Logo -->
             <div class="col pt-5 brand-andromeda">
                 <img src="{% static "img/logo_azul.png" %}" alt="">
-    
-                <!-- Inicio de Formulario -->
-                <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3 needs-validation" novalidate>
+                {% if error %}
+                    <p class="alert alert-danger text-center">{{ error }}</p>
+                {% endif %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} text-center" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3" method="POST"
+                      action="{% url "users:login" %}" autocomplete="off">
+                    {% csrf_token %}
+                    <p class="text-left">¿Aún no tienes cuenta?
+                        <a class="text-andromeda" href={% url "users:signup" %}>Registrate</a></p>
                     <div class="form-group text-andromeda">
                         <label for="InputEmail">Correo electrónico</label>
                         <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"
-                               placeholder="Ingrese el correo electronico" required>
+                               placeholder="Ingrese el correo electronico" name="email" required="true">
                         <small id="email" class="form-text text-muted">¡Nunca compartas tú correo electrónico!</small>
                     </div>
-    
                     <div class="form-group text-andromeda">
                         <label for="InputPassword">Contraseña</label>
-                        <input type="password" class="form-control" id="InputPassword" placeholder="Contraseña" required>
+                        <input type="password" class="form-control" id="InputPassword" placeholder="Contraseña"
+                               name="password" required="true">
                     </div>
-    
-                    <div class="form-check text-andromeda">
-                        <input type="checkbox" class="form-check-input" id="Check1">
-                        <label class="form-check-label" for="Check1">Recordarme</label>
+                    <div class="form-group mb-4">
+                        <button type="submit" class="btn btn-andromeda mt-2 btn-block">Ingresar</button>
                     </div>
-    
-                    <button type="submit" class="btn btn-andromeda mt-2 btn-block">Ingresar</button>
-    
+
+                    <div class="custom-control custom-checkbox text-center text-andromeda">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Recordar datos</label>
+                    </div>
                 </form>
-                <!-- Fin de Formulario -->
-    
-                <!-- Texto opcional -->
                 <div class="abajo text-center mt-3 ">
-                    <a class="text-andromeda" href="recovery.html">¿Olvidaste tu contraseña?</a>
+                    <a class="text-andromeda" href="#"><u>¿Olvidaste tu contraseña?</u></a>
                 </div>
-                <div class="boton text-center pt-3">
-                    <span class="text-muted">¿Aún no tienes cuenta? </span>
-                    <a class="text-andromeda" href="signup.html">Registrate</a>
-                </div>
+
             </div>
         </div>
     </section>
-    <!--<link rel="stylesheet" href="dashboard/empleado/empleado.html">-->
-    <!-- Fin de iniciar sesion -->
-    
-  
-    </body>
 {% endblock %}

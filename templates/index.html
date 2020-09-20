@@ -3,6 +3,292 @@
     <title>Andromeda</title>
 {% endblock %}
 
+{% load static %}
+{% load i18n %}
+
 {% block main %}
-    <h1>Index</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-sticky" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'img/logo_azul.png' %}" alt="Andromeda">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="navbar-item active">
+                        <a class="nav-link" href="#home">{% trans 'Home' %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">{% trans 'Nosotros' %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#funciones">{% trans 'Funcionalidades' %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">{% trans 'Contáctanos' %}</a>
+                    </li>
+                    <li>
+                        {% include "dashboard/common/change_language.html" %}
+                    </li>
+                </ul>
+                <a class="btn btn-andromeda ml-auto" href={% url "users:login" %}>{% trans 'Iniciar Sesión' %}</a>
+            </div>
+        </div>
+    </nav>
+    <header class="main-header pt-5 pt-md-11" id="home">
+        <div class="container">
+            <div class="row align-content-center">
+                <div class="col-12 col-md-5 col-lg-6 order-md-2">
+                    <img src="{% static 'img/img1.png' %}" alt="image"
+                         class="img-fluid  mb-6 mb-md-0 animated">
+                </div>
+                <div class="col-12 col-md-7 col-lg-6 order-md-1 mt-5">
+                    <h1 class="text-center text-md-left display-3 typed-react" id="typed"></h1>
+                    <h1 class="text-andromeda text-center text-md-left display-3">{% trans 'Andromeda' %}</h1>
+
+                    <p class="text-muted text-center text-md-left mb-6 mb-lg-8">
+                        {% blocktranslate trimmed %}
+                            Sistema de información desarrollado para
+                            los departamentos tecnológicos de las instituciones
+                            educativas.
+                        {% endblocktranslate %}
+                    </p>
+                    <div class="text-center text-md-left">
+                        <a class="btn btn-outline-primary ml-auto contact"
+                           href="#contacto">{% trans 'Contáctanos' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="pt-8 pt-md-11 bg-us" id="nosotros">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="mt-5 col-12 col-md-7 col-lg-6">
+                    <h2 class="mb-3 text-center">{% trans '¿Qué es' %} <span class="text-andromeda">Andromeda?</span>
+                    </h2>
+                    <p class="text-muted">{% blocktranslate trimmed %}Andromeda es un sistema de información que permite
+                        agilizar la resolución de
+                        incidencias, mejorar el nivel de satisfacción de sus usuarios y mantener un máximo control en la
+                        operatividad de sus servicios.{% endblocktranslate %}
+
+                    </p>
+                </div>
+                <div class="col-12 col-md-5 col-lg-6">
+                    <div class="w-md-150 w-lg-130 position-relative" data-aos="fade-left">
+                        <!-- Image -->
+                        <div class="img-skewed img-skewed-left">
+                            <img src="{% static 'img/dashboard.png' %}" class="screenshot img-fluid img-skewed-item"
+                                 alt="Dashboard">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <main class="features pt-10 pt-md-12" id="funciones">
+        <div class="container ">
+            <div class="section-title text-center text-andromeda">
+                <h2>{% trans 'Las funcionalidades de Andromeda' %}</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-5 image-index">
+                    <img src="{% static 'img/programming.png' %}" class="mt-5 img-fluid" alt="">
+                </div>
+                <div class=" col-md-7 pt-5">
+                    <div class="ml-5">
+                        <h3>{% trans 'Gestión óptima del sistema' %}</h3>
+                        <p>{% blocktranslate trimmed %}Administra todos los reportes, solicitudes y personal
+                            fácilmente{% endblocktranslate %}</p>
+                        <ul>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                {% trans 'Utiliza el dashboard en cualquier dispositivo.' %}
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                {% trans 'Calendario completamente sincronizado con Google Calendar.' %}
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                {% trans 'Calificación de los usuarios.' %}
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                {% trans 'Completo control del personal técnico.' %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-5 order-1 order-md-2 image-index">
+                    <img src="{% static 'img/data.png' %}" alt="image"></div>
+                <div class="col-md-7 order-2 order-md-1 pt-5">
+                    <div class="ml-5">
+                        <h3>{% trans 'Reportes en tiempo real' %}</h3>
+                        <p>{% blocktranslate trimmed %}
+                            Los informes genereados por Andromeda permiten dar seguimiento al desempeño del personal, la
+                            satisfacción de los usuarios e identificar las principales fallas de los servicios.
+                        {% endblocktranslate %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 image-index">
+                    <img src="{% static 'img/team.png' %}" alt="image">
+                </div>
+                <div class="col-md-7 pt-5">
+                    <div class="ml-5">
+                        <h3>{% trans 'Gestión de activos' %}</h3>
+                        <p>{% blocktranslate trimmed %}
+                            Gestione todos sus activos de TI bajo un mismo sistema sin dificultades.
+                        {% endblocktranslate %}
+                        </p>
+                        <ul>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                {% trans 'Gestione sus activos con nuestro dashboard de forma intuitiva y segura.' %}
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                {% trans 'Integración con Amazon Web Services.' %}
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                {% trans 'Supervisé todos los movimientos de sus activos.' %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 order-1 order-md-2 image-index">
+                    <img src="{% static 'img/mobile.png' %}" alt="image">
+                </div>
+                <div class="col-md-7 order-2 order-md-1 pt-5">
+                    <div class="ml-5">
+                        <h3>{% trans 'Gestión de Tickets' %}</h3>
+                        <p>{% blocktranslate trimmed %}Andromeda transforma automáticamente todas las solicitudes de sus
+                            usuarios en tickets, y de
+                            ésta
+                            forma darle seguimiento a las solicitudes de forma rápida y sencilla.{% endblocktranslate %}
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="text-center pt-5 pb-5 text-andromeda">{% trans 'Contáctanos' %}</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-about text-center">
+                        <h3 class="text-andromeda mb-3">{% trans 'Síguenos' %}</h3>
+                        <p>
+                        </p>
+                        <div class="iconos mb-3">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                        <p>
+                            {% blocktranslate trimmed %}Programamos con {% endblocktranslate %}
+                            <i class="far fa-heart heart"></i>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mt-4 mt-md-0 ">
+                    <div class="info">
+                        <div>
+                            <span class="icono"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="pl-3">Calle 72 sur # 14-24</span>
+                        </div>
+                        <div>
+                            <span class="icono"><i class="fas fa-phone-alt"></i></span>
+                            <span class="pl-2">+57 3057391845</span>
+                        </div>
+
+                        <div>
+                            <span class="icono"><i class="fas fa-envelope"></i></span>
+                            <span class="pl-2">andromeda@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-5 pt-3">
+                    <form class="needs-validation" name="form" novalidate>
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" id="name"
+                                   placeholder="{% trans 'Nombre Completo' %}"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="email"
+                                   placeholder="Correo Electronico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" id="subject"
+                                   placeholder="{% trans 'Asunto' %}"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" placeholder="{% trans 'Mensaje' %}"
+                                      required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-andromeda" type="submit">{% trans 'Enviar mensaje' %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer" class="pt-5 mt-5 ">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-6 text-lg-left text-center">
+                    <div class="copy">
+                        © Copyright
+                        <strong>Andromeda</strong>
+                        {% trans 'todos los derechos reservados' %}
+                    </div>
+                </div>
+                <div class=" col-md-6 col-lg-6">
+                    <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+                        <a href="#">{% trans 'Inicio' %}</a>
+                        <a href="#">{% trans 'About' %}</a>
+                        <a href="#">{% trans 'Politicas de privacidad' %}</a>
+                        <a href="#">{% trans 'Términos de uso' %}</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Fin del Footer-->
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <script>
+        let typed = new Typed('#typed', {
+            strings: ["Bienvenido a ",
+                "Welcome to"],
+            backSpeed: 60,
+            typeSpeed: 60,
+            loop: true,
+        })
+    </script>
+
 {% endblock %}

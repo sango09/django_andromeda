@@ -1,0 +1,52 @@
+{% load static %}
+<nav id="sidebar" class="sidebar">
+    <a class="sidebar-brand" href="#">
+        <img src="{% static "img/logo.png" %}" alt="Andromeda">
+    </a>
+    <div class="sidebar-content">
+        <ul class="sidebar-nav">
+            <li class="sidebar-header">Home</li>
+            <li class="sidebar-item active">
+                <a href="#" class="sidebar-link" aria-expanded="false">
+                    <i class="fa-fw fas fa-home"></i>
+                    <span class="align-middle">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-header">Soporte Tecnico</li>
+            <li class="sidebar-item">
+                <a href="#request" data-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
+                    <i class="fa-fw fas fa-check-square"></i>
+                    <span class="align-middle">Solicitudes</span>
+                </a>
+                <ul id="request" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{% url 'dashboard:create_support' %}">Crear solicitud</a>
+                        <a class="sidebar-link" href="#">Control de solicitudes</a>
+                        <a class="sidebar-link" href="#">Calendario de soporte técnico</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-header">Calendario</li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" aria-expanded="false">
+                    <i class="fa-fw fas fa-calendar-alt"></i>
+                    <span class="align-middle">Calendario</span>
+                </a>
+            </li>
+            <li class="sidebar-header">Préstamos Tecnologicos</li>
+            <li class="sidebar-item">
+                <a href="#prestamo" data-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
+                    <i class="fa-fw fas fa-laptop"></i>
+                    <span class="align-middle">Préstamos</span>
+                </a>
+                <ul id="prestamo" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Agendar préstamo</a>
+                        <a class="sidebar-link" href="#">Calendario de préstamos</a>
+                        <a class="sidebar-link" href="#">Préstamos realizados</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

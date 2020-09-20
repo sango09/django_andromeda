@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DEFAULT_APPS = [
     # Django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,14 +37,33 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # Local apps
-    'links',
 ]
+
+THIRD_PARTY_APPS = [
+    'crispy_forms',
+    'passlib',
+    'parler',
+    'django_cleanup',
+]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOCAL_APPS = [
+    'apps.links',
+    'apps.users',
+    'apps.dashboard',
+
+    # Roles de usuario
+    'apps.dashboard.roles.administrator',
+    'apps.dashboard.roles.auxiliary',
+    'apps.dashboard.roles.employee',
+]
+
+INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -65,6 +84,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',  # UTIL DE INTERNACIONALIZACION
             ],
         },
     },
@@ -80,11 +100,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'andromeda_db',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '0810',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     },
 }
+#
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -107,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -116,6 +137,30 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LANGUAGES = [
+    ('es', ('Español')),
+    ('en', ('English')),
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale')
+]
+
+# Configuraciones django-parler
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'es', },
+        {'code': 'en', },
+    ),
+    'default': {
+        'fallback': 'es',
+        'hide_untranslated': True,
+    }
+}
+
+PARLER_DEFAULT_LANGUAGE = 'es'
+PARLER_SHOW_EXCLUDED_LANGUAGE_TABS = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -129,3 +174,10 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
+
+# Media users profile
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# Login URl
+LOGIN_URL = '/users/login'

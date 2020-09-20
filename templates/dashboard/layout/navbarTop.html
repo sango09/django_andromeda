@@ -1,0 +1,18 @@
+{% load static %}
+<nav class="navbar navbar-expand">
+    <a class="sidebar-toggle d-flex mr-2">
+        <i class="align-self-center fas fa-bars" onclick="openNav()"></i>
+    </a>
+    <form class="form-inline d-none d-sm-inline-block mb-0">
+        <input class="form-control" type="text" placeholder="Buscar...">
+    </form>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav ml-auto">
+            {% include "dashboard/common/change_language.html" %}
+            {% include "dashboard/layout/notification.html" %}
+            {% include "dashboard/layout/messages.html" %}
+            {% include "dashboard/layout/user.html" %}
+        </ul>
+    </div>
+</nav>
+<script src="{% static 'js/main.js' %}"></script>
