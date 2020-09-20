@@ -1,6 +1,11 @@
-from django.urls import path, include
+"""Auxiliary URLs"""
 
-from apps.auxiliary import views
+# Django
+from django.urls import path
+
+# Local views
+from apps.dashboard.roles.auxiliary import views
+from apps.users import views as users_views
 
 urlpatterns = [
     path(
@@ -8,10 +13,23 @@ urlpatterns = [
         view=views.AuxiliaryDashboardView.as_view(),
         name='auxiliary'
     ),
+
+    # Auxiliary profile
     path(
-        route='algo/<str:username>/',
-        view=views.AuxiliaryDashboardView.as_view(),
+        route='<str:username>/',
+        view=users_views.UserDetailView.as_view(
+            template_name='users/detail_users/detail_auxiliary.html'
+        ),
         name='detail_auxiliary'
+    ),
+
+    # Update user
+    path(
+        route='me/update/',
+        view=users_views.UserUpdateProfileView.as_view(
+            template_name="users/update_users/update_profile_auxiliary.html"
+        ),
+        name='update_auxiliary'
     ),
 
     # path('soporte/', include([
