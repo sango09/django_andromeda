@@ -4,7 +4,8 @@
 from django.urls import path, include
 
 # Local views
-from apps.employee import views
+from apps.dashboard.roles.employee import views
+from apps.users import views as users_views
 
 urlpatterns = [
     path(
@@ -12,10 +13,23 @@ urlpatterns = [
         view=views.EmployeeDashboardView.as_view(),
         name='employee'
     ),
+
+    # Employee profile
     path(
         route='<str:username>/',
-        view=views.EmployeeDetailView.as_view(),
+        view=users_views.UserDetailView.as_view(
+            template_name='users/detail_users/detail_employee.html'
+        ),
         name='detail_employee'
+    ),
+
+    # Update profile employee
+    path(
+        route='me/update/',
+        view=users_views.UserUpdateProfileView.as_view(
+            template_name="users/update_users/update_profile_employee.html"
+        ),
+        name='update_employee'
     ),
 
     path('soporte/', include([

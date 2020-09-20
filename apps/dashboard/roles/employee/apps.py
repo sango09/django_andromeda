@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class EmployeeConfig(AppConfig):
-    name = 'apps.employee'
+    name = 'apps.dashboard.roles.employee'
