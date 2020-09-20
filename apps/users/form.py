@@ -1,17 +1,24 @@
+"""Forms users"""
+
+# Django
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
+# Models
 from apps.links.models import TblPerfil
 
 
-class UserForm(forms.ModelForm):
+class UserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'password')
+        fields = ('username', 'first_name', 'last_name', 'password1', 'password2')
         labels = {
             'first_name': 'Nombres',
             'last_name': 'Apellidos',
             'username': 'Correo Electronico',
             'password': 'Contraseña',
+            'password2': 'Confirmar contraseña'
         }
 
 

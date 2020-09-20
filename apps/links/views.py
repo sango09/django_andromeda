@@ -1,9 +1,9 @@
-"""Andromeda views"""
+"""Index views"""
 
 # Django
-from django.shortcuts import render
+from django.views.generic.base import TemplateView
 
 
-def index_views(request):
-    """Index view"""
-    return render(request, 'index.html')
+class IndexView(TemplateView):
+    """Index View"""
+    template_name = 'index.html'

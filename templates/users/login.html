@@ -18,6 +18,11 @@
                 {% if error %}
                     <p class="alert alert-danger text-center">{{ error }}</p>
                 {% endif %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} text-center" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
                 <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3" method="POST"
                       action="{% url "users:login" %}" autocomplete="off">
                     {% csrf_token %}

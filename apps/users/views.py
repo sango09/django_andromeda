@@ -1,21 +1,27 @@
 """Users views"""
 
 # Django
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponseRedirect
 from django.contrib import messages
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
-from django.contrib.auth import views as auth_views
-from django.urls import reverse_lazy, reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import (
-    DetailView,
     ListView,
     DeleteView,
     TemplateView,
-    UpdateView,
+    DetailView,
 )
+
+# Models
+from django.contrib.auth.models import User
+from apps.links.models import TblPerfil
+
+# Exception
+from django.db.utils import IntegrityError
+from django.http import HttpResponseRedirect
+from django.db.models import ObjectDoesNotExist
 
 # Forms
 from .form import (
@@ -25,26 +31,10 @@ from .form import (
     ImageForm,
 )
 
-# Exception
-from django.db.utils import IntegrityError
-from django.db.models import ObjectDoesNotExist
-
-# Models
-from django.contrib.auth.models import User
-from apps.links.models import TblPerfil
-
-
-class UserDetailView(LoginRequiredMixin, DetailView):
-    """User detail view"""
-    template_name = 'users/detail.html'
-    slug_field = 'username'
-    slug_url_kwarg = 'username'
-    queryset = User.objects.all()
-
 
 class UserDeleteView(SuccessMessageMixin, DeleteView):
     """User delete view"""
-    template_name = 'dashboard/administrator/admin_users/delete_user.html'
+    template_name = 'dashboard/roles/administrator/admin_users/delete_user.html'
     success_message = "fue eliminado con exito"
 
     def get_object(self):
@@ -63,20 +53,21 @@ class UserDeleteView(SuccessMessageMixin, DeleteView):
 
 class UserListView(LoginRequiredMixin, ListView):
     """Return all users registers"""
-    template_name = 'dashboard/administrator/admin_users/list_user.html'
+    template_name = 'dashboard/roles/administrator/admin_users/list_user.html'
     model = User
     paginate_by = 5
     context_object_name = 'user_list'
 
 
-class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
-    """Logout view."""
-    template_name = 'users/login.html'
+class UserDetailView(LoginRequiredMixin, DetailView):
+    """Employee detail view"""
+    slug_field = 'username'
+    slug_url_kwarg = 'username'
+    queryset = User.objects.all()
 
 
 class UserUpdateProfileView(LoginRequiredMixin, TemplateView):
     """User update view"""
-    template_name = 'users/update_profile.html'
     profile_form = ProfileForm
     image_form = ImageForm
 
@@ -91,7 +82,7 @@ class UserUpdateProfileView(LoginRequiredMixin, TemplateView):
             profile_form.save()
             image_form.save()
             messages.success(request, 'Tu perfil fue actualizado con exito!')
-            return HttpResponseRedirect(reverse_lazy('users:detail', args=[request.user.username]))
+            return HttpResponseRedirect(reverse_lazy('dashboard:detail_employee', args=[request.user.username]))
 
         context = self.get_context_data(
             profile_form=profile_form,
@@ -121,14 +112,16 @@ def user_update_view(request, pk):
 
     context = {'user_form': user_form, 'position_form': position_form}
 
-    return render(request, 'dashboard/administrator/admin_users/update_user.html', context)
+    return render(request, 'dashboard/roles/administrator/admin_users/update_user.html', context)
 
 
 def login_view(request):
     """Login view"""
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
+        post_data = request.POST or None
+
+        email = post_data['email']
+        password = post_data['password']
 
         try:
             user_data = User.objects.get(username=email)
@@ -138,22 +131,19 @@ def login_view(request):
 
             if user:
                 if position_id == 1:
-                    print(position_id)
                     login(request, user)
-                    redirect_authenticate_user = True
                     return redirect('dashboard:administrator')
 
                 elif position_id == 2:
-                    print(position_id)
                     login(request, user)
                     return redirect('dashboard:auxiliary')
 
-                elif position_id == 3 or position == 4:
-                    print(position_id)
+                elif position_id == 3 or position_id == 4:
                     login(request, user)
                     return redirect('dashboard:employee')
-                else:
-                    return render(request, 'users/login.html', {'error': 'El usuario no tiene registrado ningun rol'})
+
+                return render(request, 'users/login.html', {'error': 'El usuario no tiene registrado ningun rol'})
+
             else:
                 return render(request, 'users/login.html', {'error': 'Correo o contraseña invalido'})
 
@@ -165,23 +155,27 @@ def login_view(request):
 
 def signup(request):
     """Signup view """
-    form = UserForm()
+    user_form = UserForm()
     position_form = PositionForm()
 
+    context = {
+        'form': user_form,
+        'position_form': position_form
+    }
+
     if request.method == 'POST':
-        name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['username']
-        password = request.POST.get('password', True)
-        password_confirmation = request.POST.get('passwordRepeat', True)
-        position = request.POST['posicion']
+        post_data = request.POST or None
+
+        name = post_data['first_name']
+        last_name = post_data['last_name']
+        email = post_data['username']
+        password = post_data.get('password1', True)
+        password_confirmation = post_data.get('password2', True)
+        position = post_data['posicion']
 
         if password != password_confirmation:
-            return render(request, 'users/register.html',
-                          {'form': form,
-                           'position_form': position_form,
-                           'error': 'Las contraseñas no coinciden'
-                           })
+            return render(request, 'users/register.html', context,
+                          {'error': 'Las contraseñas no coinciden'})
 
         try:
             user = User.objects.create_user(
@@ -193,13 +187,11 @@ def signup(request):
             )
             profile = TblPerfil(user=user, posicion_id=position)
             profile.save()
+            messages.success(request, 'Usuario registrado con exito!')
 
         except IntegrityError:
-            return render(request, 'users/register.html',
-                          {'form': form,
-                           'position_form': position_form,
-                           'error': 'El correo electronico ya esta en uso'
-                           })
+            return render(request, 'users/register.html', context,
+                          {'error': 'El correo electronico ya esta en uso'})
 
         return redirect('users:login', )
-    return render(request, 'users/register.html', {'form': form, 'position_form': position_form})
+    return render(request, 'users/register.html', context)

@@ -1,0 +1,7 @@
+{% extends "dashboard/roles/employee/layout_employee/layout.html" %}
+{% load static %}
+
+{% block content %}
+    {% url 'dashboard:update_employee' as the_url %}
+    {% include 'users/detail_users/detail_user.html' with detail=the_url %}
+{% endblock %}

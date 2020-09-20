@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('links', '0004_auto_20200912_0228'),
     ]
@@ -13,6 +12,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='tblperfil',
             name='picture',
-            field=models.ImageField(blank=True, default='users/pictures/default-profile.png', upload_to='users/pictures'),
+            field=models.ImageField(blank=True, default='users/pictures/default-profile.png',
+                                    upload_to='users/pictures'),
         ),
     ]

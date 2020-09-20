@@ -107,6 +107,10 @@ p {
     font-size: 18px;
 }
 
+.content .container-fluid {
+    width: 90% !important;
+}
+
 .pt-10, .py-10 {
     padding-top: 10rem !important;
 }
@@ -263,7 +267,7 @@ p {
 .card-header {
     margin-bottom: 0;
     background-color: #fff !important;
-    border-bottom: 0 solid transparent !important;;
+    border-bottom: 0 solid transparent !important;
 }
 
 .card-header .card-actions a {
@@ -394,10 +398,6 @@ p {
     line-height: 16px;
 }
 
-.dropdown-item:active {
-    background-color: #f8f9fa !important;
-    color: #26272C !important;
-}
 
 .flags-icon {
     margin-right: .3rem !important;

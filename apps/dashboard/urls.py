@@ -1,11 +1,11 @@
 """Dashboard URLs."""
 
+from django.conf.urls import include
 # Django
 from django.urls import path
-from django.conf.urls import include
 
 urlpatterns = [
-    path('administrator/', include('apps.administrator.urls')),
-    path('auxiliary/', include('apps.auxiliary.urls')),
-    path('employee/', include('apps.employee.urls'))
+    path('administrator/', include('apps.dashboard.roles.administrator.urls')),
+    path('auxiliary/', include('apps.dashboard.roles.auxiliary.urls')),
+    path('employee/', include('apps.dashboard.roles.employee.urls'))
 ]

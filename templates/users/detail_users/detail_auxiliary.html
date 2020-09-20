@@ -1,0 +1,7 @@
+{% extends "dashboard/roles/auxiliary/layout_auxiliary/layout.html" %}
+{% load static %}
+
+{% block content %}
+    {% url 'dashboard:update_auxiliary' as the_url %}
+    {% include 'users/detail_users/detail_user.html'  with detail=the_url %} %}
+{% endblock %}

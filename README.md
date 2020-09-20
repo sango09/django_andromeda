@@ -1,4 +1,5 @@
 # Django_andromeda
+[![CodeFactor](https://www.codefactor.io/repository/github/sango09/django_andromeda/badge?s=6ce7dfa25d4f36e0554fb6eab534600ccff09044)](https://www.codefactor.io/repository/github/sango09/django_andromeda)
 
 Crear entorno virtual e inicializarlo
 
