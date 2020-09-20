@@ -1,12 +1,12 @@
 """Administrator URLs."""
 
+from django.conf.urls import include
 # Django
 from django.urls import path
-from django.conf.urls import include
 
+from apps.dashboard.roles.administrator import views as administrator_views
 # Local views
 from apps.users import views as users_views
-from apps.administrator import views as administrator_views
 
 urlpatterns = [
     path(
@@ -15,11 +15,21 @@ urlpatterns = [
         name='administrator'
     ),
 
-    # Profile
+    # Profile Admin
     path(
         route='<str:username>/',
-        view=administrator_views.AdminDetailView.as_view(),
-        name='detail'
+        view=users_views.UserDetailView.as_view(
+            template_name='users/detail_users/detail_admin.html'
+        ),
+        name='detail_admin'
+    ),
+
+    path(
+        route='me/update',
+        view=users_views.UserUpdateProfileView.as_view(
+            template_name='users/update_users/update_profile_admin.html'
+        ),
+        name="update_admin"
     ),
 
     path('users/', include([
