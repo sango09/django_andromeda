@@ -1,139 +1,24 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
+"""Model Andromeda"""
+
+# Django
 from django.contrib.auth.models import User
 from django.db import models
 
 
-class TblAreaLaboral(models.Model):
-    id_area_laboral = models.AutoField(primary_key=True)
-    area_laboral = models.CharField(max_length=45)
+class TblPosicion(models.Model):
+    """Table the users roles"""
+    id_posicion = models.AutoField(primary_key=True)
+    posicion = models.CharField(max_length=50, null=False)
+
+    def __str__(self):
+        return self.posicion
 
     class Meta:
-        db_table = 'tbl_area_laboral'
-
-
-class TblAuxiliar(models.Model):
-    id_auxiliar = models.AutoField(primary_key=True)
-    calificacion_auxiliar = models.DecimalField(max_digits=2, decimal_places=0)
-    id_disponibilidad_auxiliar = models.ForeignKey('TblDisponibilidadAuxiliar', models.DO_NOTHING,
-                                                   db_column='id_disponibilidad_auxiliar')
-    id_perfil = models.ForeignKey('TblPerfil', db_column='id_perfil', on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = 'tbl_auxiliar'
-
-
-class TblCargoEmpleado(models.Model):
-    id_cargo = models.AutoField(primary_key=True)
-    cargo_empleado = models.CharField(max_length=45)
-
-    class Meta:
-        db_table = 'tbl_cargo_empleado'
-
-
-class TblCoordinador(models.Model):
-    id_coordinador = models.AutoField(primary_key=True)
-    id_perfil = models.ForeignKey('TblPerfil', db_column='id_perfil', on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = 'tbl_coordinador'
-
-
-class TblDisponibilidadAuxiliar(models.Model):
-    id_disponibilidad_auxiliar = models.AutoField(primary_key=True)
-    disponibilidad = models.CharField(max_length=45)
-
-    class Meta:
-        db_table = 'tbl_disponibilidad_auxiliar'
-
-
-class TblEmpleado(models.Model):
-    id_empleado = models.AutoField(primary_key=True)
-    id_area_laboral = models.ForeignKey(TblAreaLaboral, models.DO_NOTHING, db_column='id_area_laboral')
-    id_cargo = models.ForeignKey(TblCargoEmpleado, models.DO_NOTHING, db_column='id_cargo')
-    id_perfil = models.ForeignKey('TblPerfil', db_column='id_perfil', on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = 'tbl_empleado'
-
-
-class TblEstadoImplemento(models.Model):
-    id_estado_implemento = models.AutoField(primary_key=True)
-    estado_implemento = models.CharField(max_length=45)
-
-    class Meta:
-        db_table = 'tbl_estado_implemento'
-
-
-class TblEstadoMantenimiento(models.Model):
-    id_estado_mantenimiento = models.AutoField(primary_key=True)
-    estado_mantenimiento = models.CharField(max_length=45)
-
-    class Meta:
-        db_table = 'tbl_estado_mantenimiento'
-
-
-class TblEstadosServicio(models.Model):
-    id_estado_servicio = models.AutoField(primary_key=True)
-    estado_servicio = models.CharField(max_length=45)
-
-    class Meta:
-        db_table = 'tbl_estados_servicio'
-
-
-class TblImplemento(models.Model):
-    id_ficha_tecnica_implemento = models.AutoField(primary_key=True)
-    marca_implemento = models.CharField(max_length=45)
-    modelo_implemento = models.CharField(max_length=45)
-    referencia_implemento = models.CharField(max_length=45, blank=True, null=True)
-    cantidad_memoria = models.CharField(max_length=45, blank=True, null=True)
-    procesador = models.CharField(max_length=45, blank=True, null=True)
-    sistema_operativo = models.CharField(max_length=45, blank=True, null=True)
-    perifericos = models.TextField(blank=True, null=True)
-    comentario = models.TextField(blank=True, null=True)
-    id_estado_implemento = models.ForeignKey(TblEstadoImplemento, models.DO_NOTHING, db_column='id_estado_implemento')
-    id_tipo_implemento = models.ForeignKey('TblTipoImplemento', models.DO_NOTHING, db_column='id_tipo_implemento')
-
-    class Meta:
-        db_table = 'tbl_implemento'
-
-
-class TblInventario(models.Model):
-    id_inventario = models.AutoField(primary_key=True)
-    serial_implemento = models.CharField(unique=True, max_length=45)
-    descripcion_implemento = models.TextField()
-    id_ficha_tecnica = models.ForeignKey(TblImplemento, models.DO_NOTHING, db_column='id_ficha_tecnica')
-
-    class Meta:
-        db_table = 'tbl_inventario'
-
-
-class TblMantenimiento(models.Model):
-    id_mantenimiento = models.AutoField(primary_key=True)
-    area_mantenimiento = models.CharField(max_length=45)
-    fecha_mantenimiento = models.DateField()
-    hora_mantenimiento = models.TimeField()
-    id_auxiliar = models.ForeignKey(TblAuxiliar, models.DO_NOTHING, db_column='id_auxiliar')
-    id_estado_mantenimiento = models.ForeignKey(TblEstadoMantenimiento, models.DO_NOTHING,
-                                                db_column='id_estado_mantenimiento')
-    id_inventario = models.ForeignKey(TblInventario, models.DO_NOTHING, db_column='id_inventario')
-    id_prioridad_mantenimiento = models.ForeignKey('TblPrioridadMantenimiento', models.DO_NOTHING,
-                                                   db_column='id_prioridad_mantenimiento')
-    id_tipo_mantenimiento = models.ForeignKey('TblTipoMantenimiento', models.DO_NOTHING,
-                                              db_column='id_tipo_mantenimiento')
-
-    class Meta:
-        db_table = 'tbl_mantenimiento'
+        db_table = 'tbl_posicion'
 
 
 class TblPerfil(models.Model):
     """Proxy model
-
     proxy model that extends the base data with other information
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -146,139 +31,276 @@ class TblPerfil(models.Model):
     )
     creado = models.DateTimeField(auto_now_add=True)
     modificado = models.DateTimeField(auto_now=True)
-    posicion = models.ForeignKey('TblPosicion', on_delete=models.CASCADE, null=False)
+    posicion = models.ForeignKey(TblPosicion, on_delete=models.CASCADE)
 
     def __str__(self):
-        """Return username"""
         return self.user.username
 
     class Meta:
         db_table = 'tbl_perfil'
 
 
-class TblPermisosUsuario(models.Model):
-    id_permisos_usuario = models.AutoField(primary_key=True)
-    permiso = models.TextField()
-    url_dashboard = models.TextField()
-
-    class Meta:
-        db_table = 'tbl_permisos_usuario'
-
-
-class TblPosicion(models.Model):
-    id_posicion = models.AutoField(primary_key=True)
-    posicion = models.CharField(max_length=50)
+class TblDisponibilidadAuxiliar(models.Model):
+    """Table auxiliary availability"""
+    id_disponibilidad_auxiliar = models.AutoField(primary_key=True)
+    disponibilidad = models.CharField(max_length=45)
 
     def __str__(self):
-        return self.posicion
+        return self.disponibilidad
 
     class Meta:
-        db_table = 'tbl_posicion'
+        db_table = 'tbl_disponibilidad_auxiliar'
 
 
-class TblPrestamo(models.Model):
-    id_inventario_prestamo = models.AutoField(primary_key=True)
-    cantidad = models.IntegerField()
-    cantidad_disponible = models.IntegerField()
-    cantidad_en_prestamo = models.IntegerField()
-    fecha_entrada = models.DateTimeField()
-    fecha_devolucion = models.DateTimeField()
-    id_ficha_tecnica = models.ForeignKey(TblImplemento, models.DO_NOTHING, db_column='id_ficha_tecnica')
+class TblAuxiliar(models.Model):
+    """Table  auxiliaries"""
+    id_auxiliar = models.AutoField(primary_key=True)
+    disponibilidad_auxiliar = models.ForeignKey(TblDisponibilidadAuxiliar, on_delete=models.CASCADE)
+    perfil = models.OneToOneField(TblPerfil, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'tbl_prestamo'
+        db_table = 'tbl_auxiliar'
 
 
-class TblPrestamosTecnologicos(models.Model):
-    id_prestamos_tecnologicos = models.AutoField(primary_key=True)
-    cantidad_requerida = models.IntegerField()
-    id_inventario_prestamo = models.ForeignKey(TblPrestamo, models.DO_NOTHING, db_column='id_inventario_prestamo')
-    id_ticket = models.ForeignKey('TblTicketServicio', models.DO_NOTHING, db_column='id_ticket')
-
-    class Meta:
-        db_table = 'tbl_prestamos_tecnologicos'
-
-
-class TblPrioridadMantenimiento(models.Model):
-    id_prioridad_mantenimiento = models.AutoField(primary_key=True)
-    prioridad = models.CharField(max_length=45)
+class TblCoordinador(models.Model):
+    """Table administrator"""
+    id_coordinador = models.AutoField(primary_key=True)
+    perfil = models.OneToOneField(TblPerfil, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'tbl_prioridad_mantenimiento'
+        db_table = 'tbl_coordinador'
 
 
-class TblPrioridadServicio(models.Model):
-    id_prioridad = models.AutoField(primary_key=True)
-    prioridad = models.CharField(max_length=45)
+class TblCargoEmpleado(models.Model):
+    """Table position employee"""
+    id_cargo = models.AutoField(primary_key=True)
+    cargo_empleado = models.CharField(max_length=45)
 
-    class Meta:
-        db_table = 'tbl_prioridad_servicio'
-
-
-class TblServicio(models.Model):
-    id_servicio = models.AutoField(primary_key=True)
-    fecha_servicio = models.DateField()
-    hora_servicio = models.TimeField()
-    descripcion_servicio = models.TextField(blank=True, null=True)
-    id_auxiliar = models.ForeignKey(TblAuxiliar, models.DO_NOTHING, db_column='id_auxiliar')
-    id_empleado = models.ForeignKey(TblEmpleado, models.DO_NOTHING, db_column='id_empleado')
-    id_estado_servicio = models.ForeignKey(TblEstadosServicio, models.DO_NOTHING, db_column='id_estado_servicio')
-    id_prioridad_servicio = models.ForeignKey(TblPrioridadServicio, models.DO_NOTHING,
-                                              db_column='id_prioridad_servicio')
-    id_tipo_servicio = models.ForeignKey('TblTipoServicio', models.DO_NOTHING, db_column='id_tipo_servicio')
+    def __str__(self):
+        return self.cargo_empleado
 
     class Meta:
-        db_table = 'tbl_servicio'
+        db_table = 'tbl_cargo_empleado'
 
 
-class TblSoporteTecnico(models.Model):
-    id_soporte_tecnico = models.AutoField(primary_key=True)
-    id_ticket = models.ForeignKey('TblTicketServicio', models.DO_NOTHING, db_column='id_ticket')
+class TblAreaLaboral(models.Model):
+    """Table work area employee """
+    id_area_laboral = models.AutoField(primary_key=True)
+    area_laboral = models.CharField(max_length=45)
 
-    class Meta:
-        db_table = 'tbl_soporte_tecnico'
-
-
-class TblTicketMantenimiento(models.Model):
-    id_reporte_mantenimiento = models.AutoField(primary_key=True)
-    conclusion_mantenimiento = models.TextField(blank=True, null=True)
-    id_estado_mantenimiento = models.ForeignKey(TblEstadoMantenimiento, models.DO_NOTHING,
-                                                db_column='id_estado_mantenimiento')
-    id_mantenimiento = models.ForeignKey(TblMantenimiento, models.DO_NOTHING, db_column='id_mantenimiento')
+    def __str__(self):
+        return self.area_laboral
 
     class Meta:
-        db_table = 'tbl_ticket_mantenimiento'
+        db_table = 'tbl_area_laboral'
 
 
-class TblTicketServicio(models.Model):
-    id_ticket_servicio = models.AutoField(primary_key=True)
-    fecha_ticket = models.CharField(max_length=45)
-    conclusion_servicio = models.TextField()
-    id_servicio = models.ForeignKey(TblServicio, models.DO_NOTHING, db_column='id_servicio')
+class TblEmpleado(models.Model):
+    """Table employees"""
+    id_empleado = models.AutoField(primary_key=True)
+    area_laboral = models.ForeignKey(TblAreaLaboral, on_delete=models.CASCADE)
+    cargo = models.ForeignKey(TblCargoEmpleado, on_delete=models.CASCADE)
+    perfil = models.OneToOneField(TblPerfil, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'tbl_ticket_servicio'
+        db_table = 'tbl_empleado'
+
+
+class TblEstadoImplemento(models.Model):
+    """Table status implement in inventory"""
+    id_estado_implemento = models.AutoField(primary_key=True)
+    estado_implemento = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.estado_implemento
+
+    class Meta:
+        db_table = 'tbl_estado_implemento'
+
+
+class TblSistemaOperativo(models.Model):
+    """Table SO of the implement"""
+    id_sistema_operativo = models.AutoField(primary_key=True)
+    sistema_operativo = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.sistema_operativo
+
+    class Meta:
+        db_table = 'tbl_sistema_operativo'
+
+
+class TblFichaTecnica(models.Model):
+    id_ficha_tecnica = models.AutoField(primary_key=True)
+    marca_implemento = models.CharField(max_length=45, null=False)
+    modelo_implemento = models.CharField(max_length=45, null=False)
+    sistema_operativo = models.ForeignKey(TblSistemaOperativo, on_delete=models.CASCADE)
+    detalles = models.TextField(max_length=400)
+
+    class Meta:
+        db_table = 'tbl_ficha_tecnica'
 
 
 class TblTipoImplemento(models.Model):
+    """Table type implement"""
     id_tipo_implemento = models.AutoField(primary_key=True)
     tipo_implemento = models.CharField(max_length=45)
+    ficha_tecnica = models.ForeignKey(TblFichaTecnica, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.tipo_implemento
 
     class Meta:
         db_table = 'tbl_tipo_implemento'
 
 
+class TblInventario(models.Model):
+    id_inventario = models.AutoField(primary_key=True)
+    tipo_implemento = models.ForeignKey(TblTipoImplemento, on_delete=models.RESTRICT)
+    numero_serie = models.CharField(max_length=100, null=False, blank=False)
+    fecha_compra = models.DateField()
+    precio_compra = models.FloatField()
+    usuario_asignado = models.ForeignKey(TblPerfil, on_delete=models.RESTRICT, null=True, blank=True)
+    estado_implemento = models.ForeignKey(TblEstadoImplemento, on_delete=models.RESTRICT, null=False, blank=False)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.usuario_asignado.user.username
+
+    class Meta:
+        db_table = 'tbl_inventario'
+
+
+class TblEstadoServicio(models.Model):
+    """Table status the services"""
+    id_estado_servicio = models.AutoField(primary_key=True)
+    estado_servicio = models.CharField(max_length=45, null=False, blank=False)
+
+    def __str__(self):
+        return self.estado_servicio
+
+    class Meta:
+        db_table = 'tbl_estado_servicio'
+
+
+class TblSoporteTecnico(models.Model):
+    """Table service request support"""
+    id_soporte_tecnico_inmediato = models.AutoField(primary_key=True)
+    empleado = models.ForeignKey(TblEmpleado, on_delete=models.CASCADE)
+    lugar_soporte = models.CharField(max_length=45, null=False, blank=False)
+    descripcion_problema = models.TextField(max_length=500, null=False, blank=False)
+    fecha_solicitud = models.DateField()
+    hora_solicitud = models.TimeField()
+    auxiliar_asignado = models.ForeignKey(TblAuxiliar, on_delete=models.CASCADE)
+    estado_servicio = models.ForeignKey(TblEstadoServicio, on_delete=models.RESTRICT, default=1)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'tbl_soporte_tecnico'
+
+
+class TblInventarioPrestamo(models.Model):
+    id_inventario_prestamo = models.AutoField(primary_key=True)
+    inventario = models.ForeignKey(TblInventario, on_delete=models.CASCADE)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_ultima_entrega = models.DateTimeField()
+    fecha_ultima_devolucion = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'tbl_inventario_prestamo'
+
+
+class TblPrestamoTecnologico(models.Model):
+    """Table service request technological loans"""
+    id_prestamos_tecnologicos = models.AutoField(primary_key=True)
+    empleado = models.ForeignKey(TblEmpleado, on_delete=models.CASCADE)
+    lugar_prestamo = models.CharField(max_length=45, null=False, blank=False)
+    implemento = models.ForeignKey(TblInventarioPrestamo, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    fecha_solicitud_creada = models.DateTimeField(auto_now_add=True)
+    fecha_agendada = models.DateField()
+    hora_agendada = models.TimeField()
+    auxiliar_asignado = models.ForeignKey(TblAuxiliar, on_delete=models.CASCADE)
+    comentario = models.TextField(max_length=400, null=True, blank=True)
+
+    class Meta:
+        db_table = 'tbl_prestamo_tecnologico'
+
+
+class TblTicketServicio(models.Model):
+    """Table ticker to technycal support"""
+    id_ticket_servicio = models.AutoField(primary_key=True)
+    prestamo_tecnologico = models.ForeignKey(TblPrestamoTecnologico, on_delete=models.CASCADE, null=True, blank=True)
+    soporte_tecnico = models.ForeignKey(TblSoporteTecnico, on_delete=models.CASCADE, null=True, blank=True)
+    fecha_creacion_ticket = models.DateTimeField(auto_now_add=True)
+    calificacion_servicio = models.DecimalField(max_digits=2, decimal_places=0, null=True, blank=True)
+    conclusion_servicio = models.TextField(max_length=400)
+
+    class Meta:
+        db_table = 'tbl_ticket_servicio'
+
+
+class TblEstadoMantenimiento(models.Model):
+    """Table status maintenance"""
+    id_estado_mantenimiento = models.AutoField(primary_key=True)
+    estado_mantenimiento = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.estado_mantenimiento
+
+    class Meta:
+        db_table = 'tbl_estado_mantenimiento'
+
+
+class TblPrioridadMantenimiento(models.Model):
+    """Table priority maintenance"""
+    id_prioridad_mantenimiento = models.AutoField(primary_key=True)
+    prioridad_mantenimiento = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.prioridad_mantenimiento
+
+    class Meta:
+        db_table = 'tbl_prioridad_mantenimiento'
+
+
 class TblTipoMantenimiento(models.Model):
+    """Table type maintenance"""
     id_tipo_mantenimiento = models.AutoField(primary_key=True)
     tipo_mantenimiento = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.tipo_mantenimiento
 
     class Meta:
         db_table = 'tbl_tipo_mantenimiento'
 
 
-class TblTipoServicio(models.Model):
-    id_tipo_servicio = models.AutoField(primary_key=True)
-    tipo_servicio = models.CharField(max_length=45)
+class TblMantenimiento(models.Model):
+    """Table maintenance"""
+    id_mantenimiento = models.AutoField(primary_key=True)
+    lugar_mantenimiento = models.CharField(max_length=45, null=False, blank=False)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_asignada = models.DateField()
+    hora_asignada = models.TimeField()
+    implemento_inventario = models.ForeignKey(TblInventario, on_delete=models.CASCADE)
+    tipo_mantenimiento = models.ForeignKey(TblTipoMantenimiento, on_delete=models.CASCADE)
+    prioridad_mantenimiento = models.ForeignKey(TblPrioridadMantenimiento, on_delete=models.CASCADE)
+    descripcion_mantenimiento = models.TextField(max_length=400, blank=False, null=False)
+    auxiliar_responsable = models.ForeignKey(TblAuxiliar, on_delete=models.CASCADE)
+    fecha_modificacion = models.DateTimeField(auto_now=True)
+    estado_mantenimiento = models.ForeignKey(TblEstadoMantenimiento, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'tbl_tipo_servicio'
+        db_table = 'tbl_mantenimiento'
+
+
+class TblTicketMantenimiento(models.Model):
+    """Table ticket to maintenance"""
+    id_ticket_mantenimiento = models.AutoField(primary_key=True)
+    mantenimiento = models.ForeignKey(TblMantenimiento, on_delete=models.CASCADE)
+    conclusion_mantenimiento = models.TextField(max_length=400, blank=False, null=False)
+
+    class Meta:
+        db_table = 'tbl_ticket_mantenimiento'
