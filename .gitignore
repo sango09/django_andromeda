@@ -3,7 +3,7 @@ gen
 .venv/
 front/node_modules/
 __pycache__
-django_andromeda/settings.py
+apps/links/migrations
 
 
 # Node template
