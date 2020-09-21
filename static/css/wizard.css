@@ -18,7 +18,7 @@
     margin-bottom: 30px;
     overflow: hidden;
     color: lightgrey;
-    padding-left: 0px
+    padding-left: 0
 }
 
 #progressbar .active {
@@ -112,7 +112,7 @@ fieldset {
 
 .radio.selected {
     border: 1px solid #F9A825;
-    box-shadow: 0px 8px 16px 0px #EEEEEE;
+    box-shadow: 0 8px 16px 0 #EEEEEE;
     color: #29B6F6 !important;
     -webkit-filter: grayscale(0%);
     -moz-filter: grayscale(0%);
@@ -125,13 +125,13 @@ fieldset {
     border: 1px solid #CFD8DC;
     width: 45%;
     margin: 2.5%;
-    padding: 20px 25px 15px 25px
+    padding: 20px 25px 15px
 
 }
 
 @media screen and (max-width: 768px) {
     .card-block {
-        padding: 20px 20px 0px 20px;
+        padding: 20px 20px 0;
         height: 250px
     }
 }
@@ -153,8 +153,8 @@ select,
 input,
 textarea,
 button {
-    padding: 8px 15px 8px 15px;
-    border-radius: 0px;
+    padding: 8px 15px;
+    border-radius: 0;
     margin-bottom: 25px;
     margin-top: 2px;
     width: 100%;
