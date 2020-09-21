@@ -4,9 +4,15 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
+# Models
+from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import ObjectDoesNotExist
+# Exception
+from django.db.utils import IntegrityError
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import (
     ListView,
     DeleteView,
@@ -14,15 +20,7 @@ from django.views.generic import (
     DetailView,
 )
 
-# Models
-from django.contrib.auth.models import User
 from apps.links.models import TblPerfil
-
-# Exception
-from django.db.utils import IntegrityError
-from django.http import HttpResponseRedirect
-from django.db.models import ObjectDoesNotExist
-
 # Forms
 from .form import (
     UserForm,
@@ -82,7 +80,17 @@ class UserUpdateProfileView(LoginRequiredMixin, TemplateView):
             profile_form.save()
             image_form.save()
             messages.success(request, 'Tu perfil fue actualizado con exito!')
-            return HttpResponseRedirect(reverse_lazy('dashboard:detail_employee', args=[request.user.username]))
+
+            position = request.user.tblperfil.posicion_id
+
+            if position == 1:
+                return HttpResponseRedirect(reverse_lazy('dashboard:detail_admin', args=[request.user.username]))
+
+            elif position == 2:
+                return HttpResponseRedirect(reverse_lazy('dashboard:detail_auxiliary', args=[request.user.username]))
+
+            else:
+                return HttpResponseRedirect(reverse_lazy('dashboard:detail_employee', args=[request.user.username]))
 
         context = self.get_context_data(
             profile_form=profile_form,

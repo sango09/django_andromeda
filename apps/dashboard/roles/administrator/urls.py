@@ -28,6 +28,7 @@ urlpatterns = [
         route='me/update',
         view=users_views.UserUpdateProfileView.as_view(
             template_name='users/update_users/update_profile_admin.html'
+
         ),
         name="update_admin"
     ),
