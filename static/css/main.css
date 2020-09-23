@@ -293,13 +293,18 @@ p {
 
 
 .breadcrumb {
-    background-color: transparent;
-    padding: 0;
+    background-color: transparent !important;
+    padding: 0 !important;
 }
 
-.breadcrumb .breadcrumb-item:active {
+.breadcrumb .breadcrumb-item.active {
     color: #fff;
     font-weight: 500;
+}
+
+.breadcrumb .breadcrumb-item a{
+    color: white;
+    text-underline: none;
 }
 
 .custom-control-label::before {

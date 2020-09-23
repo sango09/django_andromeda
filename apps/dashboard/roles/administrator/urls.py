@@ -34,10 +34,13 @@ urlpatterns = [
     ),
 
     path('users/', include([
-        # path(
-        #   route='create_user/',
-        #   view=users_views.
-        # ),
+        path(
+            route='create_user/',
+            view=users_views.RegisterView.as_view(
+                template_name='dashboard/roles/administrator/admin_users/create_user.html'
+            ),
+            name='create_user'
+        ),
         path(
             route='list_users/',
             view=users_views.UserListView.as_view(),
@@ -47,6 +50,20 @@ urlpatterns = [
             route='update_user/<int:pk>/',
             view=users_views.user_update_view,
             name='update_user'
+        )
+    ])),
+
+    # Inventory
+    path('inventory/', include([
+        path(
+            route='register_implement',
+            view=administrator_views.RegisterImplementView.as_view(),
+            name='register_implement'
+        ),
+        path(
+            route='inventory_list/',
+            view=administrator_views.InventoryListView.as_view(),
+            name='inventory_list'
         )
     ]))
 ]

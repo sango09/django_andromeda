@@ -6,13 +6,22 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
 # Models
-from apps.links.models import TblPerfil
+from apps.links.models import (
+    TblPerfil,
+    TblCoordinador,
+)
+
+
+@admin.register(TblCoordinador)
+class CoordinadorAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'perfil')
+    list_display_links = ('perfil', 'pk')
 
 
 @admin.register(TblPerfil)
 class ProfileAdmin(admin.ModelAdmin):
     """Profile admin"""
-    list_display = ('pk', 'user', 'picture', 'creado', 'posicion')
+    list_display = ('pk', 'user', 'picture', 'creado', 'posicion',)
     list_display_links = ('user', 'pk')
     list_editable = ('picture', 'posicion')
     search_fields = (
@@ -45,6 +54,13 @@ class ProfileInLine(admin.StackedInline):
     model = TblPerfil
     can_delete = False
     verbose_name_plural = 'profiles'
+
+
+class CoordinatorInLine(admin.StackedInline):
+    """Coordinator in-line admin for profile"""
+    model = TblCoordinador
+    can_delete = False
+    verbose_name_plural = 'coordinators'
 
 
 class UserAdmin(BaseUserAdmin):

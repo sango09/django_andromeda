@@ -55,7 +55,7 @@ class TblDisponibilidadAuxiliar(models.Model):
 class TblAuxiliar(models.Model):
     """Table  auxiliaries"""
     id_auxiliar = models.AutoField(primary_key=True)
-    disponibilidad_auxiliar = models.ForeignKey(TblDisponibilidadAuxiliar, on_delete=models.CASCADE)
+    disponibilidad_auxiliar = models.ForeignKey(TblDisponibilidadAuxiliar, on_delete=models.CASCADE, default=1)
     perfil = models.OneToOneField(TblPerfil, on_delete=models.CASCADE)
 
     class Meta:
@@ -69,18 +69,6 @@ class TblCoordinador(models.Model):
 
     class Meta:
         db_table = 'tbl_coordinador'
-
-
-class TblCargoEmpleado(models.Model):
-    """Table position employee"""
-    id_cargo = models.AutoField(primary_key=True)
-    cargo_empleado = models.CharField(max_length=45)
-
-    def __str__(self):
-        return self.cargo_empleado
-
-    class Meta:
-        db_table = 'tbl_cargo_empleado'
 
 
 class TblAreaLaboral(models.Model):
@@ -98,8 +86,7 @@ class TblAreaLaboral(models.Model):
 class TblEmpleado(models.Model):
     """Table employees"""
     id_empleado = models.AutoField(primary_key=True)
-    area_laboral = models.ForeignKey(TblAreaLaboral, on_delete=models.CASCADE)
-    cargo = models.ForeignKey(TblCargoEmpleado, on_delete=models.CASCADE)
+    area_laboral = models.ForeignKey(TblAreaLaboral, on_delete=models.CASCADE, default=1)
     perfil = models.OneToOneField(TblPerfil, on_delete=models.CASCADE)
 
     class Meta:
@@ -222,6 +209,7 @@ class TblPrestamoTecnologico(models.Model):
     fecha_agendada = models.DateField()
     hora_agendada = models.TimeField()
     auxiliar_asignado = models.ForeignKey(TblAuxiliar, on_delete=models.CASCADE)
+    estado_servicio = models.ForeignKey(TblEstadoServicio, on_delete=models.CASCADE)
     comentario = models.TextField(max_length=400, null=True, blank=True)
 
     class Meta:
