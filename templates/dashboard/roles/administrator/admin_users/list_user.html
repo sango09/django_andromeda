@@ -1,16 +1,17 @@
 {% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
 {% load static %}
+{% load i18n %}
 {% block content %}
     <main class="content">
         <div class="container-fluid">
             <div class="header">
                 <h1 class="header-title">
-                    Lista de Usuarios
+                    {% trans 'Lista de Usuarios' %}
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
+                        <li class="breadcrumb-item active" aria-current="page">{% trans 'Usuarios' %}</li>
                     </ol>
                 </nav>
             </div>
@@ -18,7 +19,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Usuarios Registrados</h5>
+                            <h5 class="card-title">{% trans 'Usuarios Registrados' %}</h5>
                         </div>
                         <div class="card-body">
                             {% if messages %}
@@ -36,12 +37,12 @@
                                     <thead>
                                     <tr class="main-table">
                                         <td>#</td>
-                                        <td>Nombres</td>
-                                        <td>Apellidos</td>
-                                        <td>Correo Electronico</td>
-                                        <td>Creado</td>
-                                        <td>Perfil</td>
-                                        <td>Rol</td>
+                                        <td>{% trans 'Nombres' %}</td>
+                                        <td>{% trans 'Apellidos' %}</td>
+                                        <td>{% trans 'Correo Electronico' %}</td>
+                                        <td>{% trans 'Creado' %}</td>
+                                        <td>{% trans 'Perfil' %}</td>
+                                        <td>{% trans 'Rol' %}</td>
                                         <td></td>
                                     </tr>
                                     </thead>
@@ -61,7 +62,7 @@
                                             </td>
                                             {% if user == request.user %}
                                                 <td>
-                                                    <span class="badge badge-success">Usuario actual</span>
+                                                    <span class="badge badge-success">{% trans 'Usuario actual' %}</span>
                                                 </td>
                                             {% else %}
                                                 <td>

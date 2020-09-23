@@ -1,8 +1,9 @@
+{% load i18n %}
 <main class="content">
     <div class="container-fluid">
         <div class="header">
-            <h1 class="header-title">¡Bienvenido, {{ user.first_name }}</h1>
-            <p class="header-subtitle">Tienes 7 mensajes nuevos y 5 notificaciones nuevas.</p>
+            <h1 class="header-title">{% trans '¡Bienvenido,' %} {{ user.first_name }}</h1>
+            <p class="header-subtitle">{% trans 'Tienes 7 mensajes nuevos y 5 notificaciones nuevas.' %}</p>
         </div>
         <div class="row">
             <div class="col-xl-6 col-xxl-7">
