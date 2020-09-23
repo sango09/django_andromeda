@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link userDropdown" href="#" role="button" data-toggle="dropdown"
        aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-bell"></i>
         <span class="badge badge-danger badge-counter mt-1">3+</span>
         <div class="dropdown-menu dropdown-menu-right dropdown-lg" aria-labelledby="messages">
-            <h5 class="dropdown-header text-center">Ultimos Mensajes</h5>
+            <h5 class="dropdown-header text-center">{% trans 'Ultimos Mensajes' %}</h5>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">
                 <div class="notify-icon rounded-circle">
@@ -13,7 +14,7 @@
                 </div>
                 <p class="notify-details">Robert Spark</p>
                 <p class="message text-muted mb-0">
-                    <small>Ha solicitado un nuevo préstamo</small>
+                    <small>{% trans 'Ha solicitado un nuevo préstamo' %}</small>
                 </p>
             </a>
             <a class="dropdown-item" href="#">
@@ -22,7 +23,7 @@
                 </div>
                 <p class="notify-details">Andrea Matheous</p>
                 <p class="message text-muted mb-0">
-                    <small>Canceló el servicio</small>
+                    <small>{% trans 'Canceló el servicio' %}</small>
                 </p>
             </a>
             <a class="dropdown-item" href="#">
@@ -31,7 +32,7 @@
                 </div>
                 <p class="notify-details">Juan Pablo</p>
                 <p class="message text-muted mb-0">
-                    <small>Completo un soporte técnico</small>
+                    <small>{% trans 'Completo un soporte técnico' %}</small>
                 </p>
             </a>
         </div>

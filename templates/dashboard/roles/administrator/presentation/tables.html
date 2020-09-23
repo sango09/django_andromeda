@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="col-12 d-flex">
     <div class="card flex-fill">
         <div class="card-header">
@@ -15,11 +16,11 @@
                            class="table table-striped my-0 table-hover card-title">
                         <thead>
                         <tr scope="row md-3">
-                            <th>Nombre</th>
-                            <th>Fecha Inicio</th>
-                            <th>Fecha Final</th>
-                            <th>Estado</th>
-                            <th>Auxiliar Asignado</th>
+                            <th>{% trans 'Nombre' %}</th>
+                            <th>{% trans 'Fecha Inicio' %}</th>
+                            <th>{% trans 'Fecha Final' %}</th>
+                            <th>{% trans 'Estado' %}</th>
+                            <th>{% trans 'Auxiliar Asignado' %}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -27,7 +28,7 @@
                             <td>Carl Jenkins</td>
                             <td>01/06/2020</td>
                             <td>01/06/2020</td>
-                            <td><span class="badge badge-success">Completado</span>
+                            <td><span class="badge badge-success">{% trans 'Completado' %}</span>
                             </td>
                             <td>Juan Pablo Ardila
                             </td>
@@ -36,7 +37,7 @@
                             <td>Bertha Martin</td>
                             <td>01/06/2020</td>
                             <td>01/06/2020</td>
-                            <td><span class="badge badge-danger">Cancelado</span>
+                            <td><span class="badge badge-danger">{% trans 'Cancelado' %}</span>
                             </td>
                             <td>Santiago Vargas</td>
                         </tr>
@@ -44,7 +45,7 @@
                             <td>Stacie Hall</td>
                             <td>01/06/2020</td>
                             <td>01/06/2020</td>
-                            <td><span class="badge badge-success">Compleado</span>
+                            <td><span class="badge badge-success">{% trans 'Compleado' %}</span>
                             </td>
                             <td>Sebastian Ordoñez
                             </td>
@@ -53,7 +54,7 @@
                             <td>Carl Jenkins</td>
                             <td>01/06/2020</td>
                             <td>01/06/2020</td>
-                            <td><span class="badge badge-warning">En progreso</span>
+                            <td><span class="badge badge-warning">{% trans 'En progreso' %}</span>
                             </td>
                             <td>Juan Pablo Ardila
                             </td>
@@ -62,7 +63,7 @@
                             <td>Bertha Martin</td>
                             <td>01/06/2020</td>
                             <td>01/06/2020</td>
-                            <td><span class="badge badge-danger">Cancelado</span>
+                            <td><span class="badge badge-danger">{% trans 'Cancelado' %}</span>
                             </td>
                             <td>Santiago Gomez</td>
                         </tr>
@@ -70,7 +71,7 @@
                             <td>Ashley Briggs</td>
                             <td>01/06/2020</td>
                             <td>01/06/2020</td>
-                            <td><span class="badge badge-success">Completado</span>
+                            <td><span class="badge badge-success">{% trans 'Completado' %}</span>
                             </td>
                             <td>Sebastian Ordoñez
                             </td>

@@ -1,12 +1,13 @@
 {% load static %}
+{% load i18n %}
 <main class="content">
     <div class="container-fluid">
-        <h1 class="h3 mb-3">Perfil</h1>
+        <h1 class="h3 mb-3">{% trans 'Perfil' %}</h1>
         <div class="row">
             <div class="col-md-4 col-xl-3">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Detalles del perfil</h5>
+                        <h5 class="card-title mb-0">{% trans 'Detalles del perfil' %}</h5>
                     </div>
                     <div class="card-body text-center account-user-avatar">
                         {% if messages %}
@@ -19,23 +20,23 @@
                         <h5 class="card-title mb-3">{{ user.first_name }} {{ user.last_name }}</h5>
                         <div>
                             {% if user == request.user %}
-                                <a class="btn btn-outline-info btn-sm" href="{{ detail }}">Editar
-                                    perfil</a>
+                                <a class="btn btn-outline-info btn-sm" href="{{ detail }}">{% trans 'Editar
+                                    perfil' %}</a>
                             {% else %}
-                                <a class="btn btn-primary btn-sm" href="#">Mensaje</a>
+                                <a class="btn btn-primary btn-sm" href="#">{% trans 'Mensaje' %}</a>
                             {% endif %}
                         </div>
                     </div>
                     <hr class="my-0">
                     <div class="card-body">
-                        <h5 class="h6 card-title">Sobre mi</h5>
+                        <h5 class="h6 card-title">{% trans 'Sobre mi' %}</h5>
                         <ul class="list-unstyled mb-0">
                             <li class="mb-1">
-                                <i class="fas fa-globe detail-icons"></i>Es de
+                                <i class="fas fa-globe detail-icons"></i>{% trans 'Es de' %}
                                 <a class="aligned-middle" href="#">Colombia</a>
                             </li>
                             <li class="mb-1">
-                                <i class="fas fa-briefcase detail-icons"></i>Trabaja como
+                                <i class="fas fa-briefcase detail-icons"></i>{% trans 'Trabaja como' %}
                                 <a class="aligned-middle" href="#">{{ user.tblperfil.posicion }}</a>
                             </li>
                             <li class="mb-1"></li>
@@ -43,7 +44,7 @@
                     </div>
                     <hr class="my-0">
                     <div class="card-body">
-                        <h5 class="h6 card-title">Redes Sociales</h5>
+                        <h5 class="h6 card-title">{% trans 'Redes Sociales' %}</h5>
                         <ul class="list-unstyled mb-0">
                             <li class="mb-1">
                                 <i class="fab fa-twitter detail-icons"></i>
@@ -61,7 +62,7 @@
                 <div class="card">
                     <div class="card-header">
                         {% include 'dashboard/common/cardAction.html' %}
-                        <div class="card-title h-100">Actividades</div>
+                        <div class="card-title h-100">{% trans 'Actividades' %}</div>
                     </div>
                     <div class="card-body h-100"></div>
                 </div>
