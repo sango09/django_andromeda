@@ -14,9 +14,7 @@ class UserForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'password1', 'password2')
         labels = {
-            'first_name': 'Nombres',
-            'last_name': 'Apellidos',
-            'username': 'Correo Electronico',
+            'username': 'Email',
             'password': 'Contraseña',
             'password2': 'Confirmar contraseña'
         }
@@ -26,6 +24,9 @@ class PositionForm(forms.ModelForm):
     class Meta:
         model = TblPerfil
         fields = ('posicion',)
+        labels = {
+            'posicion': 'Rol',
+        }
 
     def __init__(self, *args, **kwargs):
         super(PositionForm, self).__init__(*args, **kwargs)

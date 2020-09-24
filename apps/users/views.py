@@ -4,12 +4,10 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
-# Models
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import ObjectDoesNotExist
 # Exception
-from django.db.utils import IntegrityError
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
@@ -20,7 +18,13 @@ from django.views.generic import (
     DetailView,
 )
 
-from apps.links.models import TblPerfil
+from apps.links.models import (
+    TblPerfil,
+    TblAuxiliar,
+    TblEmpleado,
+    TblCoordinador,
+
+)
 # Forms
 from .form import (
     UserForm,
@@ -161,45 +165,44 @@ def login_view(request):
     return render(request, 'users/login.html')
 
 
-def signup(request):
-    """Signup view """
+class RegisterView(TemplateView):
+    """Register test"""
     user_form = UserForm()
     position_form = PositionForm()
 
-    context = {
-        'form': user_form,
-        'position_form': position_form
-    }
-
-    if request.method == 'POST':
+    def post(self, request):
         post_data = request.POST or None
 
-        name = post_data['first_name']
-        last_name = post_data['last_name']
-        email = post_data['username']
-        password = post_data.get('password1', True)
-        password_confirmation = post_data.get('password2', True)
-        position = post_data['posicion']
+        user_form = UserForm(post_data)
+        position_form = PositionForm(post_data)
 
-        if password != password_confirmation:
-            return render(request, 'users/register.html', context,
-                          {'error': 'Las contraseñas no coinciden'})
+        if user_form.is_valid() and position_form.is_valid():
+            user_form.save()
+            username = post_data['username']
+            position = post_data['posicion']
 
-        try:
-            user = User.objects.create_user(
-                username=email,
-                first_name=name,
-                last_name=last_name,
-                password=password,
-                email=email,
-            )
-            profile = TblPerfil(user=user, posicion_id=position)
+            user = User.objects.get(username=username)
+            profile = position_form.save(commit=False)
+            profile.user = user
             profile.save()
+
+            if position == '1':
+                TblCoordinador.objects.create(perfil=profile)
+
+            elif position == '2':
+                TblAuxiliar.objects.create(perfil=profile)
+
+            TblEmpleado.objects.create(perfil=profile)
+
             messages.success(request, 'Usuario registrado con exito!')
+            return HttpResponseRedirect(reverse_lazy('users:login'))
 
-        except IntegrityError:
-            return render(request, 'users/register.html', context,
-                          {'error': 'El correo electronico ya esta en uso'})
+        context = self.get_context_data(
+            form=user_form,
+            position_form=position_form
+        )
 
-        return redirect('users:login', )
-    return render(request, 'users/register.html', context)
+        return self.render_to_response(context)
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)

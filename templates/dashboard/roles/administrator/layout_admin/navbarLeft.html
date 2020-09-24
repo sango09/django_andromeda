@@ -21,7 +21,7 @@
                 </a>
                 <ul id="users" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">{% trans 'Crear usuario' %}</a>
+                        <a class="sidebar-link" href="{% url "dashboard:create_user" %}">{% trans 'Crear usuario'%}</a>
                         <a class="sidebar-link" href="{% url "dashboard:list_users" %}">{% trans 'Lista de usuarios' %}</a>
                     </li>
                 </ul>
@@ -93,9 +93,9 @@
                 </a>
                 <ul id="inventory" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">{% trans 'Gestionar inventario' %}</a>
-                        <a class="sidebar-link" href="#">{% trans 'Agregar implemento' %}</a>
-                        <a class="sidebar-link" href="#">{% trans 'Consultar inventario' %}</a>
+                        <a class="sidebar-link" href="{% url 'dashboard:inventory_list' %}">Gestionar inventario</a>
+                        <a class="sidebar-link" href="#">Agregar implemento</a>
+                        <a class="sidebar-link" href="#">Consultar inventario</a>
                     </li>
                 </ul>
             </li>

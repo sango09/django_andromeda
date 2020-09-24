@@ -29,7 +29,9 @@ urlpatterns = [
 
         path(
             route='signup/',
-            view=views.signup,
+            view=views.RegisterView.as_view(
+                template_name='users/register.html'
+            ),
             name='signup'
         ),
     ])),

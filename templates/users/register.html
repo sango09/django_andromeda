@@ -19,7 +19,7 @@
                       method="POST" action="{% url 'users:signup' %}" autocomplete="off">
                     {% csrf_token %}
                     {{ form | crispy }}
-                    {{ position_form.posicion|as_crispy_field }}
+                    {{ position_form|crispy }}
                     <div class="form-group pb-3">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
