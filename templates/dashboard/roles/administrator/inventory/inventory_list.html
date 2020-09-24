@@ -1,0 +1,50 @@
+{% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
+{% load static %}
+{% block content %}
+    <main class="content">
+        <div class="container-fluid">
+            <div class="header">
+                <h1 class="header-title">
+                    Lista de implementos
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Inventario</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title d-inline-block">Lista de implementos registrados</h5>
+                            <a class="btn btn-info text-white float-right d-inline-block">
+                                <i class="fas fa-plus mr-3"></i>Agregar Implemento
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="table-content">
+                                    <table class="table table-striped mb-0 text-center">
+                                        <thead>
+                                        <tr class="main-table">
+                                            <th>#</th>
+                                            <th>Numero de serie</th>
+                                            <th>Fecha de compra</th>
+                                            <th>Precio de compra</th>
+                                            <th>Tipo de implemento</th>
+                                            <th>Estado</th>
+                                            <th>Accion</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

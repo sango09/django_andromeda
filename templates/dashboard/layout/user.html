@@ -1,3 +1,4 @@
+{% load i18n %}
 <li class="nav-item dropdown no-arrow">
     <a class="nav-link dropdown-toggle userDropdown" href="#" role="button" data-toggle="dropdown"
        aria-haspopup="false" aria-expanded="false">
@@ -6,28 +7,28 @@
         </span>
     </a>
     <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="userDropdown">
-        <h5 class="dropdown-header text-center">Bienvenido</h5>
+        <h5 class="dropdown-header text-center">{% trans 'Bienvenido' %}</h5>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href={{ user_detail }}>
             <i class="fa-fw fas fa-user"></i>
-            <span class="align-middle">Perfil</span>
+            <span class="align-middle">{% trans 'Perfil' %}</span>
         </a>
         <a class="dropdown-item" href="#">
             <i class="fas fa-fw fa-comments"></i>
-            <span class="align-middle">Chats</span>
+            <span class="align-middle">{% trans 'Chats' %}</span>
         </a>
         <a class="dropdown-item" href="#">
             <i class="fas fa-fw fa-chart-pie"></i>
-            <span class="align-middle">Reporte</span>
+            <span class="align-middle">{% trans 'Reporte' %}</span>
         </a>
         <a class="dropdown-item" href="#">
             <i class="fas fa-fw fa-cogs"></i>
-            <span class="align-middle">Configuración</span>
+            <span class="align-middle">{% trans 'Configuración' %}</span>
         </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item text-danger" href={% url "users:logout" %}>
             <i class="fas fa-fw fa-arrow-alt-circle-right"></i>
-            <span class="align-middle">Cerrar Sesión</span>
+            <span class="align-middle">{% trans 'Cerrar Sesión' %}</span>
         </a>
     </div>
 </li>

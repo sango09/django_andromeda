@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <nav id="sidebar" class="sidebar">
     <a class="sidebar-brand" href="#">
         <img src="{% static "img/logo.png" %}" alt="Andromeda">
@@ -12,38 +13,38 @@
                     <span class="align-middle">Dashboard</span>
                 </a>
             </li>
-            <li class="sidebar-header">Soporte Tecnico</li>
+            <li class="sidebar-header">{% trans 'Soporte Tecnico' %}</li>
             <li class="sidebar-item">
                 <a href="#request" data-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
                     <i class="fa-fw fas fa-check-square"></i>
-                    <span class="align-middle">Solicitudes</span>
+                    <span class="align-middle">{% trans 'Solicitudes' %}</span>
                 </a>
                 <ul id="request" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="{% url 'dashboard:create_support' %}">Crear solicitud</a>
-                        <a class="sidebar-link" href="#">Control de solicitudes</a>
-                        <a class="sidebar-link" href="#">Calendario de soporte técnico</a>
+                        <a class="sidebar-link" href="{% url 'dashboard:create_support' %}">{% trans 'Crear solicitud' %}</a>
+                        <a class="sidebar-link" href="#">{% trans 'Control de solicitudes' %}</a>
+                        <a class="sidebar-link" href="#">{% trans 'Calendario de soporte técnico' %}</a>
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-header">Calendario</li>
+            <li class="sidebar-header">{% trans 'Calendario' %}</li>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link" aria-expanded="false">
                     <i class="fa-fw fas fa-calendar-alt"></i>
-                    <span class="align-middle">Calendario</span>
+                    <span class="align-middle">{% trans 'Calendario' %}</span>
                 </a>
             </li>
-            <li class="sidebar-header">Préstamos Tecnologicos</li>
+            <li class="sidebar-header">{% trans 'Préstamos Tecnologicos' %}</li>
             <li class="sidebar-item">
                 <a href="#prestamo" data-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
                     <i class="fa-fw fas fa-laptop"></i>
-                    <span class="align-middle">Préstamos</span>
+                    <span class="align-middle">{% trans 'Préstamos' %}</span>
                 </a>
                 <ul id="prestamo" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">Agendar préstamo</a>
-                        <a class="sidebar-link" href="#">Calendario de préstamos</a>
-                        <a class="sidebar-link" href="#">Préstamos realizados</a>
+                        <a class="sidebar-link" href="#">{% trans 'Agendar préstamo' %}</a>
+                        <a class="sidebar-link" href="#">{% trans 'Calendario de préstamos' %}</a>
+                        <a class="sidebar-link" href="#">{% trans 'Préstamos realizados' %}</a>
                     </li>
                 </ul>
             </li>
