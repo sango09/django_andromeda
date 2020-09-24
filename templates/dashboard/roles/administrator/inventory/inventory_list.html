@@ -1,16 +1,17 @@
 {% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
 {% load static %}
 {% block content %}
+{% load i18n %}
     <main class="content">
         <div class="container-fluid">
             <div class="header">
                 <h1 class="header-title">
-                    Lista de implementos
+                    {% trans 'Lista de implementos' %}
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Inventario</li>
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>{% trans 'Inicio' %}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{% trans 'Inventario' %}</li>
                     </ol>
                 </nav>
             </div>
@@ -18,9 +19,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title d-inline-block">Lista de implementos registrados</h5>
+                            <h5 class="card-title d-inline-block">{% trans 'Lista de implementos registrados' %}</h5>
                             <a class="btn btn-info text-white float-right d-inline-block">
-                                <i class="fas fa-plus mr-3"></i>Agregar Implemento
+                                <i class="fas fa-plus mr-3"></i>{% trans 'Agregar Implemento' %}
                             </a>
                         </div>
                         <div class="card-body">
@@ -30,12 +31,12 @@
                                         <thead>
                                         <tr class="main-table">
                                             <th>#</th>
-                                            <th>Numero de serie</th>
-                                            <th>Fecha de compra</th>
-                                            <th>Precio de compra</th>
-                                            <th>Tipo de implemento</th>
-                                            <th>Estado</th>
-                                            <th>Accion</th>
+                                            <th>{% trans 'Numero de serie' %}</th>
+                                            <th>{% trans 'Fecha de compra' %}</th>
+                                            <th>{% trans 'Precio de compra' %}</th>
+                                            <th>{% trans 'Tipo de implemento' %}</th>
+                                            <th>{% trans 'Estado' %}</th>
+                                            <th>{% trans 'Accion' %}</th>
                                         </tr>
                                         </thead>
                                     </table>
