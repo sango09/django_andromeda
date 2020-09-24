@@ -20,8 +20,7 @@
                         <h5 class="card-title mb-3">{{ user.first_name }} {{ user.last_name }}</h5>
                         <div>
                             {% if user == request.user %}
-                                <a class="btn btn-outline-info btn-sm" href="{{ detail }}">{% trans 'Editar
-                                    perfil' %}</a>
+                                <a class="btn btn-outline-info btn-sm" href="{{ detail }}">{% trans 'Editar perfil' %}</a>
                             {% else %}
                                 <a class="btn btn-primary btn-sm" href="#">{% trans 'Mensaje' %}</a>
                             {% endif %}
