@@ -4,7 +4,7 @@
 from django.urls import path, include
 
 # Local views
-from apps.dashboard.roles.employee import views
+from apps.roles.employee import views
 from apps.users import views as users_views
 
 urlpatterns = [
@@ -32,11 +32,13 @@ urlpatterns = [
         name='update_employee'
     ),
 
-    path('soporte/', include([
-        path(
-            route='create_request/',
-            view=views.RequestTechnicalSupport.as_view(),
-            name='create_support'
-        ),
-    ]))
+    # # Technical support
+    # path('soporte/', include([
+    #     path(
+    #         route='create_request/',
+    #         view=views.RequestTechnicalSupport.as_view(),
+    #         name='create_support'
+    #     ),
+    # ]))
+
 ]

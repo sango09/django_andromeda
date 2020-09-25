@@ -1,22 +1,16 @@
-{% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
+{% extends "dashboard/roles/auxiliary/layout_auxiliary/layout.html" %}
 {% load static %}
 {% block content %}
-{% load i18n %}
     <main class="content">
         <div class="container-fluid">
             <div class="header">
                 <h1 class="header-title">
-                    {% trans 'Lista de implementos' %}
+                    Lista de implementos
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-<<<<<<< HEAD
-                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>{% trans 'Inicio' %}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{% trans 'Inventario' %}</li>
-=======
-                        <li class="breadcrumb-item"><a href={% url 'dashboard:administrator' %}>Inicio</a></li>
+                        <li class="breadcrumb-item"><a href={% url 'dashboard:auxiliary' %}>Inicio</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Inventario</li>
->>>>>>> santiago
                     </ol>
                 </nav>
             </div>
@@ -26,7 +20,7 @@
                         <div class="card-header">
                             <h5 class="card-title d-inline-block">Lista de implementos registrados</h5>
                             <a class="btn btn-info text-white float-right"
-                               href={% url 'dashboard:create_inventory' %}>
+                               href={% url 'dashboard:create_inventory_auxiliary' %}>
                                 <i class="fas fa-plus mr-3"></i>Agregar Implemento
                             </a>
                             <a class="ml-3 btn btn-outline-success" href="{% url 'dashboard:export_inventory' %}">
@@ -50,21 +44,12 @@
                                         <thead>
                                         <tr class="main-table">
                                             <th>Imagen</th>
-<<<<<<< HEAD
-                                            <th>{% trans 'Numero de serie' %}</th>
-                                            <th>{% trans 'Fecha de compra' %}</th>
-                                            <th>{% trans 'Precio de compra' %}</th>
-                                            <th>{% trans 'Tipo de implemento' %}</th>
-                                            <th>{% trans 'Estado' %}</th>
-                                            <th>{% trans 'Accion' %}</th>
-=======
                                             <th>Tipo de implemento</th>
                                             <th>Numero de serie</th>
                                             <th>Fecha de compra</th>
                                             <th>Precio de compra</th>
                                             <th>Estado</th>
                                             <th>Accion</th>
->>>>>>> santiago
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -89,12 +74,8 @@
                                                 </td>
                                                 <td>
                                                     <a class="btn text-secondary px-0"
-                                                       href={% url 'dashboard:inventory_update' item.pk %}>
+                                                       href={% url 'dashboard:inventory_update_auxiliary' item.pk %}>
                                                         <i class="far fa-edit fa-lg"></i>
-                                                    </a>
-                                                    <a href="{% url 'dashboard:inventory_delete' item.pk %}"
-                                                       class="btn">
-                                                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -109,5 +90,4 @@
             </div>
         </div>
     </main>
-
 {% endblock %}

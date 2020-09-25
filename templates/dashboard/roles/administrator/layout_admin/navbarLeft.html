@@ -1,6 +1,6 @@
 {% load static %}
 {% load i18n %}
-<nav id="sidebar" class="sidebar">
+<nav id="sidebar" class="sidebar mb-5">
     <a class="sidebar-brand" href="#">
         <img src="{% static "img/logo.png" %}" alt="Andromeda">
     </a>
@@ -21,8 +21,9 @@
                 </a>
                 <ul id="users" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="{% url "dashboard:create_user" %}">{% trans 'Crear usuario'%}</a>
-                        <a class="sidebar-link" href="{% url "dashboard:list_users" %}">{% trans 'Lista de usuarios' %}</a>
+                        <a class="sidebar-link" href="{% url "dashboard:create_user" %}">{% trans 'Crear usuario' %}</a>
+                        <a class="sidebar-link"
+                           href="{% url "dashboard:list_users" %}">{% trans 'Lista de usuarios' %}</a>
                     </li>
                 </ul>
             </li>
@@ -46,8 +47,12 @@
                 </a>
                 <ul id="request" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">{% trans 'Crear solicitud' %}</a>
-                        <a class="sidebar-link" href="#">{% trans 'Control de solicitudes' %}</a>
+                        <a class="sidebar-link"
+                           href="{% url 'dashboard:create_support' %}">{% trans 'Crear solicitud' %}
+                        </a>
+                        <a class="sidebar-link"
+                           href="{% url 'dashboard:list_support' %}">{% trans 'Control de solicitudes' %}
+                        </a>
                     </li>
                 </ul>
             </li>
@@ -93,9 +98,9 @@
                 </a>
                 <ul id="inventory" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="{% url 'dashboard:inventory_list' %}">{% trans 'Gestionar inventario' %}</a>
-                        <a class="sidebar-link" href="#">{% trans 'Agregar implemento' %}</a>
-                        <a class="sidebar-link" href="#">{% trans 'Consultar inventario' %}</a>
+                        <a class="sidebar-link" href="{% url 'dashboard:inventory_list' %}">Gestionar inventario</a>
+                        <a class="sidebar-link" href="{% url 'dashboard:create_inventory' %}">Agregar implemento</a>
+                        <a class="sidebar-link" href="#">Consultar inventario</a>
                     </li>
                 </ul>
             </li>

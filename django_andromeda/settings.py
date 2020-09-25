@@ -53,9 +53,9 @@ LOCAL_APPS = [
     'apps.dashboard',
 
     # Roles de usuario
-    'apps.dashboard.roles.administrator',
-    'apps.dashboard.roles.auxiliary',
-    'apps.dashboard.roles.employee',
+    'apps.roles.administrator',
+    'apps.roles.auxiliary',
+    'apps.roles.employee',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'django_andromeda.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'andromeda_db',
+        'NAME': 'andromeda_django',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',

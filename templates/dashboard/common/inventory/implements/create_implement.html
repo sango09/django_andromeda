@@ -1,0 +1,59 @@
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+<main class="content">
+    <div class="container-fluid">
+        <div class="header">
+            <h1 class="header-title">
+                Registrar Implemento Tecnologico
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href={{ dashboard }}>Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="#"></a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Registrar Implemento</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-body">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div{% if message.tags %} class="alert alert-{{ message.tags }}" role="alert"
+                                {% endif %}>
+                                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3"
+                              action="{% url 'dashboard:create_implement' %}" method="POST" autocomplete="off">
+                            {% csrf_token %}
+                            {{ form.tipo_implemento | as_crispy_field }}
+                            <div class="form-row align-items-center">
+                                <div class="col-10">
+                                    {{ form.ficha_tecnica | as_crispy_field }}
+                                </div>
+                                <div class="col-2">
+                                    <a class="text-warning ml-3" href="#">
+                                        <i class="far fa-edit"></i>
+                                    </a>
+                                    <a class="text-success ml-2" href="{% url 'dashboard:create_ficha_tecnica' %}">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="btn btn-success btn-block" type="submit">Registrar implemento</button>
+                            <a class="btn btn-outline-info btn-block" href={{ create_inventory }}>Cancelar</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
