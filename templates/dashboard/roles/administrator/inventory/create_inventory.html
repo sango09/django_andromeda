@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
+{% block content %}
+    {% url 'dashboard:administrator' as url_dashboard %}
+    {% url 'dashboard:inventory_list' as url_inventory %}
+    {% url 'dashboard:create_implement' as url_create_implement %}
+
+    {% include 'dashboard/common/inventory/create_inventory.html' with dashboard=url_dashboard inventory_list=url_inventory create_implement=url_create_implement%}
+{% endblock %}

@@ -1,10 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "dashboard/roles/auxiliary/layout_auxiliary/layout.html" %}
+{% load static %}
+{% block content %}
+    <main class="content">
+        <div class="container-fluid">
+            <div class="header">
+                <h1 class="header-title">
+                    Lista de implementos
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href={% url 'dashboard:auxiliary' %}>Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Inventario</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title d-inline-block">Lista de implementos registrados</h5>
+                            <a class="btn btn-info text-white float-right"
+                               href={% url 'dashboard:create_inventory_auxiliary' %}>
+                                <i class="fas fa-plus mr-3"></i>Agregar Implemento
+                            </a>
+                            <a class="ml-3 btn btn-outline-success" href="{% url 'dashboard:export_inventory' %}">
+                                <i class="far fa-file-excel"></i>
+                                Exportar como CSV
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div{% if message.tags %} class="alert alert-{{ message.tags }}" role="alert"
+                                    {% endif %}>
+                                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <div class="table-responsive">
+                                <div class="table-content">
+                                    <table class="table table-striped mb-0 text-center">
+                                        <thead>
+                                        <tr class="main-table">
+                                            <th>Imagen</th>
+                                            <th>Tipo de implemento</th>
+                                            <th>Numero de serie</th>
+                                            <th>Fecha de compra</th>
+                                            <th>Precio de compra</th>
+                                            <th>Estado</th>
+                                            <th>Accion</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for item in inventory_list %}
+                                            <tr>
+                                                <td>
+                                                    <img src="{{ item.tipo_implemento.ficha_tecnica.image.url }}" alt=""
+                                                         class="img-fluid" width="90">
+                                                </td>
+                                                <td>
+                                                    <a href="#">
+                                                        {{ item.tipo_implemento }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ item.numero_serie }}</td>
+                                                <td>{{ item.fecha_compra }}</td>
+                                                <td>{{ item.precio_compra }}</td>
+                                                <td>
+                                                <span class="badge badge-success">
+                                                    {{ item.estado_implemento }}
+                                                </span>
+                                                </td>
+                                                <td>
+                                                    <a class="btn text-secondary px-0"
+                                                       href={% url 'dashboard:inventory_update_auxiliary' item.pk %}>
+                                                        <i class="far fa-edit fa-lg"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

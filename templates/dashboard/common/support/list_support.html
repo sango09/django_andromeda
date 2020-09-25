@@ -1,10 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <main class="content">
+        <div class="container-fluid">
+            <div class="header">
+                <h1 class="header-title">
+                    {% trans 'Soportes Solicitados' %}
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{% trans 'Servicios' %}</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">{% trans 'Servicios Solicitados' %}</h5>
+                        </div>
+                        <div class="card-body">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div{% if message.tags %} class="alert alert-{{ message.tags }}" role="alert"
+                                    {% endif %}>
+                                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <div class="user-control table-responsive">
+                                <table class="table table-hover table-bordered table-striped mb-0 text-center">
+                                    <thead>
+                                    <tr class="main-table">
+                                        <th>#</th>
+                                        <th>{% trans 'Lugar del Soporte' %}</th>
+                                        <th>{% trans 'Descripcion del problema' %}</th>
+                                        <th>{% trans 'Fecha solicitud' %}</th>
+                                        <th>{% trans 'Hora solicitud' %}</th>
+                                        <th>{% trans 'Auxiliar Asignado' %}</th>
+                                        <th>{% trans 'Empleado' %}</th>
+                                        <th>{% trans 'Estado del servicio' %}</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for support in list_support %}
+                                        <tr>
+                                            <td>{{ support.pk }}</td>
+                                            <td>{{ support.lugar_soporte }}</td>
+                                            <td>{{ support.descripcion_problema }}</td>
+                                            <td>{{ support.fecha_solicitud }}</td>
+                                            <td>{{ support.hora_solicitud }}</td>
+                                            <td>{{ support.auxiliar_asignado }}</td>
+                                            <td>{{ support.empleado }}</td>
+                                            <td>
+                                                <span class="badge badge-success">
+                                                    {{ support.estado_servicio }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="#"
+                                                   class="btn text-secondary px-0">
+                                                    <i class="far fa-edit fa-lg"></i>
+                                                </a>
+                                                <a href="#" class="btn">
+                                                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% include 'dashboard/common/pagination.html' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

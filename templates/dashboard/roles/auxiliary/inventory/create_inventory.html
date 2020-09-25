@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'dashboard/roles/auxiliary/layout_auxiliary/layout.html' %}
+{% block content %}
+    {% url 'dashboard:auxiliary' as url_dashboard %}
+    {% url 'dashboard:inventory_auxiliary' as url_inventory %}
+
+    {% include 'dashboard/common/inventory/create_inventory.html' with dashboard=url_dashboard inventory_list=url_inventory %}
+{% endblock %}

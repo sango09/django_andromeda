@@ -4,7 +4,7 @@ from django.conf.urls import include
 # Django
 from django.urls import path
 
-from apps.dashboard.roles.administrator import views as administrator_views
+from apps.roles.administrator import views as administrator_views
 # Local views
 from apps.users import views as users_views
 
@@ -57,17 +57,23 @@ urlpatterns = [
     path('inventory/', include([
         path(
             route='create_inventory/',
-            view=administrator_views.CreateInventoryView.as_view(),
+            view=administrator_views.CreateInventoryView.as_view(
+                template_name='dashboard/roles/administrator/inventory/create_inventory.html'
+            ),
             name='create_inventory'
         ),
         path(
             route='inventory_list/',
-            view=administrator_views.InventoryListView.as_view(),
+            view=administrator_views.InventoryListView.as_view(
+                template_name='dashboard/roles/administrator/inventory/inventory_list.html'
+            ),
             name='inventory_list'
         ),
         path(
             route='inventory_update/<int:id>',
-            view=administrator_views.InventoryUpdateView.as_view(),
+            view=administrator_views.InventoryUpdateView.as_view(
+                template_name='dashboard/roles/administrator/inventory/update_inventory.html'
+            ),
             name='inventory_update'
         ),
 
@@ -75,23 +81,48 @@ urlpatterns = [
             route='inventory_delete/<int:id>',
             view=administrator_views.InventoryDeleteView.as_view(),
             name='inventory_delete'
+        ),
+
+        path(
+            route='export/',
+            view=administrator_views.export_inventory_view,
+            name='export_inventory'
         )
+
     ])),
 
     # Implement
     path('implement/', include([
         path(
             route='create_implement/',
-            view=administrator_views.CreateImplementView.as_view(),
+            view=administrator_views.CreateImplementView.as_view(
+                template_name='dashboard/roles/administrator/inventory/implements/create_implement.html'
+            ),
             name='create_implement'
         ),
 
         path(
             route='create_ficha_tecnica/',
-            view=administrator_views.CreateFichaTecnicaView.as_view(),
+            view=administrator_views.CreateFichaTecnicaView.as_view(
+                template_name='dashboard/roles/administrator/inventory/ficha_tecnica/create_ficha_tecnica.html'
+            ),
             name='create_ficha_tecnica'
         ),
-    ]))
+    ])),
+
+    # Support
+    path('support/', include([
+        path(
+            route='create_support/',
+            view=administrator_views.SupportCreateView.as_view(),
+            name='create_support'
+        ),
+        path(
+            route='list_support/',
+            view=administrator_views.SupportListView.as_view(),
+            name='list_support'
+        )
+    ])),
 
     # 
 ]

@@ -8,8 +8,13 @@ from apps.links.models import (
     TblInventario,
     TblTipoImplemento,
     TblFichaTecnica,
+    TblSoporteTecnico,
 
 )
+
+
+class TimeInput(forms.TimeInput):
+    input_type = 'time'
 
 
 class DateInput(forms.DateInput):
@@ -36,6 +41,27 @@ class InventoryForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(InventoryForm, self).__init__(*args, **kwargs)
+        self.fields['usuario_asignado'].empty_label = 'Ninguno'
+        self.fields['tipo_implemento'].empty_label = 'Implemento'
+        self.fields['estado_implemento'].empty_label = 'Estado en el inventario'
+
+
+class InventoryUpdateForm(forms.ModelForm):
+    class Meta:
+        model = TblInventario
+        fields = (
+            'tipo_implemento', 'numero_serie', 'precio_compra', 'estado_implemento', 'usuario_asignado'
+        )
+        labels = {
+            'tipo_implemento': 'Tipo de implemento',
+            'numero_serie': 'Numero de serie',
+            'precio_compra': 'Precio de compra',
+            'estado_implemento': 'Estado del implemento',
+            'usuario_asignado': 'Usuario asignado',
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(InventoryUpdateForm, self).__init__(*args, **kwargs)
         self.fields['usuario_asignado'].empty_label = 'Ninguno'
         self.fields['tipo_implemento'].empty_label = 'Implemento'
         self.fields['estado_implemento'].empty_label = 'Estado en el inventario'
@@ -74,3 +100,20 @@ class FichaTecnicaForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FichaTecnicaForm, self).__init__(*args, **kwargs)
         self.fields['sistema_operativo'].empty_label = 'Sistema operativo del equipo'
+
+
+class SupportForm(forms.ModelForm):
+    fecha_solicitud = forms.DateField(widget=DateInput)
+    hora_solicitud = forms.TimeField(widget=TimeInput)
+
+    class Meta:
+        model = TblSoporteTecnico
+        fields = (
+            'lugar_soporte', 'descripcion_problema', 'fecha_solicitud', 'hora_solicitud'
+        )
+        labels = {
+            'lugar_soporte': 'Lugar del soporte',
+            'descripision_problema': 'Descripción del problema',
+            'fecha_solicitud': 'Fecha de la solicitud',
+            'hora_solicitud': 'Hora'
+        }
