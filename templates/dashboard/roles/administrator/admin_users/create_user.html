@@ -1,5 +1,6 @@
 {% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
 {% load static %}
+{% load i18n %}
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -7,12 +8,12 @@
         <div class="container-fluid">
             <div class="header">
                 <h1 class="header-title">
-                    Lista de Usuarios
+                    {% trans 'Crear usuario' %}
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Crear usuario</li>
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>{% trans 'Inicio' %}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{% trans 'Crear usuario' %}</li>
                     </ol>
                 </nav>
             </div>
@@ -20,7 +21,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Eliminar usuario</h5>
+                            <h5 class="card-title">{% trans 'Crear usuario' %}</h5>
                         </div>
                         <div class="card-body">
                             <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3"
@@ -33,18 +34,17 @@
                                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
                                                required>
                                         <label class="form-check-label" for="invalidCheck">
-                                            Acepto Términos de Servicio y Politicas de Privacidad
+                                            {% trans 'Acepto Términos de Servicio y Politicas de Privacidad' %}
                                         </label>
                                         <div class="invalid-feedback">
-                                            Debes aceptar los Terminos y Condiciones
+                                            {% trans 'Debes aceptar los Terminos y Condiciones' %}
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-andromeda mt-2 mx-auto btn-block">Crear Usuario
+                                <button type="submit" class="btn btn-andromeda mt-2 mx-auto btn-block">{% trans 'Crear Usuario' %}
                                 </button>
-                                <a class="mt-4 btn-block btn btn-secondary" href="{% url 'dashboard:list_users' %}">Cancelar</a>
+                                <a class="mt-4 btn-block btn btn-secondary" href="{% url 'dashboard:list_users' %}">{% trans 'Cancelar' %}</a>
                             </form>
-
                         </div>
                     </div>
                 </div>

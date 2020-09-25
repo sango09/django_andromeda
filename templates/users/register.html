@@ -5,12 +5,17 @@
 {% endblock %}
 
 {% load static %}
+{% load i18n %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
 {% load crispy_forms_tags %}
 
 {% block main %}
     <section class="container-fluid ">
         <div class="row">
-            <div class="col brand-andromeda">
+            <div class="col pb-5 brand-andromeda">
                 <img src="{% static "img/logo_azul.png" %}" alt="">
                 {% if error %}
                     <p class="alert alert-danger text-center">{{ error }}</p>
@@ -20,25 +25,23 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     {{ position_form|crispy }}
-                    <div class="form-group pb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                Acepto Términos de Servicio y Politicas de Privacidad
-                            </label>
-                            <div class="invalid-feedback">
-                                Debes aceptar los Terminos y Condiciones
-                            </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox"
+                                   required="" data-msg="Please accept our Terms and Conditions.">
+                            <label class="custom-control-label font-size-sm text-muted" for="termsCheckbox">Acepto los
+                                <a href="#">Terminos y condiciones</a></label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-andromeda mt-2 mx-auto btn-block">Crear mi cuenta</button>
+                    <button type="submit" class="btn btn-andromeda mt-2 mx-auto btn-block">{% trans 'Crear mi cuenta' %}</button>
                 </form>
                 <div class="abajo text-center mt-3 ">
-                    <span class="text-muted">¿Ya tienes una cuenta?</span>
-                    <a class="text-andromeda" href={% url "users:login" %}>Inicia tu Sesión</a>
+                    <span class="text-muted">{% trans '¿Ya tienes una cuenta?' %}</span>
+                    <a class="text-andromeda" href={% url "users:login" %}>{% trans 'Inicia tu Sesión' %}</a>
                 </div>
             </div>
-            <div class="d-none d-md-block col-12 col-md col-lg-6 d-md-block" id="image__signup"
+            <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center min-vh-lg-100 position-relative bg-light px-0"
+                 id="image__signup"
                  style="background-image: url(../../static/img/cgb6.jpeg);
             background-size: cover;
             height: 108vh;">

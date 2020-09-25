@@ -4,6 +4,10 @@
 {% endblock %}
 
 {% load static %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% load i18n %}
 
 {% block main %}
     <section class="container-fluid ">
@@ -13,7 +17,7 @@
             background-size: cover;
             height: 100vh;">
             </div>
-            <div class="col pt-5 brand-andromeda">
+            <div class="col pt-10 pt-lg-7 pb-7 brand-andromeda w-100">
                 <img src="{% static "img/logo_azul.png" %}" alt="">
                 {% if error %}
                     <p class="alert alert-danger text-center">{{ error }}</p>
@@ -26,32 +30,36 @@
                 <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3" method="POST"
                       action="{% url "users:login" %}" autocomplete="off">
                     {% csrf_token %}
-                    <p class="text-left">¿Aún no tienes cuenta?
-                        <a class="text-andromeda" href={% url "users:signup" %}>Registrate</a></p>
-                    <div class="form-group text-andromeda">
-                        <label for="InputEmail">Correo electrónico</label>
-                        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"
-                               placeholder="Ingrese el correo electronico" name="email" required="true">
-                        <small id="email" class="form-text text-muted">¡Nunca compartas tú correo electrónico!</small>
+                    <div class="text-center mb-5">
+                        <p class="text-muted">¿Aun no tienes cuenta? <a href="{% url 'users:signup' %}">Registrate
+                            aquí</a></p>
                     </div>
                     <div class="form-group text-andromeda">
-                        <label for="InputPassword">Contraseña</label>
+                        <label for="InputEmail">{% trans 'Correo electrónico' %}</label>
+                        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"
+                               placeholder="{% trans 'Ingrese el correo electronico' %}" name="email" required="true">
+                        <small id="email" class="form-text text-muted">{% trans '¡Nunca compartas tú correo electrónico!' %}</small>
+                    </div>
+                    <div class="form-group text-andromeda">
+                        <label for="InputPassword" class="w-100">
+                            <span class="d-flex justify-content-between align-items-center">
+                                Contraseña<a class="font-size-sm input-label-secondary"
+                                             href="#">¿Olvidaste tu contraseña?</a>
+                            </span>
+                        </label>
                         <input type="password" class="form-control" id="InputPassword" placeholder="Contraseña"
                                name="password" required="true">
                     </div>
-                    <div class="form-group mb-4">
-                        <button type="submit" class="btn btn-andromeda mt-2 btn-block">Ingresar</button>
+                    <div class="form-group custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox">
+                        <label class="custom-control-label font-size-sm text-muted" for="termsCheckbox">
+                            Recordar datos
+                        </label>
                     </div>
-
-                    <div class="custom-control custom-checkbox text-center text-andromeda">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">Recordar datos</label>
+                    <div class="form-group mb-4">
+                        <button type="submit" class="btn btn-andromeda mt-2 btn-block">{% trans 'Ingresar' %}</button>
                     </div>
                 </form>
-                <div class="abajo text-center mt-3 ">
-                    <a class="text-andromeda" href="#"><u>¿Olvidaste tu contraseña?</u></a>
-                </div>
-
             </div>
         </div>
     </section>

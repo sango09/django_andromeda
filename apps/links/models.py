@@ -58,6 +58,9 @@ class TblAuxiliar(models.Model):
     disponibilidad_auxiliar = models.ForeignKey(TblDisponibilidadAuxiliar, on_delete=models.CASCADE, default=1)
     perfil = models.OneToOneField(TblPerfil, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.perfil.user.first_name
+
     class Meta:
         db_table = 'tbl_auxiliar'
 
@@ -66,6 +69,9 @@ class TblCoordinador(models.Model):
     """Table administrator"""
     id_coordinador = models.AutoField(primary_key=True)
     perfil = models.OneToOneField(TblPerfil, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.perfil.user.first_name, self.perfil.user.last_name
 
     class Meta:
         db_table = 'tbl_coordinador'
@@ -88,6 +94,9 @@ class TblEmpleado(models.Model):
     id_empleado = models.AutoField(primary_key=True)
     area_laboral = models.ForeignKey(TblAreaLaboral, on_delete=models.CASCADE, default=1)
     perfil = models.OneToOneField(TblPerfil, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.perfil.user.first_name
 
     class Meta:
         db_table = 'tbl_empleado'
@@ -119,10 +128,19 @@ class TblSistemaOperativo(models.Model):
 
 class TblFichaTecnica(models.Model):
     id_ficha_tecnica = models.AutoField(primary_key=True)
+    image = models.ImageField(
+        default='inventory/image/default-image.png',
+        upload_to='inventory/image',
+        blank=True,
+        null=False,
+    )
     marca_implemento = models.CharField(max_length=45, null=False)
     modelo_implemento = models.CharField(max_length=45, null=False)
     sistema_operativo = models.ForeignKey(TblSistemaOperativo, on_delete=models.CASCADE)
     detalles = models.TextField(max_length=400)
+
+    def __str__(self):
+        return self.modelo_implemento
 
     class Meta:
         db_table = 'tbl_ficha_tecnica'
@@ -153,7 +171,7 @@ class TblInventario(models.Model):
     fecha_modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.usuario_asignado.user.username
+        return self.tipo_implemento.tipo_implemento
 
     class Meta:
         db_table = 'tbl_inventario'

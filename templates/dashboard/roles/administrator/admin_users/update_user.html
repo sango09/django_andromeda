@@ -3,16 +3,17 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% load i18n %}
     <main class="content">
         <div class="container-fluid">
             <div class="header">
                 <h1 class="header-title">
-                    Lista de Usuarios
+                    {% trans 'Lista de Usuarios' %}
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>{% trans 'Inicio' %}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{% trans 'Usuarios' %}</li>
                     </ol>
                 </nav>
             </div>
@@ -20,14 +21,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Actualizar usuario</h5>
+                            <h5 class="card-title">{% trans 'Actualizar usuario' %}</h5>
                         </div>
                         <div class="card-body">
                             <form method="POST">
                                 {% csrf_token %}
                                 {{ user_form | crispy }}
                                 {{ position_form | crispy }}
-                                <button type="submit" class="btn btn-success btn-block">Actualizar</button>
+                                <button type="submit" class="btn btn-success btn-block">{% trans 'Actualizar' %}</button>
                             </form>
                         </div>
                     </div>

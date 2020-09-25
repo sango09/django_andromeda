@@ -14,7 +14,7 @@
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>{% trans 'Inicio' %}</a></li>
+                        <li class="breadcrumb-item"><a href={% url "dashboard:employee" %}>{% trans 'Inicio' %}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{% trans 'Crear servicio' %}</li>
                     </ol>
                 </nav>
@@ -30,7 +30,7 @@
                                 <h3 class="heading">{% trans 'Solicitar Servicio' %}</h3>
                                 <p class="desc">
                                     {% blocktranslate trimmed %}
-                                    Por favor especifica tu problema lo mejor posible
+                                        Por favor especifica tu problema lo mejor posible
                                     {% endblocktranslate %}
                                 </p>
                                 <ul id="progressbar" class="text-center">
@@ -53,7 +53,7 @@
                                                     </div>
                                                     <p class="sub-desc">
                                                         {% blocktranslate trimmed %}
-                                                        Soporte Tecnico Inmediato
+                                                            Soporte Tecnico Inmediato
                                                         {% endblocktranslate %}
                                                     </p>
                                                 </div>
@@ -66,7 +66,7 @@
                                                     </div>
                                                     <p class="sub-desc">
                                                         {% blocktranslate trimmed %}
-                                                        Agendar Soporte Tecnico
+                                                            Agendar Soporte Tecnico
                                                         {% endblocktranslate %}
                                                     </p>
                                                 </div>
@@ -79,9 +79,10 @@
                                     </fieldset>
                                     <fieldset>
                                         <div class="form-card">
-                                            <h5 class="sub-heading mb-4">{% trans 'Información de soporte' %}</h5> <label
-                                                class="text-danger mb-3">*
-                                            Required</label>
+                                            <h5 class="sub-heading mb-4">{% trans 'Información de soporte' %}</h5>
+                                            <label
+                                                    class="text-danger mb-3">*
+                                                Required</label>
                                             <div class="form-group">
                                                 <label class="form-control-label">{% trans 'Nombres * :' %}</label>
                                                 <input type="text" id="fname" name="name" placeholder=""
@@ -130,8 +131,8 @@
                                             <div class="form-group">
                                                 <label for="Textarea">
                                                     {% blocktranslate trimmed %}
-                                                    Por favor especifica tu problema lo mejor
-                                                    posible
+                                                        Por favor especifica tu problema lo mejor
+                                                        posible
                                                     {% endblocktranslate %}
                                                 </label>
                                                 <textarea class="form-control" id="Textarea" rows="3"></textarea>
@@ -153,14 +154,14 @@
                                                 <h4 class="alert-heading">{% trans 'Solicitud enviada con exito!' %}</h4>
                                                 <p>
                                                     {% blocktranslate trimmed %}
-                                                    Gracias por contactar con el area de Sistemas
+                                                        Gracias por contactar con el area de Sistemas
                                                     {% endblocktranslate %}
                                                 </p>
                                                 <hr>
                                                 <p class="mb-0">
                                                     {% blocktranslate trimmed %}
-                                                    En un momento un auxiliar del area atendera tu
-                                                    solicitud
+                                                        En un momento un auxiliar del area atendera tu
+                                                        solicitud
                                                     {% endblocktranslate %}
                                                 </p>
                                             </div>
