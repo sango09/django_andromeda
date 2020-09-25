@@ -1,0 +1,8 @@
+{% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
+
+{% block content %}
+    {% url 'dashboard:administrator' as url_dashboard %}
+    {% url 'dashboard:inventory_list' as url_inventory %}
+
+    {% include 'dashboard/common/inventory/update_inventory.html' with dashboard=url_dashboard inventory_list=url_inventory %}
+{% endblock %}

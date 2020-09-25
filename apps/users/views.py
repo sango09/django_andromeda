@@ -156,8 +156,7 @@ def login_view(request):
 
                 return render(request, 'users/login.html', {'error': 'El usuario no tiene registrado ningun rol'})
 
-            else:
-                return render(request, 'users/login.html', {'error': 'Correo o contraseña invalido'})
+            return render(request, 'users/login.html', {'error': 'Correo o contraseña invalido'})
 
         except ObjectDoesNotExist:
             return render(request, 'users/login.html', {'error': 'Usuario invalido'})
@@ -188,11 +187,10 @@ class RegisterView(TemplateView):
 
             if position == '1':
                 TblCoordinador.objects.create(perfil=profile)
-
             elif position == '2':
                 TblAuxiliar.objects.create(perfil=profile)
-
-            TblEmpleado.objects.create(perfil=profile)
+            else:
+                TblEmpleado.objects.create(perfil=profile)
 
             messages.success(request, 'Usuario registrado con exito!')
             return HttpResponseRedirect(reverse_lazy('users:login'))

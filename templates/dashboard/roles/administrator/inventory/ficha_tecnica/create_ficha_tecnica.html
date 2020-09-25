@@ -1,0 +1,8 @@
+{% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
+
+{% block content %}
+    {% url 'dashboard:administrator' as url_dashboard %}
+    {% url 'dashboard:create_implement' as url_inventory %}
+
+    {% include 'dashboard/common/inventory/implements/ficha_tecnica/create_ficha_tecnica.html' with dashboard=url_dashboard inventory_list=url_inventory %}
+{% endblock %}

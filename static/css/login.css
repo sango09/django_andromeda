@@ -1,0 +1,18 @@
+p {
+    font-size: 15px !important;
+}
+
+a {
+    color: #377dff !important;
+}
+
+a:hover {
+    color: #0052ea !important;
+    text-decoration: none !important;
+}
+
+.input-label-secondary {
+    color: #8c98a4 !important;
+    font-size: .8125rem;
+    margin-left: .25rem;
+}
