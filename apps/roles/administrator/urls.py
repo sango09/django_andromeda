@@ -56,14 +56,42 @@ urlpatterns = [
     # Inventory
     path('inventory/', include([
         path(
-            route='register_implement',
-            view=administrator_views.RegisterImplementView.as_view(),
-            name='register_implement'
+            route='create_inventory/',
+            view=administrator_views.CreateInventoryView.as_view(),
+            name='create_inventory'
         ),
         path(
             route='inventory_list/',
             view=administrator_views.InventoryListView.as_view(),
             name='inventory_list'
+        ),
+        path(
+            route='inventory_update/<int:id>',
+            view=administrator_views.InventoryUpdateView.as_view(),
+            name='inventory_update'
+        ),
+
+        path(
+            route='inventory_delete/<int:id>',
+            view=administrator_views.InventoryDeleteView.as_view(),
+            name='inventory_delete'
         )
+    ])),
+
+    # Implement
+    path('implement/', include([
+        path(
+            route='create_implement/',
+            view=administrator_views.CreateImplementView.as_view(),
+            name='create_implement'
+        ),
+
+        path(
+            route='create_ficha_tecnica/',
+            view=administrator_views.CreateFichaTecnicaView.as_view(),
+            name='create_ficha_tecnica'
+        ),
     ]))
+
+    # 
 ]
