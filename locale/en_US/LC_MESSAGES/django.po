@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-23 20:27-0500\n"
+"POT-Creation-Date: 2020-09-24 16:04-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,10 @@ msgstr "Terms and Conditions"
 msgid "Contacto"
 msgstr "Contact"
 
+#: templates/dashboard/layout/navbarTop.html:8
+msgid "Buscar..."
+msgstr "Search..."
+
 #: templates/dashboard/layout/notification.html:9
 msgid "Ultimos Mensajes"
 msgstr "Latest Messages"
@@ -80,6 +84,7 @@ msgstr "Welcome"
 #: templates/dashboard/layout/user.html:14
 #: templates/dashboard/roles/administrator/admin_users/list_user.html:43
 #: templates/users/detail_users/detail_user.html:5
+#: templates/users/update_users/update_profile.html:14
 msgid "Perfil"
 msgstr "Profile"
 
@@ -104,10 +109,11 @@ msgstr "Create user"
 
 #: templates/dashboard/roles/administrator/admin_users/create_user.html:15
 #: templates/dashboard/roles/administrator/admin_users/delete_user.html:13
+#: templates/dashboard/roles/administrator/admin_users/list_user.html:13
 #: templates/dashboard/roles/administrator/admin_users/update_user.html:15
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:13
 #: templates/dashboard/roles/employee/technical_support/create_support.html:17
-#: templates/index.html:271
+#: templates/index.html:271 templates/users/update_users/update_profile.html:13
 msgid "Inicio"
 msgstr "Home"
 
@@ -176,7 +182,7 @@ msgstr "Email"
 
 #: templates/dashboard/roles/administrator/admin_users/list_user.html:42
 msgid "Creado"
-msgstr "created"
+msgstr "Created on"
 
 #: templates/dashboard/roles/administrator/admin_users/list_user.html:44
 msgid "Rol"
@@ -191,6 +197,7 @@ msgid "Actualizar usuario"
 msgstr "Update user"
 
 #: templates/dashboard/roles/administrator/admin_users/update_user.html:31
+#: templates/users/update_users/update_profile.html:49
 msgid "Actualizar"
 msgstr "Update"
 
@@ -388,6 +395,10 @@ msgstr "Completed Requests"
 msgid "Solicitudes Pendientes"
 msgstr "Awaiting requests"
 
+#: templates/dashboard/roles/administrator/presentation/tables.html:6
+msgid "Ultimas Solicitudes"
+msgstr "Latest Requests"
+
 #: templates/dashboard/roles/administrator/presentation/tables.html:19
 msgid "Nombre"
 msgstr "Name"
@@ -518,7 +529,7 @@ msgstr "Schedule Technical Support"
 #: templates/dashboard/roles/employee/technical_support/create_support.html:75
 #: templates/dashboard/roles/employee/technical_support/create_support.html:118
 msgid "Siguiente"
-msgstr "next"
+msgstr "Next"
 
 #: templates/dashboard/roles/employee/technical_support/create_support.html:82
 msgid "Información de soporte"
@@ -570,6 +581,7 @@ msgstr "Place for support *:"
 
 #: templates/dashboard/roles/employee/technical_support/create_support.html:123
 #: templates/dashboard/roles/employee/technical_support/create_support.html:146
+#: templates/users/update_users/update_profile.html:53
 msgid "Atras"
 msgstr "Back"
 
@@ -627,7 +639,7 @@ msgstr ""
 
 #: templates/index.html:71
 msgid "¿Qué es"
-msgstr "What it's"
+msgstr "What is"
 
 #: templates/index.html:73
 msgid ""
@@ -641,7 +653,7 @@ msgstr ""
 
 #: templates/index.html:96
 msgid "Las funcionalidades de Andromeda"
-msgstr "Features Andromeda"
+msgstr "Andromeda features "
 
 #: templates/index.html:104
 msgid "Gestión óptima del sistema"
@@ -829,3 +841,20 @@ msgstr "Do you already have an account?"
 #: templates/users/register.html:39
 msgid "Inicia tu Sesión"
 msgstr "Log in"
+
+#: templates/users/update_users/update_profile.html:9
+#: templates/users/update_users/update_profile.html:23
+msgid "Modificar Usuario"
+msgstr "Modify User"
+
+#: templates/users/update_users/update_profile.html:15
+msgid "Actualizar perfil"
+msgstr "Update profile"
+
+#: templates/users/update_users/update_profile.html:25
+msgid "No olvide completar todos los campos requeridos"
+msgstr "Don't forget to fill in all the required fields"
+
+#: templates/users/update_users/update_profile.html:42
+msgid "Configurar perfil"
+msgstr "Configure profile"

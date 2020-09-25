@@ -1,17 +1,18 @@
 {% load crispy_forms_filters %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 <main class="content">
     <div class="container-fluid">
         <div class="header">
             <h1 class="header-title">
-                Modificar Usuario
+                {% trans 'Modificar Usuario' %}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href={{ dashboard }}>Inicio</a></li>
-                    <li class="breadcrumb-item"><a href={{ detail }}>Perfil</a>
-                    <li class="breadcrumb-item active" aria-current="page">Actualizar perfil</li>
+                    <li class="breadcrumb-item"><a href={{ dashboard }}>{% trans 'Inicio' %}</a></li>
+                    <li class="breadcrumb-item"><a href={{ detail }}>{% trans 'Perfil' %}</a>
+                    <li class="breadcrumb-item active" aria-current="page">{% trans 'Actualizar perfil' %}</li>
                 </ol>
             </nav>
         </div>
@@ -19,9 +20,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Modificar Usuario</h5>
+                        <h5 class="card-title">{% trans 'Modificar Usuario' %}</h5>
                         <h6 class="card-subtitle text-muted">
-                            No olvide completar todos los campos requeridos
+                            {% trans 'No olvide completar todos los campos requeridos' %}
                         </h6>
                     </div>
                     <div class="dropdown-divider"></div>
@@ -38,18 +39,18 @@
                             <div class="col-md-5 col-lg border-right">
                                 <div class="p3 py-5">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h4 class="text-right">Configurar perfil</h4>
+                                        <h4 class="text-right">{% trans 'Configurar perfil' %}</h4>
                                     </div>
                                 </div>
                                 <form method="POST" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {{ profile_form | crispy }}
                                     {{ image_form | crispy }}
-                                    <button type="submit" class="btn btn-success btn-block">Actualizar</button>
+                                    <button type="submit" class="btn btn-success btn-block">{% trans 'Actualizar' %}</button>
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="{{ detail }}">Atras</a>
+                                    <a class="small" href="{{ detail }}">{% trans 'Atras' %}</a>
                                 </div>
                             </div>
                         </div>
