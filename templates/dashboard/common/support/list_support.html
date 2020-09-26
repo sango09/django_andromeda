@@ -10,7 +10,7 @@
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>{% trans 'Inicio' %}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{% trans 'Servicios' %}</li>
                     </ol>
                 </nav>
@@ -43,7 +43,7 @@
                                         <th>{% trans 'Auxiliar Asignado' %}</th>
                                         <th>{% trans 'Empleado' %}</th>
                                         <th>{% trans 'Estado del servicio' %}</th>
-                                        <th>Acciones</th>
+                                        <th>{% trans 'Acciones' %}</th>
                                     </tr>
                                     </thead>
                                     <tbody>

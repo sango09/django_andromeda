@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-24 16:04-0500\n"
+"POT-Creation-Date: 2020-09-25 20:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,103 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: apps/roles/administrator/form.py:36 apps/roles/administrator/form.py:58
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:52
+msgid "Tipo de implemento"
+msgstr "Type of implement"
+
+#: apps/roles/administrator/form.py:37 apps/roles/administrator/form.py:59
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:49
+msgid "Numero de serie"
+msgstr "Serial number"
+
+#: apps/roles/administrator/form.py:38
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:50
+msgid "Fecha de compra"
+msgstr "Date of purchase"
+
+#: apps/roles/administrator/form.py:39 apps/roles/administrator/form.py:60
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:51
+msgid "Precio de compra"
+msgstr "Purchase price"
+
+#: apps/roles/administrator/form.py:40 apps/roles/administrator/form.py:61
+msgid "Estado del implemento"
+msgstr "Implement status"
+
+#: apps/roles/administrator/form.py:41 apps/roles/administrator/form.py:62
+msgid "Usuario asignado"
+msgstr "Assigned User"
+
+#: apps/roles/administrator/form.py:79
+msgid "Tipo de equipo tecnologico"
+msgstr "Type of technological equipment"
+
+#: apps/roles/administrator/form.py:80
+msgid "Ficha tecnica"
+msgstr "Data sheet"
+
+#: apps/roles/administrator/form.py:95
+msgid "Marca del equipo"
+msgstr "Device Brand"
+
+#: apps/roles/administrator/form.py:96
+msgid "Modelo"
+msgstr "Model"
+
+#: apps/roles/administrator/form.py:97
+msgid "Especificaciones tecnicas"
+msgstr "Technical specifications"
+
+#: apps/roles/administrator/form.py:98
+msgid "Sistema Operativo"
+msgstr "Operating system"
+
+#: apps/roles/administrator/form.py:99
+msgid "Imagen de referencia"
+msgstr "Reference image"
+
+#: apps/roles/administrator/form.py:117
+msgid "Lugar del soporte"
+msgstr "Support location"
+
+#: apps/roles/administrator/form.py:118
+msgid "Descripcion problema"
+msgstr "Description problem"
+
+#: apps/roles/administrator/form.py:119
+#: templates/dashboard/common/support/list_support.html:41
+msgid "Fecha solicitud"
+msgstr "Application date"
+
+#: apps/roles/administrator/form.py:120
+#: templates/dashboard/common/support/list_support.html:42
+msgid "Hora solicitud"
+msgstr "Request time"
+
+#: apps/users/form.py:43
+#: templates/dashboard/roles/administrator/admin_users/list_user.html:39
+msgid "Nombres"
+msgstr "First name"
+
+#: apps/users/form.py:44
+#: templates/dashboard/roles/administrator/admin_users/list_user.html:40
+msgid "Apellidos"
+msgstr "Last name"
+
+#: apps/users/form.py:45
+#: templates/dashboard/roles/administrator/admin_users/list_user.html:41
+#: templates/index.html:239
+msgid "Correo Electronico"
+msgstr "Email"
+
+#: apps/users/form.py:54
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:48
+msgid "Imagen"
+msgstr "Image"
+
 #: templates/dashboard/common/cardAction.html:11
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:45
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:46
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:20
 #: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:20
 msgid "Solicitudes"
@@ -40,6 +135,143 @@ msgstr "¡Welcome,"
 #: templates/dashboard/common/content.html:6
 msgid "Tienes 7 mensajes nuevos y 5 notificaciones nuevas."
 msgstr "You have 7 new messages and 5 new notifications."
+
+#: templates/dashboard/common/inventory/create_inventory.html:9
+msgid "Registrar Inventario"
+msgstr "Inventory recorder"
+
+#: templates/dashboard/common/inventory/create_inventory.html:13
+#: templates/dashboard/common/inventory/implements/create_implement.html:12
+#: templates/dashboard/common/inventory/implements/ficha_tecnica/create_ficha_tecnica.html:13
+#: templates/dashboard/common/inventory/update_inventory.html:13
+#: templates/dashboard/common/support/create_support.html:14
+#: templates/dashboard/common/support/list_support.html:13
+#: templates/dashboard/roles/administrator/admin_users/create_user.html:15
+#: templates/dashboard/roles/administrator/admin_users/delete_user.html:13
+#: templates/dashboard/roles/administrator/admin_users/list_user.html:13
+#: templates/dashboard/roles/administrator/admin_users/update_user.html:15
+#: templates/dashboard/roles/administrator/inventory/delete_inventory.html:13
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:13
+#: templates/dashboard/roles/employee/technical_support/create_support.html:17
+#: templates/index.html:270 templates/users/update_users/update_profile.html:13
+msgid "Inicio"
+msgstr "Home"
+
+#: templates/dashboard/common/inventory/create_inventory.html:15
+msgid "Registrar inventario"
+msgstr "Register inventory"
+
+#: templates/dashboard/common/inventory/create_inventory.html:46
+msgid "Registrar en inventario"
+msgstr "Register in inventory"
+
+#: templates/dashboard/common/inventory/create_inventory.html:47
+#: templates/dashboard/common/inventory/implements/create_implement.html:51
+#: templates/dashboard/common/inventory/implements/ficha_tecnica/create_ficha_tecnica.html:39
+#: templates/dashboard/common/inventory/update_inventory.html:31
+#: templates/dashboard/roles/administrator/admin_users/create_user.html:46
+#: templates/dashboard/roles/administrator/admin_users/delete_user.html:30
+#: templates/dashboard/roles/administrator/inventory/delete_inventory.html:35
+msgid "Cancelar"
+msgstr "Cancel"
+
+#: templates/dashboard/common/inventory/implements/create_implement.html:8
+msgid "Registrar Implemento Tecnologico"
+msgstr "Register Technological Implementation"
+
+#: templates/dashboard/common/inventory/implements/create_implement.html:14
+msgid "Registrar Implemento"
+msgstr "Register Implement"
+
+#: templates/dashboard/common/inventory/implements/create_implement.html:50
+msgid "Registrar implemento"
+msgstr "Register Implement"
+
+#: templates/dashboard/common/inventory/implements/ficha_tecnica/create_ficha_tecnica.html:9
+msgid "Registrar Ficha Tecnica"
+msgstr "Register Technical Data Sheet"
+
+#: templates/dashboard/common/inventory/implements/ficha_tecnica/create_ficha_tecnica.html:14
+msgid "Fichas tecnicas"
+msgstr "Technical sheets"
+
+#: templates/dashboard/common/inventory/implements/ficha_tecnica/create_ficha_tecnica.html:15
+msgid "Crear Ficha Tecnica"
+msgstr "Create Technical Sheet"
+
+#: templates/dashboard/common/inventory/implements/ficha_tecnica/create_ficha_tecnica.html:38
+msgid "Crear ficha tecnica"
+msgstr "Create Technical Sheet"
+
+#: templates/dashboard/common/inventory/update_inventory.html:9
+msgid "Actualizar datos de inventario"
+msgstr "Update inventory data"
+
+#: templates/dashboard/common/inventory/update_inventory.html:15
+msgid "Actualizar inventario"
+msgstr "Update inventory"
+
+#: templates/dashboard/common/inventory/update_inventory.html:29
+#: templates/dashboard/roles/administrator/admin_users/update_user.html:31
+#: templates/users/update_users/update_profile.html:49
+msgid "Actualizar"
+msgstr "Update"
+
+#: templates/dashboard/common/support/create_support.html:10
+#: templates/dashboard/common/support/create_support.html:15
+msgid "Crear soporte tecnico"
+msgstr "Create technical support"
+
+#: templates/dashboard/common/support/create_support.html:23
+#: templates/dashboard/roles/employee/technical_support/create_support.html:26
+msgid "Soporte tecnico"
+msgstr "Technical Support"
+
+#: templates/dashboard/common/support/create_support.html:30
+#, fuzzy
+#| msgid "Enviar solicitud"
+msgid "Enviar Solicitud"
+msgstr "Send request"
+
+#: templates/dashboard/common/support/list_support.html:9
+msgid "Soportes Solicitados"
+msgstr "Requested supports"
+
+#: templates/dashboard/common/support/list_support.html:14
+msgid "Servicios"
+msgstr "Services"
+
+#: templates/dashboard/common/support/list_support.html:22
+#, fuzzy
+#| msgid "Préstamos solicitados"
+msgid "Servicios Solicitados"
+msgstr "Loans requested"
+
+#: templates/dashboard/common/support/list_support.html:39
+msgid "Lugar del Soporte"
+msgstr "Support location"
+
+#: templates/dashboard/common/support/list_support.html:40
+msgid "Descripcion del problema"
+msgstr "Description of the problem"
+
+#: templates/dashboard/common/support/list_support.html:43
+#: templates/dashboard/roles/administrator/presentation/tables.html:23
+#: templates/dashboard/roles/employee/presentation/tables.html:23
+msgid "Auxiliar Asignado"
+msgstr "Assigned assistant"
+
+#: templates/dashboard/common/support/list_support.html:44
+msgid "Empleado"
+msgstr "Employee"
+
+#: templates/dashboard/common/support/list_support.html:45
+msgid "Estado del servicio"
+msgstr "Service status"
+
+#: templates/dashboard/common/support/list_support.html:46
+msgid "Acciones"
+msgstr "Actions"
 
 #: templates/dashboard/layout/footer.html:8
 msgid "Soporte"
@@ -107,23 +339,11 @@ msgstr "Log out"
 msgid "Crear usuario"
 msgstr "Create user"
 
-#: templates/dashboard/roles/administrator/admin_users/create_user.html:15
-#: templates/dashboard/roles/administrator/admin_users/delete_user.html:13
-#: templates/dashboard/roles/administrator/admin_users/list_user.html:13
-#: templates/dashboard/roles/administrator/admin_users/update_user.html:15
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:13
-#: templates/dashboard/roles/employee/technical_support/create_support.html:17
-#: templates/index.html:271 templates/users/update_users/update_profile.html:13
-msgid "Inicio"
-msgstr "Home"
-
 #: templates/dashboard/roles/administrator/admin_users/create_user.html:37
-#: templates/users/register.html:28
 msgid "Acepto Términos de Servicio y Politicas de Privacidad"
 msgstr "I accept Terms of Service and Privacy Policy"
 
 #: templates/dashboard/roles/administrator/admin_users/create_user.html:40
-#: templates/users/register.html:31
 #, fuzzy
 #| msgid "Términos y Condiciones"
 msgid "Debes aceptar los Terminos y Condiciones"
@@ -132,11 +352,6 @@ msgstr "Terms and Conditions"
 #: templates/dashboard/roles/administrator/admin_users/create_user.html:44
 msgid "Crear Usuario"
 msgstr "Create user"
-
-#: templates/dashboard/roles/administrator/admin_users/create_user.html:46
-#: templates/dashboard/roles/administrator/admin_users/delete_user.html:30
-msgid "Cancelar"
-msgstr "Cancel"
 
 #: templates/dashboard/roles/administrator/admin_users/delete_user.html:9
 #: templates/dashboard/roles/administrator/admin_users/list_user.html:9
@@ -157,28 +372,16 @@ msgstr "Delete user"
 
 #: templates/dashboard/roles/administrator/admin_users/delete_user.html:28
 msgid "¿Estas seguro de eliminar a"
-msgstr "Are you sure to eliminate"
+msgstr "Are you sure to eliminate?"
 
 #: templates/dashboard/roles/administrator/admin_users/delete_user.html:29
+#: templates/dashboard/roles/administrator/inventory/delete_inventory.html:34
 msgid "Eliminar"
 msgstr "Delete"
 
 #: templates/dashboard/roles/administrator/admin_users/list_user.html:22
 msgid "Usuarios Registrados"
 msgstr "Registered users"
-
-#: templates/dashboard/roles/administrator/admin_users/list_user.html:39
-msgid "Nombres"
-msgstr "First name"
-
-#: templates/dashboard/roles/administrator/admin_users/list_user.html:40
-msgid "Apellidos"
-msgstr "Last name"
-
-#: templates/dashboard/roles/administrator/admin_users/list_user.html:41
-#: templates/index.html:240
-msgid "Correo Electronico"
-msgstr "Email"
 
 #: templates/dashboard/roles/administrator/admin_users/list_user.html:42
 msgid "Creado"
@@ -196,52 +399,52 @@ msgstr "Current user"
 msgid "Actualizar usuario"
 msgstr "Update user"
 
-#: templates/dashboard/roles/administrator/admin_users/update_user.html:31
-#: templates/users/update_users/update_profile.html:49
-msgid "Actualizar"
-msgstr "Update"
+#: templates/dashboard/roles/administrator/inventory/delete_inventory.html:9
+msgid "Eliminar Inventario"
+msgstr "Delete Inventory"
+
+#: templates/dashboard/roles/administrator/inventory/delete_inventory.html:14
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:15
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:97
+#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:54
+msgid "Inventario"
+msgstr "Inventory"
+
+#: templates/dashboard/roles/administrator/inventory/delete_inventory.html:15
+msgid "Eliminar item"
+msgstr "Delete item"
+
+#: templates/dashboard/roles/administrator/inventory/delete_inventory.html:23
+msgid "Eliminar registro"
+msgstr "Delete Record"
+
+#: templates/dashboard/roles/administrator/inventory/delete_inventory.html:30
+msgid "¿Estas seguro de eliminar este registro de inventario?"
+msgstr "Are you sure to delete this inventory record?"
 
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:9
 msgid "Lista de implementos"
 msgstr "List of implements"
 
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:14
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:92
-#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:54
-msgid "Inventario"
-msgstr "Inventory"
-
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:22
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:23
 msgid "Lista de implementos registrados"
 msgstr "List of registered implements"
 
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:24
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:26
 msgid "Agregar Implemento"
 msgstr "Add implement"
 
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:34
-msgid "Numero de serie"
-msgstr "Serial number"
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:30
+msgid "Exportar como CSV"
+msgstr "Export as CSV"
 
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:35
-msgid "Fecha de compra"
-msgstr "Date of purchase"
-
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:36
-msgid "Precio de compra"
-msgstr "Purchase price"
-
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:37
-msgid "Tipo de implemento"
-msgstr "Type of implement"
-
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:38
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:53
 #: templates/dashboard/roles/administrator/presentation/tables.html:22
 #: templates/dashboard/roles/employee/presentation/tables.html:22
 msgid "Estado"
 msgstr "State"
 
-#: templates/dashboard/roles/administrator/inventory/inventory_list.html:39
+#: templates/dashboard/roles/administrator/inventory/inventory_list.html:54
 msgid "Accion"
 msgstr "Action"
 
@@ -249,125 +452,122 @@ msgstr "Action"
 msgid "Administrar Usuarios"
 msgstr "Manage Users"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:25
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:26
 msgid "Lista de usuarios"
 msgstr "User list"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:32
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:33
 msgid "Personal"
 msgstr "Staff"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:36
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:37
 msgid "Auxiliares"
 msgstr "Auxiliaries"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:37
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:38
 msgid "Control de personal"
 msgstr "Personal control"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:41
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:42
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:16
 #: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:16
 msgid "Soporte Tecnico"
 msgstr "Technical Support"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:49
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:51
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:24
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:24
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:25
 msgid "Crear solicitud"
 msgstr "Create request"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:50
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:54
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:25
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:25
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:26
 msgid "Control de solicitudes"
 msgstr "Request control"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:57
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:84
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:62
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:89
 msgid "Reportes"
 msgstr "Reports"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:60
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:64
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:65
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:69
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:29
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:33
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:30
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:34
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:31
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:35
 msgid "Calendario"
 msgstr "Calendar"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:67
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:72
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:36
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:37
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:38
 msgid "Préstamos Tecnologicos"
 msgstr "Technology Loans"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:71
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:76
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:40
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:41
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:42
 msgid "Préstamos"
 msgstr "Loans"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:75
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:80
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:44
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:45
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:46
 msgid "Agendar préstamo"
 msgstr "schedule loans"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:76
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:81
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:45
 msgid "Control de préstamos"
 msgstr "Loan control"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:77
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:82
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:46
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:46
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:47
 msgid "Calendario de préstamos"
 msgstr "Loan schedule"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:87
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:92
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:50
 msgid "Inventario Tecnologico"
 msgstr "Technological Inventory"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:96
-#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:58
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:101
 msgid "Gestionar inventario"
 msgstr "Manage inventory"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:97
-#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:59
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:102
 msgid "Agregar implemento"
 msgstr "Add implement"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:98
-#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:60
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:103
 msgid "Consultar inventario"
 msgstr "Consult inventory"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:102
-#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:64
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:107
+#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:65
 msgid "Mantenimiento de equipos"
 msgstr "Equipment maintenance"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:107
-#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:68
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:112
+#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:69
 msgid "Mantenimiento"
 msgstr "Maintenance"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:111
-#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:72
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:116
+#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:73
 msgid "Gestionar mantenimientos"
 msgstr "Manage maintenance"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:112
-#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:73
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:117
+#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:74
 msgid "Agregar mantenimiento"
 msgstr "Add maintenance"
 
-#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:113
-#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:74
+#: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:118
+#: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:75
 msgid "Calendario de mantenimientos"
 msgstr "Maintenance schedule"
 
@@ -413,11 +613,6 @@ msgstr "Start date"
 msgid "Fecha Final"
 msgstr "Final date"
 
-#: templates/dashboard/roles/administrator/presentation/tables.html:23
-#: templates/dashboard/roles/employee/presentation/tables.html:23
-msgid "Auxiliar Asignado"
-msgstr "Assigned assistant"
-
 #: templates/dashboard/roles/administrator/presentation/tables.html:31
 #: templates/dashboard/roles/administrator/presentation/tables.html:74
 msgid "Completado"
@@ -442,11 +637,11 @@ msgstr "In progress"
 msgid "Análisis de tus servicios prestados"
 msgstr "Analysis of your services provided"
 
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:26
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:27
 msgid "Calendario de soporte técnico"
 msgstr "Technical support calendar"
 
-#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:47
+#: templates/dashboard/roles/employee/layout_employee/navbarLeft.html:48
 msgid "Préstamos realizados"
 msgstr "Loans made"
 
@@ -499,18 +694,12 @@ msgstr "Logitech mouse"
 msgid "Crear servicio"
 msgstr "Create service"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:26
-#, fuzzy
-#| msgid "Soporte Tecnico"
-msgid "Soporte tecnico"
-msgstr "Technical Support"
-
 #: templates/dashboard/roles/employee/technical_support/create_support.html:30
 msgid "Solicitar Servicio"
 msgstr "Request Service"
 
 #: templates/dashboard/roles/employee/technical_support/create_support.html:32
-#: templates/dashboard/roles/employee/technical_support/create_support.html:132
+#: templates/dashboard/roles/employee/technical_support/create_support.html:133
 msgid "Por favor especifica tu problema lo mejor posible"
 msgstr "Please specify your problem as best as possible"
 
@@ -527,7 +716,7 @@ msgid "Agendar Soporte Tecnico"
 msgstr "Schedule Technical Support"
 
 #: templates/dashboard/roles/employee/technical_support/create_support.html:75
-#: templates/dashboard/roles/employee/technical_support/create_support.html:118
+#: templates/dashboard/roles/employee/technical_support/create_support.html:119
 msgid "Siguiente"
 msgstr "Next"
 
@@ -535,101 +724,101 @@ msgstr "Next"
 msgid "Información de soporte"
 msgstr "Support information"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:86
+#: templates/dashboard/roles/employee/technical_support/create_support.html:87
 msgid "Nombres * :"
 msgstr "First name * :"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:91
+#: templates/dashboard/roles/employee/technical_support/create_support.html:92
 msgid "Apellidos * :"
 msgstr "Last name * :"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:96
+#: templates/dashboard/roles/employee/technical_support/create_support.html:97
 msgid "Correo electronico* :"
 msgstr "Email* :"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:100
+#: templates/dashboard/roles/employee/technical_support/create_support.html:101
 msgid "Tipo de problema * :"
 msgstr "Type of problem * :"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:103
+#: templates/dashboard/roles/employee/technical_support/create_support.html:104
 msgid "Escoge tu problema"
 msgstr "Choose your problem"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:104
+#: templates/dashboard/roles/employee/technical_support/create_support.html:105
 msgid "Falla de internet"
 msgstr "Internet failure"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:105
+#: templates/dashboard/roles/employee/technical_support/create_support.html:106
 msgid "No funciona el Video Beam"
 msgstr "Video Beam not working"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:106
+#: templates/dashboard/roles/employee/technical_support/create_support.html:107
 msgid "Falla de Sonido"
 msgstr "Sound Failure"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:107
+#: templates/dashboard/roles/employee/technical_support/create_support.html:108
 msgid "Error de computador"
 msgstr "Computer error"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:108
+#: templates/dashboard/roles/employee/technical_support/create_support.html:109
 msgid "Otro"
 msgstr "Other"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:113
+#: templates/dashboard/roles/employee/technical_support/create_support.html:114
 msgid "Lugar para soporte * :"
 msgstr "Place for support *:"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:123
-#: templates/dashboard/roles/employee/technical_support/create_support.html:146
+#: templates/dashboard/roles/employee/technical_support/create_support.html:124
+#: templates/dashboard/roles/employee/technical_support/create_support.html:147
 #: templates/users/update_users/update_profile.html:53
 msgid "Atras"
 msgstr "Back"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:129
+#: templates/dashboard/roles/employee/technical_support/create_support.html:130
 msgid "Especificación de problema"
 msgstr "Problem specification"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:141
+#: templates/dashboard/roles/employee/technical_support/create_support.html:142
 msgid "Enviar solicitud"
 msgstr "Send request"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:153
+#: templates/dashboard/roles/employee/technical_support/create_support.html:154
 msgid "Solicitud enviada con exito!"
 msgstr "Request sent successfully!"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:155
+#: templates/dashboard/roles/employee/technical_support/create_support.html:156
 msgid "Gracias por contactar con el area de Sistemas"
 msgstr "Thank you for contacting the Systems area"
 
-#: templates/dashboard/roles/employee/technical_support/create_support.html:161
+#: templates/dashboard/roles/employee/technical_support/create_support.html:162
 msgid "En un momento un auxiliar del area atendera tu solicitud"
 msgstr "In a moment, an assistant in the area will attend to your request"
 
-#: templates/index.html:22
+#: templates/index.html:21
 msgid "Home"
 msgstr "Home"
 
-#: templates/index.html:25
+#: templates/index.html:24
 msgid "Nosotros"
 msgstr "About us"
 
-#: templates/index.html:28
+#: templates/index.html:27
 msgid "Funcionalidades"
 msgstr "Features"
 
-#: templates/index.html:31 templates/index.html:61 templates/index.html:191
+#: templates/index.html:30 templates/index.html:60 templates/index.html:190
 msgid "Contáctanos"
 msgstr "Contact us"
 
-#: templates/index.html:37
+#: templates/index.html:36
 msgid "Iniciar Sesión"
 msgstr "Log in"
 
-#: templates/index.html:50
+#: templates/index.html:49
 msgid "Andromeda"
 msgstr "Andromeda"
 
-#: templates/index.html:53
+#: templates/index.html:52
 msgid ""
 "Sistema de información desarrollado para los departamentos tecnológicos de "
 "las instituciones educativas."
@@ -637,11 +826,11 @@ msgstr ""
 "Information system developed for the technological departments ofeducational "
 "institutions."
 
-#: templates/index.html:71
+#: templates/index.html:70
 msgid "¿Qué es"
 msgstr "What is"
 
-#: templates/index.html:73
+#: templates/index.html:72
 msgid ""
 "Andromeda es un sistema de información que permite agilizar la resolución de "
 "incidencias, mejorar el nivel de satisfacción de sus usuarios y mantener un "
@@ -651,39 +840,39 @@ msgstr ""
 "resolution of incidents, improve the level of satisfaction of its users and "
 "maintain a maximum control in the operation of its services."
 
-#: templates/index.html:96
+#: templates/index.html:95
 msgid "Las funcionalidades de Andromeda"
 msgstr "Andromeda features "
 
-#: templates/index.html:104
+#: templates/index.html:103
 msgid "Gestión óptima del sistema"
 msgstr "Optimal system management"
 
-#: templates/index.html:105
+#: templates/index.html:104
 msgid "Administra todos los reportes, solicitudes y personal fácilmente"
 msgstr "Manage all reports, requests and staff easily"
 
-#: templates/index.html:110
+#: templates/index.html:109
 msgid "Utiliza el dashboard en cualquier dispositivo."
 msgstr "Use the dashboard on any device."
 
-#: templates/index.html:114
+#: templates/index.html:113
 msgid "Calendario completamente sincronizado con Google Calendar."
 msgstr "Calendar fully synced with Google Calendar."
 
-#: templates/index.html:118
+#: templates/index.html:117
 msgid "Calificación de los usuarios."
 msgstr "User rating."
 
-#: templates/index.html:122
+#: templates/index.html:121
 msgid "Completo control del personal técnico."
 msgstr "Full control of technical staff."
 
-#: templates/index.html:133
+#: templates/index.html:132
 msgid "Reportes en tiempo real"
 msgstr "Real time reports"
 
-#: templates/index.html:134
+#: templates/index.html:133
 msgid ""
 "Los informes genereados por Andromeda permiten dar seguimiento al desempeño "
 "del personal, la satisfacción de los usuarios e identificar las principales "
@@ -692,32 +881,32 @@ msgstr ""
 "The reports generated by Andromeda allow you to track performance staff, "
 "user satisfaction and identify the mainservice failures."
 
-#: templates/index.html:148
+#: templates/index.html:147
 msgid "Gestión de activos"
 msgstr "Asset Management"
 
-#: templates/index.html:149
+#: templates/index.html:148
 msgid ""
 "Gestione todos sus activos de TI bajo un mismo sistema sin dificultades."
 msgstr "Manage all your IT assets under one system seamlessly."
 
-#: templates/index.html:156
+#: templates/index.html:155
 msgid "Gestione sus activos con nuestro dashboard de forma intuitiva y segura."
 msgstr "Manage all your IT assets under one system seamlessly."
 
-#: templates/index.html:160
+#: templates/index.html:159
 msgid "Integración con Amazon Web Services."
 msgstr "Integration with Amazon Web Services."
 
-#: templates/index.html:164
+#: templates/index.html:163
 msgid "Supervisé todos los movimientos de sus activos."
 msgstr "supervised all the movements of their assets."
 
-#: templates/index.html:176
+#: templates/index.html:175
 msgid "Gestión de Tickets"
 msgstr "Ticket Management"
 
-#: templates/index.html:177
+#: templates/index.html:176
 msgid ""
 "Andromeda transforma automáticamente todas las solicitudes de sus usuarios "
 "en tickets, y de ésta forma darle seguimiento a las solicitudes de forma "
@@ -726,43 +915,43 @@ msgstr ""
 "Andromeda automatically transforms all requests from its users in tickets, "
 "and in this way to follow up on requestsquick and easy."
 
-#: templates/index.html:196
+#: templates/index.html:195
 msgid "Síguenos"
 msgstr "Follow us"
 
-#: templates/index.html:207
+#: templates/index.html:206
 msgid "Programamos con"
 msgstr "We program with"
 
-#: templates/index.html:235
+#: templates/index.html:234
 msgid "Nombre Completo"
 msgstr "Full name"
 
-#: templates/index.html:244
+#: templates/index.html:243
 msgid "Asunto"
 msgstr "Subject"
 
-#: templates/index.html:248 templates/users/detail_users/detail_user.html:25
+#: templates/index.html:247 templates/users/detail_users/detail_user.html:25
 msgid "Mensaje"
 msgstr "Message"
 
-#: templates/index.html:252
+#: templates/index.html:251
 msgid "Enviar mensaje"
 msgstr "Send Message"
 
-#: templates/index.html:266
+#: templates/index.html:265
 msgid "todos los derechos reservados"
 msgstr "All rights reserved"
 
-#: templates/index.html:272
+#: templates/index.html:271
 msgid "About"
 msgstr "About"
 
-#: templates/index.html:273
+#: templates/index.html:272
 msgid "Politicas de privacidad"
 msgstr "Privacy policies"
 
-#: templates/index.html:274
+#: templates/index.html:273
 msgid "Términos de uso"
 msgstr "terms of use"
 
@@ -772,7 +961,7 @@ msgstr "Profile details"
 
 #: templates/users/detail_users/detail_user.html:23
 msgid "Editar perfil"
-msgstr ""
+msgstr "Edit profile"
 
 #: templates/users/detail_users/detail_user.html:31
 msgid "Sobre mi"
@@ -794,51 +983,55 @@ msgstr "Social networks"
 msgid "Actividades"
 msgstr "Activities"
 
-#: templates/users/login.html:31
-msgid "¿Aún no tienes cuenta?"
+#: templates/users/login.html:35
+msgid "¿Aun no tienes cuenta?"
 msgstr "You don't have an account yet?"
 
-#: templates/users/login.html:34
-msgid "Registrate"
-msgstr "Sign up"
+#: templates/users/login.html:39
+msgid "Registrate aquí"
+msgstr "sign up here"
 
-#: templates/users/login.html:36
+#: templates/users/login.html:46
 msgid "Correo electrónico"
 msgstr "Email"
 
-#: templates/users/login.html:38
+#: templates/users/login.html:48
 msgid "Ingrese el correo electronico"
 msgstr "Enter email"
 
-#: templates/users/login.html:39
+#: templates/users/login.html:50
 msgid "¡Nunca compartas tú correo electrónico!"
 msgstr "Never share your email!"
 
-#: templates/users/login.html:42 templates/users/login.html:43
+#: templates/users/login.html:55 templates/users/login.html:59
 msgid "Contraseña"
 msgstr "Password"
-
-#: templates/users/login.html:47
-msgid "Ingresar"
-msgstr "Login"
-
-#: templates/users/login.html:52
-msgid "Recordar datos"
-msgstr "Remember data"
 
 #: templates/users/login.html:56
 msgid "¿Olvidaste tu contraseña?"
 msgstr "Did you forget your password?"
 
-#: templates/users/register.html:35
+#: templates/users/login.html:65
+msgid "Recordar datos"
+msgstr "Remember data"
+
+#: templates/users/login.html:69
+msgid "Ingresar"
+msgstr "Login"
+
+#: templates/users/register.html:33
+msgid "Acepto los Terminos y condiciones"
+msgstr "I accept the terms and conditions"
+
+#: templates/users/register.html:36
 msgid "Crear mi cuenta"
 msgstr "Create my account"
 
-#: templates/users/register.html:38
+#: templates/users/register.html:39
 msgid "¿Ya tienes una cuenta?"
 msgstr "Do you already have an account?"
 
-#: templates/users/register.html:39
+#: templates/users/register.html:40
 msgid "Inicia tu Sesión"
 msgstr "Log in"
 
@@ -858,3 +1051,20 @@ msgstr "Don't forget to fill in all the required fields"
 #: templates/users/update_users/update_profile.html:42
 msgid "Configurar perfil"
 msgstr "Configure profile"
+
+#~ msgid "Descripción del problema"
+#~ msgstr "Description of the problem"
+
+#~ msgid "Fecha de la solicitud"
+#~ msgstr "Request date"
+
+#~ msgid "Hora"
+#~ msgstr "Hour"
+
+#~ msgid "Fecha compra"
+#~ msgstr "Purchase date"
+
+#, fuzzy
+#~| msgid "Términos y Condiciones"
+#~ msgid "Terminos y condiciones"
+#~ msgstr "Terms and Conditions"
