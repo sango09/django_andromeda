@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-25 20:52-0500\n"
+"POT-Creation-Date: 2020-09-26 19:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,21 +19,25 @@ msgstr ""
 
 #: apps/roles/administrator/form.py:36 apps/roles/administrator/form.py:58
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:52
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:48
 msgid "Tipo de implemento"
 msgstr "Type of implement"
 
 #: apps/roles/administrator/form.py:37 apps/roles/administrator/form.py:59
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:49
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:49
 msgid "Numero de serie"
 msgstr "Serial number"
 
 #: apps/roles/administrator/form.py:38
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:50
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:50
 msgid "Fecha de compra"
 msgstr "Date of purchase"
 
 #: apps/roles/administrator/form.py:39 apps/roles/administrator/form.py:60
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:51
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:51
 msgid "Precio de compra"
 msgstr "Purchase price"
 
@@ -109,6 +113,7 @@ msgstr "Email"
 
 #: apps/users/form.py:54
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:48
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:47
 msgid "Imagen"
 msgstr "Image"
 
@@ -152,6 +157,7 @@ msgstr "Inventory recorder"
 #: templates/dashboard/roles/administrator/admin_users/update_user.html:15
 #: templates/dashboard/roles/administrator/inventory/delete_inventory.html:13
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:13
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:13
 #: templates/dashboard/roles/employee/technical_support/create_support.html:17
 #: templates/index.html:270 templates/users/update_users/update_profile.html:13
 msgid "Inicio"
@@ -406,6 +412,7 @@ msgstr "Delete Inventory"
 #: templates/dashboard/roles/administrator/inventory/delete_inventory.html:14
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:15
 #: templates/dashboard/roles/administrator/layout_admin/navbarLeft.html:97
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:14
 #: templates/dashboard/roles/auxiliary/layout_auxiliary/navbarLeft.html:54
 msgid "Inventario"
 msgstr "Inventory"
@@ -423,10 +430,12 @@ msgid "¿Estas seguro de eliminar este registro de inventario?"
 msgstr "Are you sure to delete this inventory record?"
 
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:9
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:9
 msgid "Lista de implementos"
 msgstr "List of implements"
 
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:23
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:22
 msgid "Lista de implementos registrados"
 msgstr "List of registered implements"
 
@@ -440,11 +449,13 @@ msgstr "Export as CSV"
 
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:53
 #: templates/dashboard/roles/administrator/presentation/tables.html:22
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:52
 #: templates/dashboard/roles/employee/presentation/tables.html:22
 msgid "Estado"
 msgstr "State"
 
 #: templates/dashboard/roles/administrator/inventory/inventory_list.html:54
+#: templates/dashboard/roles/auxiliary/inventory/inventory_list.html:53
 msgid "Accion"
 msgstr "Action"
 
