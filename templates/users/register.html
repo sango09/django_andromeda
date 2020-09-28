@@ -19,14 +19,19 @@
         <div class="row">
             <div class="col pb-5 brand-andromeda">
                 <img src="{% static "img/logo_azul.png" %}" alt="">
-                {% if error %}
-                    <p class="alert alert-danger text-center">{{ error }}</p>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-danger text-center" role="alert">{{ message }}</div>
+                    {% endfor %}
                 {% endif %}
                 <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3"
                       method="POST" action="{% url 'users:signup' %}" autocomplete="off">
                     {% csrf_token %}
                     {{ form | crispy }}
                     {{ position_form|crispy }}
+                    <script src='https://www.google.com/recaptcha/api.js'></script>
+                    <div class="g-recaptcha form-group" data-sitekey="6LfaJdEZAAAAAMVNm2no-24T409dmfMR0X8i7tdo"
+                         aria-required="true"></div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox"
@@ -47,7 +52,7 @@
                  id="image__signup"
                  style="background-image: url(../../static/img/cgb6.jpeg);
             background-size: cover;
-            height: 108vh;">
+            height: auto;">
             </div>
         </div>
     </section>

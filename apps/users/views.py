@@ -1,5 +1,9 @@
 """Users views"""
+import json
+import urllib.parse
+import urllib.request
 
+from django.conf import settings
 # Django
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -176,24 +180,39 @@ class RegisterView(TemplateView):
         position_form = PositionForm(post_data)
 
         if user_form.is_valid() and position_form.is_valid():
-            user_form.save()
-            username = post_data['username']
-            position = post_data['posicion']
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            data = urllib.parse.urlencode(values).encode()
+            req = urllib.request.Request(url, data=data)
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            print(result)
 
-            user = User.objects.get(username=username)
-            profile = position_form.save(commit=False)
-            profile.user = user
-            profile.save()
+            if result['success']:
+                user_form.save()
+                username = post_data['username']
+                position = post_data['posicion']
 
-            if position == '1':
-                TblCoordinador.objects.create(perfil=profile)
-            elif position == '2':
-                TblAuxiliar.objects.create(perfil=profile)
+                user = User.objects.get(username=username)
+                profile = position_form.save(commit=False)
+                profile.user = user
+                profile.save()
+
+                if position == '1':
+                    TblCoordinador.objects.create(perfil=profile)
+                elif position == '2':
+                    TblAuxiliar.objects.create(perfil=profile)
+                else:
+                    TblEmpleado.objects.create(perfil=profile)
+
+                messages.success(request, 'Usuario registrado con exito!')
+                return HttpResponseRedirect(reverse_lazy('users:login'))
             else:
-                TblEmpleado.objects.create(perfil=profile)
-
-            messages.success(request, 'Usuario registrado con exito!')
-            return HttpResponseRedirect(reverse_lazy('users:login'))
+                messages.success(request, 'Invalid reCAPTCHA. Please try again.')
 
         context = self.get_context_data(
             form=user_form,
