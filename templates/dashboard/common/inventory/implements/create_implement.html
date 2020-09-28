@@ -1,17 +1,17 @@
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
-
+{% load i18n %}
 <main class="content">
     <div class="container-fluid">
         <div class="header">
             <h1 class="header-title">
-                Registrar Implemento Tecnologico
+                {% trans 'Registrar Implemento Tecnologico' %}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href={{ dashboard }}>Inicio</a></li>
+                    <li class="breadcrumb-item"><a href={{ dashboard }}>{% trans 'Inicio' %}</a></li>
                     <li class="breadcrumb-item"><a href="#"></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Registrar Implemento</li>
+                    <li class="breadcrumb-item active" aria-current="page">{% trans 'Registrar Implemento' %}</li>
                 </ol>
             </nav>
         </div>
@@ -47,8 +47,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <button class="btn btn-success btn-block" type="submit">Registrar implemento</button>
-                            <a class="btn btn-outline-info btn-block" href={{ create_inventory }}>Cancelar</a>
+                            <button class="btn btn-success btn-block" type="submit">{% trans 'Registrar implemento' %}</button>
+                            <a class="btn btn-outline-info btn-block" href={{ create_inventory }}>{% trans 'Cancelar' %}</a>
                         </form>
                     </div>
                 </div>

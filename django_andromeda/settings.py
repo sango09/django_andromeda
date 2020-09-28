@@ -100,7 +100,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'andromeda_django',
         'USER': 'root',
-        'PASSWORD': '0810',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     },

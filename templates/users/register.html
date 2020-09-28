@@ -8,6 +8,8 @@
     <title>Registro | Andromeda</title>
 {% endblock %}
 
+{% load static %}
+{% load i18n %}
 {% block stylesheet %}
     <link rel="stylesheet" href="{% static 'css/users.css' %}">
 {% endblock %}
@@ -29,8 +31,8 @@
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox"
                                    required="" data-msg="Please accept our Terms and Conditions.">
-                            <label class="custom-control-label font-size-sm text-muted" for="termsCheckbox">Acepto los
-                                <a href="#">Terminos y condiciones</a></label>
+                            <label class="custom-control-label font-size-sm text-muted" for="termsCheckbox">
+                                <a href="#">{% trans 'Acepto los Terminos y condiciones' %}</a></label>
                         </div>
                     </div>
                     <button type="submit"
