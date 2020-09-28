@@ -2,6 +2,7 @@
 {% block content %}
     {% url 'dashboard:auxiliary' as url_dashboard %}
     {% url 'dashboard:inventory_auxiliary' as url_inventory %}
+    {% url 'dashboard:create_implement_auxiliary' as url_create_implement %}
 
-    {% include 'dashboard/common/inventory/create_inventory.html' with dashboard=url_dashboard inventory_list=url_inventory %}
+    {% include 'dashboard/common/inventory/create_inventory.html' with dashboard=url_dashboard inventory_list=url_inventory create_implement=url_create_implement%}
 {% endblock %}

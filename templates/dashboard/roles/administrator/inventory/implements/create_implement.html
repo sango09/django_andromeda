@@ -5,7 +5,8 @@
     {% url 'dashboard:administrator' as url_dashboard %}
     {% url 'dashboard:inventory_list' as url_inventory %}
     {% url 'dashboard:create_inventory' as url_create_inventory %}
+    {% url 'dashboard:create_ficha_tecnica' as url_create_ficha_tecnica %}
 
-    {% include 'dashboard/common/inventory/implements/create_implement.html' with dashboard=url_dashboard inventory_list=url_inventory  create_inventory=url_create_inventory %}
+    {% include 'dashboard/common/inventory/implements/create_implement.html' with dashboard=url_dashboard inventory_list=url_inventory  create_inventory=url_create_inventory create_ficha_tecnica=url_create_ficha_tecnica %}
 
 {% endblock %}

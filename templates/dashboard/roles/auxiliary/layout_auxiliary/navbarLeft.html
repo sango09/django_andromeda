@@ -21,7 +21,7 @@
                 </a>
                 <ul id="request" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">{% trans 'Crear solicitud' %}</a>
+                        <a class="sidebar-link" href="{% url 'dashboard:create_support_auxiliary' %}">{% trans 'Crear solicitud' %}</a>
                         <a class="sidebar-link" href="#">{% trans 'Control de solicitudes' %}</a>
                     </li>
                 </ul>
@@ -56,7 +56,7 @@
                 <ul id="inventory" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
                     <li class="sidebar-item">
                         <a class="sidebar-link" href={% url 'dashboard:inventory_auxiliary' %}>{% trans 'Gestionar inventario' %}</a>
-                        <a class="sidebar-link" href="#">{% trans 'Agregar implemento' %}</a>
+                        <a class="sidebar-link" href={% url 'dashboard:create_inventory_auxiliary' %}>{% trans 'Agregar implemento' %}</a>
                         <a class="sidebar-link" href="#">{% trans 'Consultar inventario' %}</a>
                     </li>
                 </ul>

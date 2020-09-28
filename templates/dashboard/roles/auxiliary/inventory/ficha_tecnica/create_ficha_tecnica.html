@@ -1,0 +1,8 @@
+{% extends "dashboard/roles/auxiliary/layout_auxiliary/layout.html" %}
+
+{% block content %}
+    {% url 'dashboard:auxiliary' as url_dashboard %}
+    {% url 'dashboard:create_implement_auxiliary' as url_inventory %}
+
+    {% include 'dashboard/common/inventory/implements/ficha_tecnica/create_ficha_tecnica.html' with dashboard=url_dashboard inventory_list=url_inventory %}
+{% endblock %}

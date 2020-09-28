@@ -143,27 +143,25 @@ class InventoryUpdateView(LoginRequiredMixin, UpdateView, SuccessMessageMixin):
     """Update inventory view"""
     form_class = InventoryUpdateForm
     queryset = TblInventario.objects.all()
-    success_message = "was created successfully"
 
     def get_object(self):
         id_ = self.kwargs.get("id")
         return get_object_or_404(TblInventario, id_inventario=id_)
 
     def form_valid(self, form):
+        messages.success(self.request, "Inventario actualizado")
+        position = self.request.user.tblperfil.posicion_id
+
+        if position == 1:
+            self.success_url = reverse_lazy('dashboard:inventory_list')
+
+        self.success_url = reverse_lazy('dashboard:inventory_auxiliary')
         return super().form_valid(form)
-
-    def get_success_message(self, cleaned_data):
-        print(cleaned_data)
-        return self.success_message
-
-    def get_success_url(self):
-        return reverse_lazy('dashboard:inventory_list')
 
 
 class SupportCreateView(LoginRequiredMixin, TemplateView):
     """ Create support view """
     login_url = reverse_lazy('user:login')
-    template_name = 'dashboard/common/support/create_support.html'
     form_class = SupportForm()
 
     def post(self, request):
@@ -177,7 +175,17 @@ class SupportCreateView(LoginRequiredMixin, TemplateView):
             support.empleado = empleado
             support.auxiliar_asignado = auxiliar
             support.save()
-            return HttpResponseRedirect(reverse_lazy('dashboard:administrator'))
+            position = request.user.tblperfil.posicion_id
+            messages.success(request, 'Soporte tecnico solicitado con exito!')
+
+            if position == 1:
+                return HttpResponseRedirect(reverse_lazy('dashboard:create_support'))
+
+            elif position == 2:
+                return HttpResponseRedirect(reverse_lazy('dashboard:create_support_auxiliary'))
+
+            else:
+                return HttpResponseRedirect(reverse_lazy('dashboard:create_support_employee'))
 
         context = self.get_context_data(form=form_class)
         return self.render_to_response(context)
