@@ -1,0 +1,251 @@
+@import 'variables.sass'
+
+h1
+  font-size: 60px
+
+
+h2
+  font-size: 44px !important
+  line-height: 54px
+
+
+h3
+  font-size: 33px !important
+  line-height: 42px !important
+  margin-bottom: 12px !important
+
+
+p
+  font-size: 18px
+
+.mt-7
+  margin-top: 7rem
+
+
+.pt-10, .py-10
+  padding-top: 10rem !important
+
+
+.typed-cursor
+  display: none
+
+.typed-react
+  height: 70px
+
+.bg-andromeda
+  background-color: $dark-blue-andromeda !important
+
+.shape-container
+  position: absolute
+  left: 0
+  right: 0
+  width: 100%
+  z-index: 2
+  transform: translateZ(0)
+  overflow: hidden
+
+  svg
+    display: block
+    fill: #FFF
+    pointer-events: none
+    vertical-align: baseline
+
+.shape-position-top
+  top: 0
+  margin-top: -1px
+
+.shape-position-bottom
+  margin-top: 2.55rem
+  margin-bottom: -1px
+
+.shape-orientation-inverse
+  transform: rotate(180deg)
+
+.shape-line
+  min-height: 19px
+
+.fa-check
+  color: #083358
+  margin-right: 10px
+
+.main-header
+  padding-top: 7.5rem
+  height: 80vh
+
+  img
+    width: 500px
+
+.btn-light, .btn-primary
+  padding: .575rem 2.5rem !important
+  transition: box-shadow .25s ease,transform .25s ease,-webkit-transform .25s ease !important
+
+  &:hover
+    box-shadow: 0 1rem 2.5rem rgba(22, 28, 45, .1), 0 .5rem 1rem -.75rem rgba(22, 28, 45, .1) !important
+    -webkit-transform: translate3d(0, -3px, 0)
+    transform: translate3d(0, -3px, 0)
+
+
+
+.btn-secondary
+  color: $blue-andromeda !important
+  background-color: $white-color !important
+  border-color: $white-color !important
+  box-shadow: 0 0 24px rgba(27, 22, 66, .04), 0 44px 74px rgba(27, 22, 66, .06) !important
+
+#home
+  .animated
+    animation: up-down 2s ease-in-out infinite alternate-reverse both
+
+
+@-webkit-keyframes up-down
+  0%
+    transform: translateY(10px)
+
+  100%
+    transform: translateY(-10px)
+
+
+@keyframes up-down
+  0%
+    transform: translateY(10px)
+
+  100%
+    transform: translateY(-10px)
+
+
+.navbar-brand
+  img
+    height: 3.5rem
+
+
+.nav-link
+  padding: 1rem !important
+
+
+/* ----------------------------------------------- Nosotros -------------------------------------- */
+.bg-us
+  background-color: $white-lite-color
+  height: 60vh
+
+
+.screenshot
+  border-radius: .625rem
+  box-shadow: 25px 60px 125px -25px rgba(80, 102, 144, 0.3), 16px 40px 75px -40px rgba(0, 0, 0, 0.35)
+
+
+/* -------------------------------------------- Caracteristicas -------------------------------------- */
+.image-index
+  text-align: center
+
+.pt-7
+  padding-top: 7rem
+
+.contact-about
+  .iconos
+    a
+      font-size: 18px
+      display: inline-block
+      background: white
+      color: $blue-andromeda
+      line-height: 1
+      padding: 8px 0
+      margin-right: 4px
+      border-radius: 50%
+      text-align: center
+      width: 36px
+      height: 36px
+      border: 1px solid $blue-andromeda
+
+      &:hover
+        background-color: #012b552c
+
+
+.info
+  .icono
+    color: $blue-andromeda
+    font-size: 25px
+    margin-right: 5px
+
+
+  div
+    margin-bottom: 15px
+
+
+.heart
+  color: #ff304f !important
+
+
+#footer
+  background: $white-color
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1)
+  padding: 30px 0
+  color: $black-lite-color
+  font-size: 14px
+
+  .footer-links
+    a
+      color: $black-lite-color
+      padding-left: 15px
+
+
+/* --------------------------------------- Media display -------------------------------------------------------------*/
+
+@media (min-width: 992px)
+  .mb-lg-8, .my-lg-8
+    margin-bottom: 3rem !important
+
+
+@media (max-width: 991.98px)
+  .display-3
+    font-size: 2.25rem !important
+
+  .typed-react
+    height: 35px !important
+
+  .btn-andromeda
+    width: 100% !important
+
+
+@media (min-width: 768px)
+  .mw-md-150
+    max-width: 130% !important
+
+  .pt-md-12, .py-md-12
+    padding-top: 8rem !important
+
+  .pt-md-11
+    padding-top: 6rem !important
+
+  .screenshot
+    box-shadow: 25px 60px 125px -25px rgba(80, 102, 144, 0.3), 16px 40px 75px -40px rgba(0, 0, 0, 0.12)
+
+
+@media (max-width: 768px)
+  .bg-us
+    height: 80vh
+
+  .pt-5
+    padding-bottom: 100px
+
+
+@media (max-width: 400px)
+  #typed
+    height: 30px !important
+
+  .pt-10
+    padding-top: 20rem !important
+
+
+@media (max-width: 992px)
+  #typed
+    height: 30px !important
+
+  .pt-10
+    padding-top: 5rem !important
+
+
+@media (max-width: 360px)
+  .pt-10
+    padding-top: 15rem !important
+
+

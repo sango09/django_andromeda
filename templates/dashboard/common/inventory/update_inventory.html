@@ -1,17 +1,18 @@
 {% load static %}
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 <main class="content">
     <div class="container-fluid">
         <div class="header">
             <h1 class="header-title">
-                Actualizar datos de inventario
+                {% trans 'Actualizar datos de inventario' %}
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href={{ dashboard }}>Inicio</a></li>
+                    <li class="breadcrumb-item"><a href={{ dashboard }}>{% trans 'Inicio' %}</a></li>
                     <li class="breadcrumb-item"><a href={{ inventory_list }}></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Actualizar inventario</li>
+                    <li class="breadcrumb-item active" aria-current="page">{% trans 'Actualizar inventario' %}</li>
                 </ol>
             </nav>
         </div>
@@ -25,9 +26,9 @@
                               method="POST" autocomplete="off">
                             {% csrf_token %}
                             {{ form | crispy }}
-                            <button class="btn btn-success btn-block" type="submit">Actualizar</button>
+                            <button class="btn btn-success btn-block" type="submit">{% trans 'Actualizar' %}</button>
                             <a class="btn btn-outline-secondary btn-block"
-                               href={{ inventory_list }}>Cancelar</a>
+                               href={{ inventory_list }}>{% trans 'Cancelar' %}</a>
                         </form>
                     </div>
                 </div>

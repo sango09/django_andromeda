@@ -20,14 +20,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title d-inline-block">Lista de implementos registrados</h5>
+                            <h5 class="card-title d-inline-block">{% trans 'Lista de implementos registrados' %}</h5>
                             <a class="btn btn-info text-white float-right"
                                href={% url 'dashboard:create_inventory' %}>
-                                <i class="fas fa-plus mr-3"></i>Agregar Implemento
+                                <i class="fas fa-plus mr-3"></i>{% trans 'Agregar Implemento' %}
                             </a>
                             <a class="ml-3 btn btn-outline-success" href="{% url 'dashboard:export_inventory' %}">
                                 <i class="far fa-file-excel"></i>
-                                Exportar como CSV
+                                {% trans 'Exportar como CSV' %}
                             </a>
                         </div>
                         <div class="card-body">
@@ -45,7 +45,7 @@
                                     <table class="table table-striped mb-0 text-center">
                                         <thead>
                                         <tr class="main-table">
-                                            <th>Imagen</th>
+                                            <th>{% trans 'Imagen' %}</th>
                                             <th>{% trans 'Numero de serie' %}</th>
                                             <th>{% trans 'Fecha de compra' %}</th>
                                             <th>{% trans 'Precio de compra' %}</th>
@@ -60,15 +60,19 @@
                                                 <td>
                                                     <img src="{{ item.tipo_implemento.ficha_tecnica.image.url }}" alt=""
                                                          class="img-fluid" width="90">
-                                                </td>
-                                                <td>
-                                                    <a href="#">
-                                                        {{ item.tipo_implemento }}
-                                                    </a>
-                                                </td>
+                                                </td> 
                                                 <td>{{ item.numero_serie }}</td>
                                                 <td>{{ item.fecha_compra }}</td>
                                                 <td>{{ item.precio_compra }}</td>
+                                                <td>
+                                                    <a href="#">
+                                                        
+                                                        {{ item.tipo_implemento }}
+                                                    </a>
+                                                </td>
+                                               
+                                                
+                                                
                                                 <td>
                                                 <span class="badge badge-success">
                                                     {{ item.estado_implemento }}

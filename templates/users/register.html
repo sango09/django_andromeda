@@ -1,42 +1,47 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+
 {% block title %}
     <title>Registro | Andromeda</title>
 {% endblock %}
 
 {% load static %}
-<<<<<<< HEAD
 {% load i18n %}
-=======
->>>>>>> santiago
 {% block stylesheet %}
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/users.css' %}">
 {% endblock %}
-
-{% load crispy_forms_tags %}
 
 {% block main %}
     <section class="container-fluid ">
         <div class="row">
             <div class="col pb-5 brand-andromeda">
                 <img src="{% static "img/logo_azul.png" %}" alt="">
-                {% if error %}
-                    <p class="alert alert-danger text-center">{{ error }}</p>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-danger text-center" role="alert">{{ message }}</div>
+                    {% endfor %}
                 {% endif %}
                 <form class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-3"
                       method="POST" action="{% url 'users:signup' %}" autocomplete="off">
                     {% csrf_token %}
                     {{ form | crispy }}
                     {{ position_form|crispy }}
+                    <script src='https://www.google.com/recaptcha/api.js'></script>
+                    <div class="g-recaptcha form-group" data-sitekey="6LfaJdEZAAAAAMVNm2no-24T409dmfMR0X8i7tdo"
+                         aria-required="true"></div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox"
                                    required="" data-msg="Please accept our Terms and Conditions.">
-                            <label class="custom-control-label font-size-sm text-muted" for="termsCheckbox">Acepto los
-                                <a href="#">Terminos y condiciones</a></label>
+                            <label class="custom-control-label font-size-sm text-muted" for="termsCheckbox">
+                                <a href="#">{% trans 'Acepto los Terminos y condiciones' %}</a></label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-andromeda mt-2 mx-auto btn-block">{% trans 'Crear mi cuenta' %}</button>
+                    <button type="submit"
+                            class="btn btn-andromeda mt-2 mx-auto btn-block">{% trans 'Crear mi cuenta' %}</button>
                 </form>
                 <div class="abajo text-center mt-3 ">
                     <span class="text-muted">{% trans '¿Ya tienes una cuenta?' %}</span>
@@ -47,7 +52,7 @@
                  id="image__signup"
                  style="background-image: url(../../static/img/cgb6.jpeg);
             background-size: cover;
-            height: 108vh;">
+            height: auto;">
             </div>
         </div>
     </section>

@@ -1,17 +1,18 @@
 {% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
 {% load static %}
 {% block content %}
+{% load i18n %}
     <main class="content">
         <div class="container-fluid">
             <div class="header">
                 <h1 class="header-title">
-                    Eliminar Inventario
+                    {% trans 'Eliminar Inventario' %}
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>Inicio</a></li>
-                        <li class="breadcrumb-item"><a href="{% url 'dashboard:inventory_list' %}">Inventario</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Eliminar item</li>
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>{% trans 'Inicio' %}</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'dashboard:inventory_list' %}">{% trans 'Inventario' %}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{% trans 'Eliminar item' %}</li>
                     </ol>
                 </nav>
             </div>
@@ -19,15 +20,19 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Eliminar registro</h5>
+                            <h5 class="card-title">{% trans 'Eliminar registro' %}</h5>
                         </div>
                         <div class="card-body">
                             <form method="POST">
                                 {% csrf_token %}
                                 <div class="form-group text-center">
-                                    <p>¿Estas seguro de eliminar este registro de inventario?</p>
-                                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                                    <a class="btn btn-outline-secondary" href="{% url 'dashboard:inventory_list' %}">Cancelar</a>
+                                    <p>
+                                        {% blocktranslate trimmed %}
+                                        ¿Estas seguro de eliminar este registro de inventario?
+                                        {% endblocktranslate %}
+                                    </p>
+                                    <button type="submit" class="btn btn-danger">{% trans 'Eliminar' %}</button>
+                                    <a class="btn btn-outline-secondary" href="{% url 'dashboard:inventory_list' %}">{% trans 'Cancelar' %}</a>
                                 </div>
                             </form>
                         </div>
