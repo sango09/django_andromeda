@@ -1,8 +1,8 @@
 """Administrator views"""
 import csv
 
-from django.contrib import messages
 # Django
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect, HttpResponse
@@ -38,16 +38,17 @@ class AdministratorDashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/roles/administrator/presentation/administrator.html'
 
 
-class InventoryDeleteView(SuccessMessageMixin, DeleteView):
+class InventoryDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     """User delete view"""
+    login_url = reverse_lazy('users:login')
     template_name = 'dashboard/roles/administrator/inventory/delete_inventory.html'
-    success_message = "Eliminado con exito"
 
     def get_object(self):
         id_ = self.kwargs.get('id')
         return get_object_or_404(TblInventario, id_inventario=id_)
 
     def get_success_url(self):
+        messages.success(self.request, 'Registro eliminado con exito')
         return reverse_lazy('dashboard:inventory_list')
 
     def get_success_message(self, cleaned_data):
@@ -154,8 +155,9 @@ class InventoryUpdateView(LoginRequiredMixin, UpdateView, SuccessMessageMixin):
 
         if position == 1:
             self.success_url = reverse_lazy('dashboard:inventory_list')
+        elif position == 2:
+            self.success_url = reverse_lazy('dashboard:inventory_auxiliary')
 
-        self.success_url = reverse_lazy('dashboard:inventory_auxiliary')
         return super().form_valid(form)
 
 
