@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'dashboard/roles/administrator/layout_admin/layout.html' %}
+{% block content %}
+
+    {% url 'dashboard:administrator' as url_dashboard %}
+    {% url 'dashboard:create_support' as url_create_support %}
+
+    {% include 'dashboard/common/support/create_support.html' with dashboard=url_dashboard create_support=url_create_support %}
+{% endblock %}

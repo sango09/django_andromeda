@@ -162,7 +162,6 @@ class InventoryUpdateView(LoginRequiredMixin, UpdateView, SuccessMessageMixin):
 class SupportCreateView(LoginRequiredMixin, TemplateView):
     """ Create support view """
     login_url = reverse_lazy('user:login')
-    template_name = 'dashboard/common/support/create_support.html'
     form_class = SupportForm()
 
     def post(self, request):
@@ -176,7 +175,17 @@ class SupportCreateView(LoginRequiredMixin, TemplateView):
             support.empleado = empleado
             support.auxiliar_asignado = auxiliar
             support.save()
-            return HttpResponseRedirect(reverse_lazy('dashboard:administrator'))
+            position = request.user.tblperfil.posicion_id
+            messages.success(request, 'Soporte tecnico solicitado con exito!')
+
+            if position == 1:
+                return HttpResponseRedirect(reverse_lazy('dashboard:create_support'))
+
+            elif position == 2:
+                return HttpResponseRedirect(reverse_lazy('dashboard:create_support_auxiliary'))
+
+            else:
+                return HttpResponseRedirect(reverse_lazy('dashboard:create_support_employee'))
 
         context = self.get_context_data(form=form_class)
         return self.render_to_response(context)

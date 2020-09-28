@@ -33,13 +33,15 @@ urlpatterns = [
         name='update_auxiliary'
     ),
 
-    # path('soporte/', include([
-    #     path(
-    #         route='create_request/',
-    #         view=views.RequestTechnicalSupport.as_view(),
-    #         name='create_support'
-    #     ),
-    # ]))
+    path('soporte/', include([
+        path(
+            route='create_request/',
+            view=administrator_view.SupportCreateView.as_view(
+                template_name='dashboard/roles/auxiliary/technical_support/create_support.html'
+            ),
+            name='create_support_auxiliary'
+        ),
+    ])),
 
     # Inventory General
     path('inventory/', include([

@@ -3,6 +3,7 @@
 # Django
 from django.urls import path, include
 
+from apps.roles.administrator import views as administrator_views
 # Local views
 from apps.roles.employee import views
 from apps.users import views as users_views
@@ -33,12 +34,14 @@ urlpatterns = [
     ),
 
     # # Technical support
-    # path('soporte/', include([
-    #     path(
-    #         route='create_request/',
-    #         view=views.RequestTechnicalSupport.as_view(),
-    #         name='create_support'
-    #     ),
-    # ]))
+    path('soporte/', include([
+        path(
+            route='create_request/',
+            view=administrator_views.SupportCreateView.as_view(
+                template_name='dashboard/roles/employee/technical_support/create_support.html'
+            ),
+            name='create_support_employee'
+        ),
+    ]))
 
 ]

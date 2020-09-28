@@ -114,7 +114,9 @@ urlpatterns = [
     path('support/', include([
         path(
             route='create_support/',
-            view=administrator_views.SupportCreateView.as_view(),
+            view=administrator_views.SupportCreateView.as_view(
+                template_name='dashboard/roles/administrator/technical_support/create_support.html'
+            ),
             name='create_support'
         ),
         path(
