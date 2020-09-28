@@ -37,13 +37,13 @@ from .form import (
 class UserDeleteView(SuccessMessageMixin, DeleteView):
     """User delete view"""
     template_name = 'dashboard/roles/administrator/admin_users/delete_user.html'
-    success_message = "fue eliminado con exito"
 
     def get_object(self):
         id_ = self.kwargs.get('id')
         return get_object_or_404(User, id=id_)
 
     def get_success_url(self):
+        messages.success(self.request, "Usuario eliminado con exito")
         return reverse_lazy('dashboard:list_users')
 
     def get_success_message(self, cleaned_data):

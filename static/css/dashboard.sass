@@ -1,0 +1,304 @@
+@import "variables.sass"
+
+.card-body
+  .form-group
+    .form-control
+      border-radius: 6px
+      box-shadow: none !important
+      background: $white-color !important
+      color: $black-color !important
+
+  .detail-icons
+    width: 1.25em !important
+    color: $dark-grey-color
+    text-align: center
+    margin-right: .3rem !important
+    vertical-align: middle !important
+
+.card
+  margin-bottom: 1.5rem
+  box-shadow: 0 0 0.875rem 0 rgba(53, 64, 82, .05)
+
+.card-header
+  margin-bottom: 0
+  background-color: $white-color !important
+  border-bottom: 0 solid transparent !important
+
+  .card-actions
+    a
+      color: $blue-andromeda
+      text-decoration: none
+      font-size: 1rem
+
+.card-title
+  color: $dark-grey-color
+  font-weight: 600
+  font-size: 1rem
+
+
+.breadcrumb
+  background-color: transparent !important
+  padding: 0 !important
+
+  .breadcrumb-item.active
+    color: $white-color
+    font-weight: 500
+
+  .breadcrumb-item a
+    color: $dark-white-color
+    text-underline: none
+
+
+.custom-control-label::before
+  content: " "
+  position: absolute
+  top: .25rem
+  left: -1.5rem
+  display: block
+  width: 1rem
+  height: 1rem
+  pointer-events: none
+  user-select: none
+  background-color: #dee2e6
+
+
+.bg-primary-dark
+  background-color: $blue-lite-andromeda !important
+
+
+.avatar
+  width: 40px
+  height: 40px
+
+  .avatar-title
+    display: flex
+    width: 100%
+    height: 100%
+    align-content: center
+    justify-content: center
+    color: $white-color
+    padding-top: 10px
+
+
+.wrapper
+  display: flex
+  width: 100%
+  position: relative
+  align-content: stretch
+  overflow: hidden
+
+  &:before
+    content: " "
+    width: 100%
+    height: 264px
+    position: absolute
+    top: 0
+    left: 0
+    background: $blue-andromeda
+
+
+.rounded-profile
+  height: 2rem
+  width: 2rem
+  border-radius: 50% !important
+
+.rounded-circle img
+  height: 2rem
+  width: 2rem
+  border-radius: 50% !important
+
+
+.userDropdown
+  color: $white-color !important
+
+
+.content
+  margin-top: 3rem
+  padding: 0 .5rem
+
+
+.header
+  margin-bottom: 3rem
+  position: relative
+  color: $white-color
+
+
+.dropdown-item
+  .notify-icon
+    float: left
+    text-align: center
+    margin-right: 10px
+
+  .notify-details
+    margin-bottom: 0
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+  .message
+    white-space: normal
+    margin-left: 45px
+    line-height: 16px
+
+.flags-icon
+  margin-right: .3rem !important
+
+  img
+    height: 12px
+
+
+.dropdown-item
+  display: block
+  padding: .35rem 1.5rem
+  color: #495057
+  text-align: inherit
+  background-color: transparent
+
+  &:hover
+    color: #16181b
+    text-decoration: none
+    background-color: $white-color
+
+  &:active
+    color: $white-color
+    text-decoration: none
+    background-color: #3b7ddd
+
+.navbar
+  .form-control
+    background: transparent
+    color: $white-color
+    border: 0
+    box-shadow: none
+
+.col-xxl-9
+  flex: 100%
+  max-width: 100%
+
+
+.error_image
+  img
+    padding-top: 150px
+    width: 100vh
+    display: block
+    margin: auto
+
+
+.sidebar
+  min-width: 250px
+  max-width: 250px
+  transition: margin-left .3s ease-in-out, left .3s ease-in-out, margin-right .3s ease-in-out, right .3s ease-in-out
+  background: $white-color
+  border-right: 0
+  z-index: 1
+
+
+.sidebar.toggled
+  margin-left: -250px
+
+
+.sidebar-brand
+  padding: 1rem
+  background: $blue-andromeda
+  display: block
+
+  img
+    width: 170px
+
+
+.sidebar-nav
+  margin-bottom: 0
+  padding-left: 0
+  list-style: none
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  flex: 1
+  background: $white-color
+
+
+.sidebar-header
+  background: transparent
+  color: $grey-color
+  padding: .375rem 1.5rem
+  font-size: .75rem
+  text-transform: uppercase
+  margin-top: 1rem !important
+
+
+.sidebar-item.active
+  .sidebar-link
+    color: $black-lite-color
+    background: $dark-white-color
+
+
+.sidebar [data-toggle=collapse]
+  position: relative
+
+  &:before
+    content: " "
+    border: solid
+    border-width: 0 .1rem .1rem 0
+    display: inline-block
+    padding: 2.5px
+    transform: rotate(-45deg)
+    position: absolute
+    top: 1.2rem
+    right: 1.25rem
+    transition: all .2s ease-out
+
+.sidebar [aria-expanded=true]:before, .sidebar [data-toggle=collapse]:not(.collapsed):before
+  transform: rotate(45deg)
+
+
+a.sidebar-link
+  display: block
+  padding: .65rem .75rem
+  margin: 0 .5rem
+  color: #6c757d
+  font-weight: 400
+  background: transparent
+  border-radius: .2rem
+  transition: background .1s ease-in-out
+  position: relative
+  text-decoration: none !important
+  cursor: pointer
+
+  &:hover
+    color: #212529
+    background: white
+
+  .fa-fw
+    color: $blue-andromeda
+
+
+.sidebar-dropdown
+  .sidebar-link
+    padding: .35rem 1.5rem .35rem 2.75rem
+    margin: 0 .5rem
+    font-weight: 400
+    font-size: 90%
+
+
+.sidebar-toggle
+  cursor: pointer
+  margin-left: .5rem
+
+
+.fa-bars
+  color: $white-color !important
+  font-size: 25px !important
+  position: relative
+
+
+.main
+  width: 100%
+  min-height: 100vh
+  background-color: $dark-white-color
+
+@media (max-width: 991px) and (min-width: 1px)
+  .sidebar
+    margin-left: -250px
+
+  .sidebar.toggled
+    margin-left: 0 !important

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap')
+
+
+/* Variables */
+$white-color: #ffff
+$white-lite-color: #f3f9fb
+$dark-white-color: #e9ecef
+$grey-color: #adb5db
+$black-color: black
+$dark-color: #16181b
+$black-lite-color: #26272C
+$dark-grey-color: #495057
+$dark-blue-andromeda: #001f3f
+$blue-andromeda: #083358
+$blue-lite-andromeda: #2469ce
+$red-color: #f31616
+
+
+body::-webkit-scrollbar
+  width: 0.40rem
+
+
+body::-webkit-scrollbar-track
+  background: $dark-blue-andromeda
+
+
+body::-webkit-scrollbar-thumb
+  background: $black-lite-color
+
+
+*
+  scroll-behavior: smooth
+  font-family: 'Inter', sans-serif
+
+
+body
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+  line-height: 1.6
+  overflow-x: hidden
+
+
+ul
+  list-style: none
+
+.fa-fw
+  text-align: center
+  width: 1.25em
+  margin-right: .3rem !important
+  vertical-align: middle !important
+
+
+.text-andromeda
+  color: $blue-andromeda !important
+
+.btn-andromeda
+  background-color: $blue-andromeda !important
+  color: $white-color !important
+  font-size: 17px !important
+  border-radius: .25rem !important
+  border: 0 !important
+  padding: 0.55rem .75rem !important
+  width: 10rem
+
+  &:hover
+    background-color: $dark-blue-andromeda !important
+    color: $white-color
+
+
+.btn-outline-primary
+  padding: 13px 20px !important
+  border-radius: 50px !important
+  border-color: $blue-andromeda !important
+  color: $blue-andromeda !important
+  box-shadow: 0 8px 24px rgba(28, 99, 205, 0.35) !important
+  transition: transform .3s, box-shadow .3s !important
+
+  &:hover
+    background-color: $dark-blue-andromeda !important
+    color: $white-color !important
+    transform: translateY(-5px)
+
+
+.content
+  .container-fluid
+    width: 90% !important

@@ -143,21 +143,20 @@ class InventoryUpdateView(LoginRequiredMixin, UpdateView, SuccessMessageMixin):
     """Update inventory view"""
     form_class = InventoryUpdateForm
     queryset = TblInventario.objects.all()
-    success_message = "was created successfully"
 
     def get_object(self):
         id_ = self.kwargs.get("id")
         return get_object_or_404(TblInventario, id_inventario=id_)
 
     def form_valid(self, form):
+        messages.success(self.request, "Inventario actualizado")
+        position = self.request.user.tblperfil.posicion_id
+
+        if position == 1:
+            self.success_url = reverse_lazy('dashboard:inventory_list')
+
+        self.success_url = reverse_lazy('dashboard:inventory_auxiliary')
         return super().form_valid(form)
-
-    def get_success_message(self, cleaned_data):
-        print(cleaned_data)
-        return self.success_message
-
-    def get_success_url(self):
-        return reverse_lazy('dashboard:inventory_list')
 
 
 class SupportCreateView(LoginRequiredMixin, TemplateView):

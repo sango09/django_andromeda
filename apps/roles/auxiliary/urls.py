@@ -59,11 +59,31 @@ urlpatterns = [
         ),
 
         path(
-            route='update_inventory/<int:id>',
+            route='update_inventory/<int:id>/',
             view=administrator_view.InventoryUpdateView.as_view(
                 template_name='dashboard/roles/auxiliary/inventory/update_inventory.html'
             ),
             name='inventory_update_auxiliary'
         ),
+    ])),
+
+    # Implements
+    path('implement/', include([
+        path(
+            route='create_implement/',
+            view=administrator_view.CreateImplementView.as_view(
+                template_name='dashboard/roles/auxiliary/inventory/implement/create_implement.html'
+            ),
+            name='create_implement_auxiliary'
+        ),
+
+        path(
+            route='create_ficha_tecnica/',
+            view=administrator_view.CreateFichaTecnicaView.as_view(
+                template_name='dashboard/roles/auxiliary/inventory/ficha_tecnica/create_ficha_tecnica.html'
+            ),
+            name='create_ficha_tecnica_auxiliary'
+        ),
+
     ])),
 ]

@@ -1,19 +1,16 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+
 {% block title %}
     <title>Registro | Andromeda</title>
 {% endblock %}
 
-{% load static %}
-<<<<<<< HEAD
-{% load i18n %}
-=======
->>>>>>> santiago
 {% block stylesheet %}
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/users.css' %}">
 {% endblock %}
-
-{% load crispy_forms_tags %}
 
 {% block main %}
     <section class="container-fluid ">
@@ -36,7 +33,8 @@
                                 <a href="#">Terminos y condiciones</a></label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-andromeda mt-2 mx-auto btn-block">{% trans 'Crear mi cuenta' %}</button>
+                    <button type="submit"
+                            class="btn btn-andromeda mt-2 mx-auto btn-block">{% trans 'Crear mi cuenta' %}</button>
                 </form>
                 <div class="abajo text-center mt-3 ">
                     <span class="text-muted">{% trans '¿Ya tienes una cuenta?' %}</span>
