@@ -78,3 +78,7 @@ typings/
 # Docs Custom
 .cache/
 yarn-error.log
+
+backend/Scripts/
+
+backend/
