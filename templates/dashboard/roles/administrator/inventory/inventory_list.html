@@ -1,7 +1,7 @@
 {% extends "dashboard/roles/administrator/layout_admin/layout.html" %}
 {% load static %}
 {% block content %}
-{% load i18n %}
+    {% load i18n %}
     <main class="content">
         <div class="container-fluid">
             <div class="header">
@@ -10,13 +10,9 @@
                 </h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-<<<<<<< HEAD
-                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>{% trans 'Inicio' %}</a></li>
+                        <li class="breadcrumb-item"><a href={% url "dashboard:administrator" %}>{% trans 'Inicio' %}</a>
+                        </li>
                         <li class="breadcrumb-item active" aria-current="page">{% trans 'Inventario' %}</li>
-=======
-                        <li class="breadcrumb-item"><a href={% url 'dashboard:administrator' %}>Inicio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Inventario</li>
->>>>>>> santiago
                     </ol>
                 </nav>
             </div>
@@ -24,14 +20,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title d-inline-block">Lista de implementos registrados</h5>
+                            <h5 class="card-title d-inline-block">{% trans 'Lista de implementos registrados' %}</h5>
                             <a class="btn btn-info text-white float-right"
                                href={% url 'dashboard:create_inventory' %}>
-                                <i class="fas fa-plus mr-3"></i>Agregar Implemento
+                                <i class="fas fa-plus mr-3"></i>{% trans 'Agregar Implemento' %}
                             </a>
                             <a class="ml-3 btn btn-outline-success" href="{% url 'dashboard:export_inventory' %}">
                                 <i class="far fa-file-excel"></i>
-                                Exportar como CSV
+                                {% trans 'Exportar como CSV' %}
                             </a>
                         </div>
                         <div class="card-body">
@@ -49,22 +45,13 @@
                                     <table class="table table-striped mb-0 text-center">
                                         <thead>
                                         <tr class="main-table">
-                                            <th>Imagen</th>
-<<<<<<< HEAD
+                                            <th>{% trans 'Imagen' %}</th>
                                             <th>{% trans 'Numero de serie' %}</th>
                                             <th>{% trans 'Fecha de compra' %}</th>
                                             <th>{% trans 'Precio de compra' %}</th>
                                             <th>{% trans 'Tipo de implemento' %}</th>
                                             <th>{% trans 'Estado' %}</th>
                                             <th>{% trans 'Accion' %}</th>
-=======
-                                            <th>Tipo de implemento</th>
-                                            <th>Numero de serie</th>
-                                            <th>Fecha de compra</th>
-                                            <th>Precio de compra</th>
-                                            <th>Estado</th>
-                                            <th>Accion</th>
->>>>>>> santiago
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -73,15 +60,19 @@
                                                 <td>
                                                     <img src="{{ item.tipo_implemento.ficha_tecnica.image.url }}" alt=""
                                                          class="img-fluid" width="90">
-                                                </td>
-                                                <td>
-                                                    <a href="#">
-                                                        {{ item.tipo_implemento }}
-                                                    </a>
-                                                </td>
+                                                </td> 
                                                 <td>{{ item.numero_serie }}</td>
                                                 <td>{{ item.fecha_compra }}</td>
                                                 <td>{{ item.precio_compra }}</td>
+                                                <td>
+                                                    <a href="#">
+                                                        
+                                                        {{ item.tipo_implemento }}
+                                                    </a>
+                                                </td>
+                                               
+                                                
+                                                
                                                 <td>
                                                 <span class="badge badge-success">
                                                     {{ item.estado_implemento }}
